@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html ng-app="app" ng-csp ng-controller="LayoutCtrl">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{siteName}</title>
+    {stylesheets}
+    <style>
+        .topm {margin:40px;}
+
+    .navbar-inverse {
+        background-color: #001526;
+        border-color: #000;
+    }
+
+        .navbar-inverse .navbar-brand {
+            color: #fff;
+        }
+
+    .navbar-brand {
+        padding: 0;
+        }
+    .navbar {
+        min-height: 44px;
+    }
+     body {
+        background: url(../Content/Images/Background/cargo-bg.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+        .logout-msg {background: rgba(0, 21, 38, 0.8196078431372549);
+                color: #fff;
+                padding: 3px 15px;
+                border-bottom: 0px;
+                text-align: center;
+                border-radius: 10px;
+        }
+        h1 small {color: rgb(255, 216, 0);
+        }
+        .titleClass{
+          
+    font-size: 25px;
+    padding: 15px;
+
+        }
+        #logo {
+    display: inline-block;
+    width: 175px;
+    margin-top: 11px;
+    margin-left: 9px;
+}
+        #logo img {
+    width: 110px;
+    height: auto;
+    padding-left: 3px;
+    filter: invert(100%);
+}
+
+       .navbar-nav {
+            margin-right: 20px;
+        }
+  </style>
+</head>
+<body lang="en">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+            <span id="logo">
+                <a href="{applicationPath}/">
+                    <!--<span class="navbar-brand titleClass">  Cargo Security Token Service</span>-->
+                    <img  src="/Content/Images/logos/logo.png">
+                </a>
+            </span>
+        </div>
+        <ul class="nav navbar-nav pull-right"  ng-show="model.currentUser" ng-cloak>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{model.currentUser}} <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{model.logoutUrl}}">Logout</a></li>
+                    <li class="divider" ng-show="model.loginWithDifferentAccountUrl"></li>
+                    <li><a href="{{model.loginWithDifferentAccountUrl}}" ng-show="model.loginWithDifferentAccountUrl">Login With Different Account</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class='container page-{page}' ng-cloak>
+        {pageContent}
+    </div>
+
+    <script id='modelJson' type='application/json'>{model}</script>
+    <script src="{applicationPath}/assets/scripts.2.5.0.js"></script>
+    {scripts}
+</body>
+</html>

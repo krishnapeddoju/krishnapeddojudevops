@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="UAMTokenService" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^E:\\Projects\\Copt_QA_Branch\\UAM_PROD_06032020\\PortKonnect\.UserAccessManagemnet\.TokenService\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^E:\\Projects\\Copt_QA_Branch\\UAM_PROD_06032020\\PortKonnect\.UserAccessManagemnet\.TokenService\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="OracleDbContext-Web.config Connection String" description="" value="User Id=oracle_user;Password=oracle_user_password;Data Source=oracle" tags="">
+    <parameterEntry kind="XmlFile" scope="E:\\Projects\\Copt_QA_Branch\\UAM_PROD_06032020\\PortKonnect\.UserAccessManagemnet\.TokenService\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='OracleDbContext']/@connectionString" />
+  </parameter>
+  <parameter name="UserContext-Web.config Connection String" description="" value="Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.0.248)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=COCHIDEV)));Persist Security Info=True;User ID=coptcargo;Password=navayuga" tags="">
+    <parameterEntry kind="XmlFile" scope="E:\\Projects\\Copt_QA_Branch\\UAM_PROD_06032020\\PortKonnect\.UserAccessManagemnet\.TokenService\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='UserContext']/@connectionString" />
+  </parameter>
+</parameters>

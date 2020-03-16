@@ -1,0 +1,7 @@
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.Enums\bin\Release\PortKonnect.Common.Domain.Enums.dll
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.Enums\bin\Release\PortKonnect.Common.Domain.Enums.pdb
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.Enums\bin\Release\PortKonnect.UserAccessManagement.GlobalConstants.dll
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.Enums\bin\Release\PortKonnect.UserAccessManagement.GlobalConstants.pdb
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.Enums\obj\Release\PortKonnect.UserAccessManagement.Domain.Enums.csprojResolveAssemblyReference.cache
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.Enums\obj\Release\PortKonnect.Common.Domain.Enums.dll
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.Enums\obj\Release\PortKonnect.Common.Domain.Enums.pdb

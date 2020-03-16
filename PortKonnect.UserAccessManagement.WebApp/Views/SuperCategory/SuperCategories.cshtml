@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "SuperCategories";
+    Layout = "~/Views/Shared/_eGateLayout.cshtml";
+}
+
+@section scripts
+{
+    <script src="~/Scripts/Application/UAM/Model/SuperCategoryModel.js"></script>
+    <script src="~/Scripts/Application/UAM/ViewModel/SuperCategoryListViewModel.js"></script>
+
+}
+
+@section ko_apply
+{
+    var viewModel = new eGateRoot.SuperCategoryListViewModel();
+    ko.applyBindingsWithValidation(viewModel, $("#SuperCategories")[0], { insertMessages: false, messagesOnModified: false, grouping: { deep: true }});
+}
+
+<!-- BEGIN CONTENT -->
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="page-title"><span id="spnTitle"></span></h3>
+        <ul class="page-breadcrumb breadcrumb"></ul>
+    </div>
+</div>
+
+<div class="row">
+</div>
+
+<div id="SuperCategories">
+    <div data-bind="visible: viewMode() == 'List', template: { name: 'SuperCategories-template' }"></div>
+</div>
+
+<div class="row">
+    <div class="portlet-body">
+        <script type="text/html" id="SuperCategories-template">
+            
+
+            <div id="tableheader">
+                <a class="button gbtngreen" data-bind="click: $root.AddSuperCategory"><i class="fa fa-plus"></i>&nbsp;<strong>New Super Category</strong></a>
+            </div>
+            <div data-bind="kendoGrid: {
+	data: SuperCategoriesList,
+	groupable: false,
+	sortable: true,
+	scrollable: true,
+	filterable: {
+		extra: false, operators: {
+			string: {
+				startswith: 'Starts with',
+				eq: 'Is equal to',
+				neq: 'Is not equal to',
+				contains: 'Contains',
+				doesnotcontain: 'Does not Contain'
+			},
+			number: { eq: 'Is equal to' }
+		}
+	},
+	rowTemplate: 'rowTmpl',
+	useKOTemplates: true,
+	columns: [
+ { title: 'Actions', width: 50, filterable: false },
+        { field: 'SuperCategoryCodeSort', title: 'Super Category Code', width: 70, filterable: true },
+        { field: 'SuperCategoryNameSort', title: 'Super Category Name', width: 70, filterable: true },
+  { field: 'RecordStatusSort', title: 'Status', width: 70, filterable: true },
+
+	]
+}">
+            </div>
+            <script id="rowTmpl" type="text/html">
+                <tr>
+                    <td align="center">
+                        <div class="nowrap">
+                            <a href="#" title="View" data-bind="click: $parent.ViewSuperCategory"><i class="fa fa-eye"></i></a>
+                            <a href="#" title="Edit" data-bind="click: $parent.EditSuperCategory"><i class="fa fa-edit	"></i></a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="nowrap"><span data-bind="text: SupCatCode"></span></div>
+                    </td>
+                    <td>
+                        <div class="nowrap"><span data-bind="text: SupCatName"></span></div>
+                    </td>
+                    <td>
+                        <div class="nowrap"><span data-bind="text: RecordStatus"></span></div>
+                    </td>
+
+                </tr>
+            </script>
+        </script>
+    </div>
+</div>

@@ -1,0 +1,113 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortKonnect.UserAccessManagement.WebApp", "PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj", "{76388F60-0BE1-494C-B97D-BD87F4587343}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{51FF5DB4-4DDD-4E8E-9261-FC242A9C6B87}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortKonnect.UserAccessManagement.Api", "PortKonnect.UserAccessManagement.Api\PortKonnect.UserAccessManagement.Api.csproj", "{F2D94C24-BE5C-48B3-BA31-C06D414AB2DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortKonnect.UserAccessManagement.ApplicationServices", "PortKonnect.UserAccessManagement.ApplicationServices\PortKonnect.UserAccessManagement.ApplicationServices.csproj", "{9C9F95E1-9FB1-4CE4-A089-3CCF0B41C4DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortKonnect.UserAccessManagement.Data", "PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj", "{1DBF7394-43E1-4D1B-A719-679943E4B9D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortKonnect.UserAccessManagement.Domain", "PortKonnect.UserAccessManagement.Domain\PortKonnect.UserAccessManagement.Domain.csproj", "{F46D511A-F5C4-4309-93FB-735C3E28AE49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortKonnect.UserAccessManagement.Domain.Enums", "PortKonnect.UserAccessManagement.Domain.Enums\PortKonnect.UserAccessManagement.Domain.Enums.csproj", "{A9E7D684-3A45-4326-B9BE-7F24094B3D66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortKonnect.UserAccessManagement.Domain.DTOS", "PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj", "{584B0E4C-22C3-459B-A50E-06A6A8492394}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortKonnect.UserAccessManagement.DataServcies", "PortKonnect.UserAccessManagement.DataServcies\PortKonnect.UserAccessManagement.DataServcies.csproj", "{A789DEF9-E01D-4B40-8DC3-0D8C528F7375}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortKonnect.UserAccessManagement.GlobalConstants", "PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj", "{F833A6D9-CE92-4B36-B257-6A1FB924BF6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortKonnect.UserAccessManagement.Domain.Tests", "PortKonnect.UserAccessManagement.Domain.Tests\PortKonnect.UserAccessManagement.Domain.Tests.csproj", "{5EB6B758-7156-4110-B9AF-9EFBF4D8513A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortKonnect.UserAccessManagement.Repositories", "PortKonnect.UserAccessManagement.Repositories\PortKonnect.UserAccessManagement.Repositories.csproj", "{B5E8AAD1-9A9F-4204-84BB-26FD0E95CA5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortKonnect.UserAccessManagement.Repository.Tests", "PortKonnect.UserAccessManagement.Repository.Tests\PortKonnect.UserAccessManagement.Repository.Tests.csproj", "{73A50177-BE46-4CA7-A299-9BF52A2940B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortKonnect.UserAccessManagement.UI", "PortKonnect.UserAccessManagement.UI\PortKonnect.UserAccessManagement.UI.csproj", "{58A7689B-AB12-4317-8784-21CBFA3985D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortKonnect.UserAccessManagemnet.TokenService", "PortKonnect.UserAccessManagemnet.TokenService\PortKonnect.UserAccessManagemnet.TokenService.csproj", "{5DBFF681-E751-4029-B6A0-52A34C919888}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortKonnect.Common.Contracts", "PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj", "{E5F48C53-78DB-4D27-B95E-748F6694860C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76388F60-0BE1-494C-B97D-BD87F4587343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76388F60-0BE1-494C-B97D-BD87F4587343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76388F60-0BE1-494C-B97D-BD87F4587343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76388F60-0BE1-494C-B97D-BD87F4587343}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2D94C24-BE5C-48B3-BA31-C06D414AB2DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2D94C24-BE5C-48B3-BA31-C06D414AB2DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2D94C24-BE5C-48B3-BA31-C06D414AB2DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2D94C24-BE5C-48B3-BA31-C06D414AB2DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C9F95E1-9FB1-4CE4-A089-3CCF0B41C4DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C9F95E1-9FB1-4CE4-A089-3CCF0B41C4DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C9F95E1-9FB1-4CE4-A089-3CCF0B41C4DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C9F95E1-9FB1-4CE4-A089-3CCF0B41C4DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DBF7394-43E1-4D1B-A719-679943E4B9D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DBF7394-43E1-4D1B-A719-679943E4B9D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DBF7394-43E1-4D1B-A719-679943E4B9D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DBF7394-43E1-4D1B-A719-679943E4B9D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F46D511A-F5C4-4309-93FB-735C3E28AE49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F46D511A-F5C4-4309-93FB-735C3E28AE49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F46D511A-F5C4-4309-93FB-735C3E28AE49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F46D511A-F5C4-4309-93FB-735C3E28AE49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9E7D684-3A45-4326-B9BE-7F24094B3D66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9E7D684-3A45-4326-B9BE-7F24094B3D66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9E7D684-3A45-4326-B9BE-7F24094B3D66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9E7D684-3A45-4326-B9BE-7F24094B3D66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{584B0E4C-22C3-459B-A50E-06A6A8492394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{584B0E4C-22C3-459B-A50E-06A6A8492394}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{584B0E4C-22C3-459B-A50E-06A6A8492394}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{584B0E4C-22C3-459B-A50E-06A6A8492394}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A789DEF9-E01D-4B40-8DC3-0D8C528F7375}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A789DEF9-E01D-4B40-8DC3-0D8C528F7375}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A789DEF9-E01D-4B40-8DC3-0D8C528F7375}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A789DEF9-E01D-4B40-8DC3-0D8C528F7375}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F833A6D9-CE92-4B36-B257-6A1FB924BF6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F833A6D9-CE92-4B36-B257-6A1FB924BF6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F833A6D9-CE92-4B36-B257-6A1FB924BF6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F833A6D9-CE92-4B36-B257-6A1FB924BF6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EB6B758-7156-4110-B9AF-9EFBF4D8513A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EB6B758-7156-4110-B9AF-9EFBF4D8513A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EB6B758-7156-4110-B9AF-9EFBF4D8513A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EB6B758-7156-4110-B9AF-9EFBF4D8513A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5E8AAD1-9A9F-4204-84BB-26FD0E95CA5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5E8AAD1-9A9F-4204-84BB-26FD0E95CA5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5E8AAD1-9A9F-4204-84BB-26FD0E95CA5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5E8AAD1-9A9F-4204-84BB-26FD0E95CA5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73A50177-BE46-4CA7-A299-9BF52A2940B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73A50177-BE46-4CA7-A299-9BF52A2940B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73A50177-BE46-4CA7-A299-9BF52A2940B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73A50177-BE46-4CA7-A299-9BF52A2940B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58A7689B-AB12-4317-8784-21CBFA3985D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58A7689B-AB12-4317-8784-21CBFA3985D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58A7689B-AB12-4317-8784-21CBFA3985D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58A7689B-AB12-4317-8784-21CBFA3985D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DBFF681-E751-4029-B6A0-52A34C919888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DBFF681-E751-4029-B6A0-52A34C919888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DBFF681-E751-4029-B6A0-52A34C919888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DBFF681-E751-4029-B6A0-52A34C919888}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5F48C53-78DB-4D27-B95E-748F6694860C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5F48C53-78DB-4D27-B95E-748F6694860C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5F48C53-78DB-4D27-B95E-748F6694860C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5F48C53-78DB-4D27-B95E-748F6694860C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

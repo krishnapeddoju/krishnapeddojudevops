@@ -1,0 +1,215 @@
+﻿@model PortKonnect.UserAccessManagement.Domain.DTOS.PrivilegeDTO
+@{    
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_eGateLayout.cshtml";
+}
+
+@section scripts
+{
+<script src="~/Scripts/Application/UAM/Model/UserRegistrationModel.js"></script>
+<script src="~/Scripts/Application/UAM/ViewModel/UserRegistrationListViewModel.js"></script>
+
+}
+
+
+@section ko_apply
+{
+var viewModel = new eGateRoot.UserRegistrationListViewModel();
+ko.applyBindingsWithValidation(viewModel, $("#Users")[0], { insertMessages: false, messagesOnModified: false, grouping: { deep: true }});
+}
+<style>
+	.k-grid-header .k-header {
+		white-space: nowrap;
+		line-height: 15px;
+	}
+</style>
+<!-- BEGIN CONTENT -->
+<div class="row">
+	<div class="col-md-12">
+		<h3 class="page-title"><span id="spnTitle"></span></h3>
+		<ul class="page-breadcrumb breadcrumb"></ul>
+	</div>
+</div>
+
+<div class="row">
+</div>
+
+<div id="Users">
+	<div data-bind="visible: viewMode() == 'List', template: { name: 'Users-template' }"></div>
+</div>
+
+<div class="row">
+	<div class="portlet-body">
+
+		<script type="text/html" id="Users-template">
+
+			<div class="table-toolbar">
+				<div>
+					<div class="portlet box advbg">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-search" aria-hidden="true"></i>Advance Search
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="expand"></a>
+							</div>
+						</div>
+						<div class="portlet-body" data-bind="with: UserRegistrationGridModel" style="display:none;">
+							<div class="form-wizard form-horizontal">
+								<div class="form-body">
+									<div class="row">
+										<div class="col-md-4">
+											<div class="form-group">
+												<label class="control-label col-md-4">User Name:</label>
+												<div class="col-md-6">
+													<input type="text" id="SearchUserName" class="form-control" data-bind="value: UserName, event: { keypress: $root.validationHelper.ValidateAlphaNumeric }" maxlength="50">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="form-group">
+												<label class="control-label col-md-4">First Name:</label>
+												<div class="col-md-6">
+													<input type="text" id="SearchFirstName" class="form-control" data-bind="value: FirstName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }" maxlength="50">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="form-group">
+												<label class="control-label col-md-4">Last Name:</label>
+												<div class="col-md-6">
+													<input type="text" id="SearchLastName" class="form-control" data-bind="value: LastName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }" maxlength="50">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+
+										<div class="col-md-4">
+											<div class="form-group">
+												<label class="control-label col-md-4">Partner Type:</label>
+												<div class="col-md-6">
+													<select id="ddlPartnerType" name="" class="form-control" data-bind="options: $root.PartnerTypes, optionsText: 'PartnerTypeName', optionsCaption: 'Select...', optionsValue: 'PartnerTypeId', value: PartnerType"></select>
+
+
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="form-group">
+												<label class="control-label col-md-4">Is Dormant User?:</label>
+												<div class="col-md-6">
+													<input type="Checkbox" id="IsDormantUser" name="IsDormantUser" data-bind="checked: $parent.isDormantUser">
+												</div>
+
+											</div>
+										</div>
+
+										<div class="col-md-4">
+											<div class="form-group ">
+												<label class="control-label col-md-4"></label>
+												<div class="col-md-6">
+													<button type="submit" class="btn btn-xs green" data-bind="click: $root.LoadUsers">Search</button>
+													<button type="submit" class="btn btn-xs blue" data-bind="click: $root.ResetFilters">Reset</button>
+												</div>
+
+											</div>
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+				<div id="tableheader">
+					@if (Model.HasPrivilege("cargoUserAdd")) //TODO: Need to implment Entity Functions as Enums
+                    {
+                    <a class="button gbtngreen" data-bind="click: $root.Adduser "><i class="fa fa-plus"></i>&nbsp; <strong>New User</strong> </a>
+					}
+				</div>
+				<div id="Grid2" data-bind="kendoGrid: {
+	data: UserList,
+	groupable: false,
+	sortable: true,
+	scrollable: true,
+	filterable: {
+		extra: false, operators: {
+			string: {
+				startswith: 'Starts with',
+				eq: 'Is equal to',
+				neq: 'Is not equal to',
+				contains: 'Contains',
+				doesnotcontain: 'Does not Contain'
+			},
+			number: { eq: 'Is equal to' }
+		}
+	},
+	rowTemplate: 'rowTmpl',
+	useKOTemplates: true,
+	columns: [
+ { title: 'Actions', width: 50, filterable: false },
+        { field: 'UserNameSort', title: 'User Name', width: 70, filterable: true },
+        { field: 'FirstNameSort', title: 'First Name', width: 50, filterable: true },
+  { field: 'LastNameSort', title: 'Last Name', width: 50, filterable: true },
+        { field: 'PartnerTypeSort', title: 'Partner Type', width: 70, filterable: true },
+{ field: 'EmailIdSort', title: 'Email Id', width: 70, filterable: true },
+        { field: 'ContactNoSort', title: 'Contact No', width: 70, filterable: true },
+  { field: 'RecordStatusSort', title: 'Status', width: 40, filterable: true }
+
+	]
+}">
+				</div>
+				<script id="rowTmpl" type="text/html">
+					<tr>
+						<td align="center">
+							<div class="nowrap">
+								@if (Model.HasPrivilege("cargoUserView")) //TODO: Need to implment Entity Functions as Enums
+                                {
+                                <a href="#" title="View" data-bind="click: $parent.ViewUser"><i class="fa fa-eye"></i></a>
+								<a href="#" title="Edit" data-bind="click: $parent.EditUser"><i class="fa fa-edit"></i></a>
+
+								}
+                                <a href="#" title="Reset Password" data-bind="click: $parent.TokenServieResetPassword">  <span class="fa-stack fa-lg" style="width: 1em;">
+                                        <i class="fa fa-key fa-stack-2x" aria-hidden="true" style="font-size: 14px;color: #56abef;transform: rotate(-45deg) scale(-1,1);"></i>
+                                      <i class="fa fa-refresh fa-stack-1x " aria-hidden="true" style="font-size: 11px;margin-top: 1px;margin-left: 6px;color: #001526;"></i>
+                                    </span></a>
+							</div>
+						</td>
+						<td>
+							<div class="nowrap"><span data-bind="text: UserName, attr: { title: UserName }"></span></div>
+						</td>
+						<td>
+							<div class="nowrap"><span data-bind="text: FirstName, attr: { title: FirstName }"></span></div>
+						</td>
+						<td>
+							<div class="nowrap"><span data-bind="text: LastName, attr: { title: LastName }"></span></div>
+						</td>
+						<td>
+							<div class="nowrap"><span data-bind="text: PartnerType, attr: { title: PartnerType }"></span></div>
+						</td>
+						<td>
+							<div class="nowrap" style="word-wrap:break-word;"><span data-bind="text: EmailId, attr: { title: EmailId }"></span></div>
+						</td>
+						<td>
+							<div class="nowrap"><span data-bind="text: ContactNo, attr: { title: ContactNo }"></span></div>
+						</td>
+						<td>
+							<div class="nowrap"><span data-bind="text: RecordStatus"></span></div>
+						</td>
+
+
+
+
+					</tr>
+				</script>
+
+			</div>
+		</script>
+	</div>
+
+</div>

@@ -1,0 +1,4 @@
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\bin\Debug\PortKonnect.UserAccessManagement.GlobalConstants.dll
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\bin\Debug\PortKonnect.UserAccessManagement.GlobalConstants.pdb
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\obj\Debug\PortKonnect.UserAccessManagement.GlobalConstants.dll
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\obj\Debug\PortKonnect.UserAccessManagement.GlobalConstants.pdb

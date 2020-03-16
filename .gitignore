@@ -1,0 +1,22 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/PortKonnect.Common.Contracts/bin
+/PortKonnect.Common.Contracts/obj
+/PortKonnect.UserAccessManagement.Api/bin
+/PortKonnect.UserAccessManagement.Api/obj
+/PortKonnect.UserAccessManagement.ApplicationServices/bin
+/PortKonnect.UserAccessManagement.Data/bin
+/PortKonnect.UserAccessManagement.DataServcies/bin
+/PortKonnect.UserAccessManagement.Domain/bin
+/PortKonnect.UserAccessManagement.Domain.DTOS/bin
+/PortKonnect.UserAccessManagement.Domain.Enums/bin
+/PortKonnect.UserAccessManagement.Domain.Tests/bin
+/PortKonnect.UserAccessManagement.GlobalConstants/bin
+/PortKonnect.UserAccessManagement.Repositories/bin
+/PortKonnect.UserAccessManagement.Repository.Tests/bin
+/PortKonnect.UserAccessManagement.UI/bin
+/PortKonnect.UserAccessManagement.WebApp/bin
+/PortKonnect.UserAccessManagement.WebApp/obj
+/PortKonnect.UserAccessManagemnet.TokenService/bin

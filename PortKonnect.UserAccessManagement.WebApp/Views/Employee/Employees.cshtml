@@ -1,0 +1,150 @@
+﻿@{
+    ViewBag.Title = "Employees";
+    Layout = "~/Views/Shared/_eGateLayout.cshtml";
+}
+
+@section scripts
+{
+    <script src="~/Scripts/Application/UAM/Model/EmployeeModel.js"></script>
+    <script src="~/Scripts/Application/UAM/ViewModel/EmployeeListViewModel.js"></script>
+
+}
+
+@section ko_apply
+{
+    var viewModel = new eGateRoot.EmployeeListViewModel();
+    ko.applyBindingsWithValidation(viewModel, $("#Employees")[0], { insertMessages: false, messagesOnModified: false, grouping: { deep: true }});
+}
+
+<!-- BEGIN CONTENT -->
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="page-title"><span id="spnTitle"></span></h3>
+        <ul class="page-breadcrumb breadcrumb"></ul>
+    </div>
+</div>
+
+<div class="row">
+</div>
+
+<div id="Employees">
+    <div data-bind="visible: viewMode() == 'List', template: { name: 'Employees-template' }"></div>
+</div>
+
+<div class="row">
+    <div class="portlet-body">
+        <script type="text/html" id="Employees-template">
+
+            <div>
+					<div class="portlet box advbg">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-search" aria-hidden="true"></i>Advance Search
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="expand"></a>
+							</div>
+						</div>
+						<div class="portlet-body" data-bind="with: EmployeeGridModel" style="display:none;">
+							<div class="form-wizard form-horizontal">
+								<div class="form-body">
+									<div class="row">
+										<div class="col-md-4">
+											<div class="form-group">
+												<label class="control-label col-md-4">Employee No.:</label>
+												<div class="col-md-6">													
+                                                    <input id="SearchEmployeeNo" type="text" autofocus="autofocus" data-bind="value: EmployeeNo, event: { keypress: $root.validationHelper.ValidateAlphaNumeric }" maxlength="10" class="form-control" name="EmployeeNo" />
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="form-group">
+												<label class="control-label col-md-4">Department:</label>
+												<div class="col-md-6">													
+                                                    <input id="ddlDepartmentType" data-bind="kendoDropDownList: { data: $parent.DepartmentsList, value: Department, dataTextField: 'SubCatName', dataValueField: 'SubCatCode', optionLabel: 'Select...' } " />                                                    
+												</div>
+											</div>
+										</div>		
+                                        <div class="col-md-4">
+                                            <div class="form-group ">
+                                                <label class="control-label col-md-4"></label>
+                                                <div class="col-md-6">
+
+                                                    <button type="submit" class="btn btn-xs green" data-bind="click: $root.Filteremployee">Search</button>
+                                                    <button type="submit" class="btn btn-xs blue" data-bind="click: $root.ResetFilters">Reset</button>
+                                                </div>
+
+                                            </div>
+                                        </div>								
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+            <div id="tableheader">
+                <a class="button gbtngreen" data-bind="click: $root.AddEmployee"><i class="fa fa-plus"></i>&nbsp;<strong>New Employee</strong></a>
+            </div>
+            <div id="EmployeeGrid" data-bind="kendoGrid: {
+	data: EmployeesList,
+	groupable: false,
+	sortable: true,
+	scrollable: true,
+	filterable: {
+		extra: false, operators: {
+			string: {
+				startswith: 'Starts with',
+				eq: 'Is equal to',
+				neq: 'Is not equal to',
+				contains: 'Contains',
+				doesnotcontain: 'Does not Contain'
+			},
+			number: { eq: 'Is equal to' }
+		}
+	},
+	rowTemplate: 'rowTmpl',
+	useKOTemplates: true,
+	columns: [
+ { title: 'Actions', width: 50, filterable: false },
+        { field: 'EmployeeCodeSort', title: 'Employee Name', width: 70, filterable: true },
+        { field: 'DepartmentNameSort', title: 'Department', width: 70, filterable: true },
+        { field: 'DesignationNameSort', title: 'Designation', width: 70, filterable: true },
+        { field: 'EmployeeNoSort', title: 'Employee No.', width: 70, filterable: true },
+  { field: 'RecordStatusSort', title: 'Status', width: 70, filterable: true },
+
+	]
+}">
+            </div>
+            <script id="rowTmpl" type="text/html">
+                <tr>
+                    <td align="center">
+                        <div class="nowrap">
+                            <a href="#" title="View" data-bind="click: $parent.ViewEmployee"><i class="fa fa-eye"></i></a>
+                            <a href="#" title="Edit" data-bind="click: $parent.EditEmployee"><i class="fa fa-edit	"></i></a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="nowrap"><span data-bind="text: FirstName() + ' ' + LastName()" style="text-transform: capitalize;"></span></div>
+                    </td>
+                    <td>
+                        <div class="nowrap"><span data-bind="text: DepartmentName"></span></div>
+                    </td>
+                    <td>
+                        <div class="nowrap"><span data-bind="text: DesignationName"></span></div>
+                    </td>
+                    <td>
+                        <div class="nowrap"><span data-bind="text: EmployeeNo"></span></div>
+                    </td>
+                    <td>
+                        <div class="nowrap"><span data-bind="text: RecordStatus"></span></div>
+                    </td>
+
+                </tr>
+            </script>
+        </script>
+    </div>
+</div>

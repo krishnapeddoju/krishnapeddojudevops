@@ -1,0 +1,703 @@
+[Error] ()
+ Unhandled exception accessing: /identity/login
+System.ServiceModel.FaultException: Internal Server error occurred. Please contact administrator.
+   at PortKonnect.UserAccessManagement.ApplicationServices.ServiceBase.ExecuteFaultHandledOperationWithoutToken[T](Func`1 codetoExecute) in D:\COPT\UAM_COPT\UAM2.0\branches\UAM2_Customizations\Dev\PortKonnect.UserAccessManagement.ApplicationServices\ServiceBase.cs:line 231
+   at PortKonnect.UserAccessManagement.ApplicationServices.AccountService.AuthenticateUser(Int32 applicationId, String userName, String password, String subscriberId) in D:\COPT\UAM_COPT\UAM2.0\branches\UAM2_Customizations\Dev\PortKonnect.UserAccessManagement.ApplicationServices\AccountService.cs:line 43
+   at PortConnect.UserAccessManagement.TokenService.Services.CustomUserService.AuthenticateLocalAsync(LocalAuthenticationContext context) in D:\COPT\UAM_COPT\UAM2.0\branches\UAM2_Customizations\Dev\PortKonnect.UserAccessManagemnet.TokenService\Services\CustomUserService.cs:line 41
+   at IdentityServer3.Core.Services.Default.ExternalClaimsFilterUserService.AuthenticateLocalAsync(LocalAuthenticationContext context) in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Services\ExternalClaimsFilter\ExternalClaimsFilterUserService.cs:line 44
+   at IdentityServer3.Core.Endpoints.AuthenticationController.<LoginLocal>d__9.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Endpoints\AuthenticationController.cs:line 227
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.System.Web.Http910911.TaskHelpersExtensions.<CastToObject>d__3`1.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+[Error] ()
+ Unhandled exception accessing: /identity/login
+System.ServiceModel.FaultException: Internal Server error occurred. Please contact administrator.
+   at PortKonnect.UserAccessManagement.ApplicationServices.ServiceBase.ExecuteFaultHandledOperationWithoutToken[T](Func`1 codetoExecute) in D:\COPT\UAM_COPT\UAM2.0\branches\UAM2_Customizations\Dev\PortKonnect.UserAccessManagement.ApplicationServices\ServiceBase.cs:line 231
+   at PortKonnect.UserAccessManagement.ApplicationServices.AccountService.AuthenticateUser(Int32 applicationId, String userName, String password, String subscriberId) in D:\COPT\UAM_COPT\UAM2.0\branches\UAM2_Customizations\Dev\PortKonnect.UserAccessManagement.ApplicationServices\AccountService.cs:line 43
+   at PortConnect.UserAccessManagement.TokenService.Services.CustomUserService.AuthenticateLocalAsync(LocalAuthenticationContext context) in D:\COPT\UAM_COPT\UAM2.0\branches\UAM2_Customizations\Dev\PortKonnect.UserAccessManagemnet.TokenService\Services\CustomUserService.cs:line 41
+   at IdentityServer3.Core.Services.Default.ExternalClaimsFilterUserService.AuthenticateLocalAsync(LocalAuthenticationContext context) in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Services\ExternalClaimsFilter\ExternalClaimsFilterUserService.cs:line 44
+   at IdentityServer3.Core.Endpoints.AuthenticationController.<LoginLocal>d__9.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Endpoints\AuthenticationController.cs:line 227
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.System.Web.Http910911.TaskHelpersExtensions.<CastToObject>d__3`1.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+[Error] ()
+ Unhandled exception accessing: /identity/login
+System.ServiceModel.FaultException: Internal Server error occurred. Please contact administrator.
+   at PortKonnect.UserAccessManagement.ApplicationServices.ServiceBase.ExecuteFaultHandledOperationWithoutToken[T](Func`1 codetoExecute) in D:\COPT\UAM_COPT\UAM2.0\branches\UAM2_Customizations\Dev\PortKonnect.UserAccessManagement.ApplicationServices\ServiceBase.cs:line 231
+   at PortKonnect.UserAccessManagement.ApplicationServices.AccountService.AuthenticateUser(Int32 applicationId, String userName, String password, String subscriberId) in D:\COPT\UAM_COPT\UAM2.0\branches\UAM2_Customizations\Dev\PortKonnect.UserAccessManagement.ApplicationServices\AccountService.cs:line 43
+   at PortConnect.UserAccessManagement.TokenService.Services.CustomUserService.AuthenticateLocalAsync(LocalAuthenticationContext context) in D:\COPT\UAM_COPT\UAM2.0\branches\UAM2_Customizations\Dev\PortKonnect.UserAccessManagemnet.TokenService\Services\CustomUserService.cs:line 41
+   at IdentityServer3.Core.Services.Default.ExternalClaimsFilterUserService.AuthenticateLocalAsync(LocalAuthenticationContext context) in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Services\ExternalClaimsFilter\ExternalClaimsFilterUserService.cs:line 44
+   at IdentityServer3.Core.Endpoints.AuthenticationController.<LoginLocal>d__9.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Endpoints\AuthenticationController.cs:line 227
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.System.Web.Http910911.TaskHelpersExtensions.<CastToObject>d__3`1.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+[Error] ()
+ Unhandled exception accessing: /identity/login
+System.ServiceModel.FaultException: Internal Server error occurred. Please contact administrator.
+   at PortKonnect.UserAccessManagement.ApplicationServices.ServiceBase.ExecuteFaultHandledOperationWithoutToken[T](Func`1 codetoExecute) in D:\COPT\UAM_COPT\UAM2.0\branches\UAM2_Customizations\Dev\PortKonnect.UserAccessManagement.ApplicationServices\ServiceBase.cs:line 231
+   at PortKonnect.UserAccessManagement.ApplicationServices.AccountService.AuthenticateUser(Int32 applicationId, String userName, String password, String subscriberId) in D:\COPT\UAM_COPT\UAM2.0\branches\UAM2_Customizations\Dev\PortKonnect.UserAccessManagement.ApplicationServices\AccountService.cs:line 43
+   at PortConnect.UserAccessManagement.TokenService.Services.CustomUserService.AuthenticateLocalAsync(LocalAuthenticationContext context) in D:\COPT\UAM_COPT\UAM2.0\branches\UAM2_Customizations\Dev\PortKonnect.UserAccessManagemnet.TokenService\Services\CustomUserService.cs:line 41
+   at IdentityServer3.Core.Services.Default.ExternalClaimsFilterUserService.AuthenticateLocalAsync(LocalAuthenticationContext context) in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Services\ExternalClaimsFilter\ExternalClaimsFilterUserService.cs:line 44
+   at IdentityServer3.Core.Endpoints.AuthenticationController.<LoginLocal>d__9.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Endpoints\AuthenticationController.cs:line 227
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.System.Web.Http910911.TaskHelpersExtensions.<CastToObject>d__3`1.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+[Error] ()
+ "Invalid post logout URI"
+"{
+  \"ClientId\": \"KPCL.PKCargo.IPMS.Web\",
+  \"ClientName\": \"Marine WebApp\",
+  \"SubjectId\": \"Admin\",
+  \"PostLogOutUri\": \"http://localhost:62034\",
+  \"Raw\": {
+    \"id_token_hint\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSIsImtpZCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSJ9.eyJpc3MiOiJodHRwOi8vUG9ydEtvbm5lY3QvaWRlbnRpdHkiLCJhdWQiOiJLUENMLlBLQ2FyZ28uSVBNUy5XZWIiLCJleHAiOjE1NjIwNzA3MTEsIm5iZiI6MTU2MjA2NTMxMSwibm9uY2UiOiI2MzY5NzY2MjEwOTIzMTQ4NjYuT1daaU1EazRZMlV0TlRVNVlpMDBOMlkxTFdFME5qSXRaR1k0TVdaa1pEVTVOREl6Tm1VNE4yVm1Oell0WXpsaVpTMDBaVEEzTFRrM1kyWXRNMlF3TlRNM1lqWmlZbVV3IiwiaWF0IjoxNTYyMDY1MzExLCJhdF9oYXNoIjoiU29VSHV2SjFDWl9ha2tzY3NPUTVjQSIsImNfaGFzaCI6IlluNXZUbkN4SGdvSVlLXzJPX21ER2ciLCJzaWQiOiIzOGJhNjM3ZGVlOWMwYWRiYjZjMzVmMDZiNjFkYjUwMiIsInN1YiI6IkFkbWluIiwiYXV0aF90aW1lIjoxNTYyMDY1MzExLCJpZHAiOiJpZHNydiIsImFtciI6WyJwYXNzd29yZCJdfQ.Lrv-5oNwWLs09wFD1LuNUn6GqD3HaKMPyeXwx_JsKZ2Ag86vUA7ccfN79wrRFgntcfHi0RDtDu0ZXWychq_SVyy2ogvLUq6xXee34MC47c_fXvjq8bT6-pjVhteUH-juCAhCq_MEaYJ8lg_hcAj8j42G62l0s_KfXOkBKmT--1Nf6m2_hFVbnSR8qDU_TjInX2Ib6tY4nMv9_KPV-4HLJ-gF6EkCSzcapewX443eVGPSBm4ge1CXEzIyW478ImCc1ShT-QFxFxqqfvXkVy3p08MRFlkzYPfDlFxaY05I5Waa736aJCdsUsGxjrzQESRrrUzRrDwLNYNGbYDrdsnvjQ\",
+    \"post_logout_redirect_uri\": \"http://localhost:62034\"
+  }
+}"
+[Error] ()
+ "Invalid post logout URI"
+"{
+  \"ClientId\": \"KPCL.PKCargo.IPMS.Web\",
+  \"ClientName\": \"Marine WebApp\",
+  \"SubjectId\": \"Admin\",
+  \"PostLogOutUri\": \"http://localhost:62034\",
+  \"Raw\": {
+    \"id_token_hint\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSIsImtpZCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSJ9.eyJpc3MiOiJodHRwOi8vUG9ydEtvbm5lY3QvaWRlbnRpdHkiLCJhdWQiOiJLUENMLlBLQ2FyZ28uSVBNUy5XZWIiLCJleHAiOjE1NjIwNzM5NjgsIm5iZiI6MTU2MjA2ODU2OCwibm9uY2UiOiI2MzY5NzY2NTM2NjIxMzE1ODUuWkRRNE5UQmpPRFl0TUdZME55MDBZV000TFRsaE9EWXRPV1ExWkRVellUWm1OalF4TURnMU56bG1NbVF0TlRoaVpTMDBNMlkxTFdJd1pUZ3RaV1F3WmpZeFlUTXpOVE5pIiwiaWF0IjoxNTYyMDY4NTY4LCJhdF9oYXNoIjoiZmRSRi1GdHJveWF3eElnTUNDNFNqZyIsImNfaGFzaCI6IkF1Qk9SX003VDdZU3dlU2M0dGpvZ0EiLCJzaWQiOiI4NmUxNmRiZmNiYWE2YWQzYjI3NzA3NDcyNzVlYmY5MiIsInN1YiI6IkFkbWluIiwiYXV0aF90aW1lIjoxNTYyMDY4NTY4LCJpZHAiOiJpZHNydiIsImFtciI6WyJwYXNzd29yZCJdfQ.Dvd-Noc0T34tvp_MCsz4_hxMuB3Q2DrDJCYOfLVABA8XL6toykt-B_cEXim_05ytG_BYmjvlpHctjfxiMHaPpeexJPT1xUekdZva_8xKtDaQVnfqf51emskqgIh_Y5OjKdhsfs_f2ACRICzBgzTj04LYuC66Ph9Bf9KgkgYhQkExY5Y5h8EzABoeipCnQ1nfINrvy2YA5ti3Dib9T2ViMrIFrAF2DaXzwdG2e41Lky9GzBg7srLyYavbW8KxD8DYoVv9VpSN7_9V17USmq2OtEYrCACdJ2-ULPFqtci9OdAIcgSctQw2jZzGTzxCACrjJKuIh7pJ6PmBpdmG3mbOWQ\",
+    \"post_logout_redirect_uri\": \"http://localhost:62034\"
+  }
+}"
+[Error] ()
+ "Invalid post logout URI"
+"{
+  \"ClientId\": \"KPCL.PKCargo.IPMS.Web\",
+  \"ClientName\": \"Marine WebApp\",
+  \"SubjectId\": \"Admin\",
+  \"PostLogOutUri\": \"http://localhost:62034\",
+  \"Raw\": {
+    \"id_token_hint\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSIsImtpZCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSJ9.eyJpc3MiOiJodHRwOi8vUG9ydEtvbm5lY3QvaWRlbnRpdHkiLCJhdWQiOiJLUENMLlBLQ2FyZ28uSVBNUy5XZWIiLCJleHAiOjE1NjIwNzQ3MzEsIm5iZiI6MTU2MjA2OTMzMSwibm9uY2UiOiI2MzY5NzY2NjEyODc4NDk2NDIuTUROaFkyUTBNalF0TkRNeU5TMDBNRFptTFRrME9UVXRaakprWmpOa01tVmpZamxpWmpnek9UUTJNV1l0TURrNFppMDBOems1TFRnd05HRXRZVFF5TXpBMU1HVTFNREEyIiwiaWF0IjoxNTYyMDY5MzMxLCJhdF9oYXNoIjoiUkJLX2JKNzFoQ1Q0ZFpzVUs5LW1IUSIsImNfaGFzaCI6IkhWeXVsSlkzUWtZa2RITTkzY3lQNWciLCJzaWQiOiIyYTczOTI5YWZjNDY3NzFjMmJhMzk0Mzc1YzZmN2YwNCIsInN1YiI6IkFkbWluIiwiYXV0aF90aW1lIjoxNTYyMDY5MzMxLCJpZHAiOiJpZHNydiIsImFtciI6WyJwYXNzd29yZCJdfQ.SBQV8m2sR0WtmED1VpubSlMXOxjqLf9TrrbqD6hx5UFGvyJr1OZ9RClWfTTsY2qJDW_uDIjlFMtNkiMonYppKBHFdQSgaL9AIKEKa-ORyop2MDcJwk9pI3j7y6mPeKBFsosouy6g-1PUXa9VpNAQikmHiR6LHsP24BtBIe7s3KGvdoUMBWHT_n45-XXhjBi_RjErpuAa7uryrS14c6dqnFcG_wAxpGiNi8GsLyocqrbaEYYVjsuvKCOJfYv-6Znwymy3avtjA2-TdqcMkhgtgG9-vgEX6AmPmiIcBjxeV7wcHlrvpeRS5iYsj8u7qKWaE1291K6g1DBckySjZMrCWg\",
+    \"post_logout_redirect_uri\": \"http://localhost:62034\"
+  }
+}"
+[Error] ()
+ "Invalid post logout URI"
+"{
+  \"ClientId\": \"KPCL.PKCargo.IPMS.Web\",
+  \"ClientName\": \"Marine WebApp\",
+  \"SubjectId\": \"Admin\",
+  \"PostLogOutUri\": \"http://localhost:62034\",
+  \"Raw\": {
+    \"id_token_hint\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSIsImtpZCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSJ9.eyJpc3MiOiJodHRwOi8vUG9ydEtvbm5lY3QvaWRlbnRpdHkiLCJhdWQiOiJLUENMLlBLQ2FyZ28uSVBNUy5XZWIiLCJleHAiOjE1NjIwNzQ4MzcsIm5iZiI6MTU2MjA2OTQzNywibm9uY2UiOiI2MzY5NzY2NjIzNDY4Nzk2NDIuTmpBM1pHRTJPRGt0TXpnMU15MDBNMkptTFdGa1lqUXRNV0poTldGbU9UVTNNV1U0WXpSbU0yRTFNamd0TVRjd01TMDBNalZrTFRnd00yRXRNbVl3WlRnMU4ySTFOVGt4IiwiaWF0IjoxNTYyMDY5NDM3LCJhdF9oYXNoIjoiN05hemctY3VLak5Gam54NU5xWlFSdyIsImNfaGFzaCI6InQ2SnRoTlZDU2RzSk1tYlFocm54YmciLCJzaWQiOiIxY2YzYzhlMzE5OWQ0NDM4YjExNTAyNDdmOGM1ZWIwZCIsInN1YiI6IkFkbWluIiwiYXV0aF90aW1lIjoxNTYyMDY5NDM2LCJpZHAiOiJpZHNydiIsImFtciI6WyJwYXNzd29yZCJdfQ.jUtJbTI9wgAo7zrbiroWgUpMTgyDZ6ifRI0G58hI3pKbxHyg3EjD6XFtajZQWC2lkBI0Gz-cQz2z0h0D6A5QPLbvUclFc13t_UzWYriN2c5j47-wz9H9PVO2QUt0slC-2yL2MsbIlvx9h6p65ToeBq09IyM5OoZeIbZm85N9LSCu1BI61yUITuuOsXufiDAnu-zR68LtlQBdGLkXPvSB7W6fsYSN3xfbT8vIXLua4sW_NbZZZvrSvkMOyFtqVFjqYqvaOTlN3GT4_oIYm9B0n5Z52IuBRY9Dvy1ZlZWqZnFN7TiPfM9UgXKcf8p5sx-0tNGsIT6wW854USc-oxroTw\",
+    \"post_logout_redirect_uri\": \"http://localhost:62034\"
+  }
+}"
+[Error] ()
+ "Invalid post logout URI"
+"{
+  \"ClientId\": \"KPCL.PKCargo.IPMS.Web\",
+  \"ClientName\": \"Marine WebApp\",
+  \"SubjectId\": \"Admin\",
+  \"PostLogOutUri\": \"http://localhost:62034\",
+  \"Raw\": {
+    \"id_token_hint\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSIsImtpZCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSJ9.eyJpc3MiOiJodHRwOi8vUG9ydEtvbm5lY3QvaWRlbnRpdHkiLCJhdWQiOiJLUENMLlBLQ2FyZ28uSVBNUy5XZWIiLCJleHAiOjE1NjIwNzQ5MzAsIm5iZiI6MTU2MjA2OTUzMCwibm9uY2UiOiI2MzY5NzY2NjMyODc2Mjk2NDIuTWprNU5EZGtOelF0TVRkbU9TMDBNV0ZtTFdGbU5UZ3RNak5pWWpsaE5tRm1ObU5tWm1aaU5qTm1NR0V0WmpRd05pMDBZelkzTFdFd1ptSXRZekJsWWpReE5UVTRNekF4IiwiaWF0IjoxNTYyMDY5NTMwLCJhdF9oYXNoIjoiYjdoalV0UUlZSDNkUldZOVZkNVlidyIsImNfaGFzaCI6InlMWk1KazVBODR6Qy1NUWR4d1FaRXciLCJzaWQiOiJlMDA1NzJjMWEzMDUxMWExYWJjYTgzYmE3NTYxNzM1MSIsInN1YiI6IkFkbWluIiwiYXV0aF90aW1lIjoxNTYyMDY5NTMwLCJpZHAiOiJpZHNydiIsImFtciI6WyJwYXNzd29yZCJdfQ.dgVf1NRlPBCtQdvzHHyHVAe5N1fgvTjkb5nra-Tb9Rv0KUV0QFC5KaWp7_LkI-vvGK0iypiFkiqRyYf6yzHd3bUj_W9IZOZpBkcoo2Q231z7rXVtB-kZxOKervoDArYNIDfSN9AIXZwLewkcjuQUZ2MNnYl9SZrDtZACyjDlytnG7agAMW0MpjBXXH27nvn41ODy7HFm0dXA1d3gx_NozZl80-ejcSOWvTaOuGOlyE9d3NyX7PGK0yPrBu1Ap-r8FdNzHwWNn8W33R5qeTjrlZlwXu3ap6-LSo9mzWeo9OF6iTfFRpUJ4-oKadOAoe5SGXZ4c8hNoIt6yoyeIq6q6A\",
+    \"post_logout_redirect_uri\": \"http://localhost:62034\"
+  }
+}"
+[Error] ()
+ "Invalid post logout URI"
+"{
+  \"ClientId\": \"KPCL.PKCargo.IPMS.Web\",
+  \"ClientName\": \"Marine WebApp\",
+  \"SubjectId\": \"Admin\",
+  \"PostLogOutUri\": \"http://localhost:62034\",
+  \"Raw\": {
+    \"id_token_hint\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSIsImtpZCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSJ9.eyJpc3MiOiJodHRwOi8vUG9ydEtvbm5lY3QvaWRlbnRpdHkiLCJhdWQiOiJLUENMLlBLQ2FyZ28uSVBNUy5XZWIiLCJleHAiOjE1NjIwNzQ5OTEsIm5iZiI6MTU2MjA2OTU5MSwibm9uY2UiOiI2MzY5NzY2NjM5MDI4MTk2NDIuTmpWa1pqUTNOemt0TkdRNE9DMDBNalJsTFdJNFlXVXRPV05qT1RCaU5USTBaRFJtTVRjME5ERTROMkl0WmpsaE15MDBNRFJtTFdKaU5qZ3RPVEk1TVRrd1lqa3hORGc1IiwiaWF0IjoxNTYyMDY5NTkxLCJhdF9oYXNoIjoiX183MW9FTXhMTmxTYkY1OWpxNFZiQSIsImNfaGFzaCI6IjRBVjVQR3Z3cEhfMHlxZTFkWmNPN1EiLCJzaWQiOiI1MzUyMGQ0OTEzZTI3Nzc1NTQ1MzIyOTg4NjlmN2JiMSIsInN1YiI6IkFkbWluIiwiYXV0aF90aW1lIjoxNTYyMDY5NTkxLCJpZHAiOiJpZHNydiIsImFtciI6WyJwYXNzd29yZCJdfQ.OZKzvRyM9mELM48PFpet3snH3cXlQPnw14zbEc5XRwiBTtBeIUz-Nrwc7IxdspYPNAz3vOO7Idsj5sIn7bEThsxEyMm3l2CaQ52a7jaqoWdBOxCT_CTWNXWbDt5IPOtHaAzaaf_5cgrkwhkP03qOncV9z6EthJ7un0Gi9P5Cr3Wi3WDRm_Q-8amdCLLnZTo-23eSmG-L5G-WVu94d2izRQlkG3LRplmOdbAPXiUCXWdIoQB0Z1YoHmnOQp2OGqUb96NP9wEI1QOD1tQZEv4yqZdS_qoGP4v8iXipHNUnIynVQdkCm-YGJzMwqEwRuAHwkjWCyRUzAOW_mnJ-quZy3w\",
+    \"post_logout_redirect_uri\": \"http://localhost:62034\"
+  }
+}"
+[Error] ()
+ Unhandled exception accessing: /identity/login
+System.ServiceModel.FaultException: Internal Server error occurred. Please contact administrator.
+   at PortKonnect.UserAccessManagement.ApplicationServices.ServiceBase.ExecuteFaultHandledOperationWithoutToken[T](Func`1 codetoExecute) in D:\COPT\UAM_COPT\UAM2.0\branches\UAM2_Customizations\Dev\PortKonnect.UserAccessManagement.ApplicationServices\ServiceBase.cs:line 231
+   at PortKonnect.UserAccessManagement.ApplicationServices.AccountService.AuthenticateUser(Int32 applicationId, String userName, String password, String subscriberId) in D:\COPT\UAM_COPT\UAM2.0\branches\UAM2_Customizations\Dev\PortKonnect.UserAccessManagement.ApplicationServices\AccountService.cs:line 43
+   at PortConnect.UserAccessManagement.TokenService.Services.CustomUserService.AuthenticateLocalAsync(LocalAuthenticationContext context) in D:\COPT\UAM_COPT\UAM2.0\branches\UAM2_Customizations\Dev\PortKonnect.UserAccessManagemnet.TokenService\Services\CustomUserService.cs:line 41
+   at IdentityServer3.Core.Services.Default.ExternalClaimsFilterUserService.AuthenticateLocalAsync(LocalAuthenticationContext context) in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Services\ExternalClaimsFilter\ExternalClaimsFilterUserService.cs:line 44
+   at IdentityServer3.Core.Endpoints.AuthenticationController.<LoginLocal>d__9.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Endpoints\AuthenticationController.cs:line 227
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.System.Web.Http910911.TaskHelpersExtensions.<CastToObject>d__3`1.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+[Error] ()
+ "Invalid post logout URI"
+"{
+  \"ClientId\": \"KPCL.PKCargo.IPMS.Web\",
+  \"ClientName\": \"Marine WebApp\",
+  \"SubjectId\": \"Admin\",
+  \"PostLogOutUri\": \"http://localhost:62034\",
+  \"Raw\": {
+    \"id_token_hint\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSIsImtpZCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSJ9.eyJpc3MiOiJodHRwOi8vUG9ydEtvbm5lY3QvaWRlbnRpdHkiLCJhdWQiOiJLUENMLlBLQ2FyZ28uSVBNUy5XZWIiLCJleHAiOjE1NjQ2MDA1NzQsIm5iZiI6MTU2NDU5NTE3NCwibm9uY2UiOiI2MzcwMDE5MTkzODYzNTU5MjguTjJZek5EUmhZbVl0TUdVeU9TMDBNRGM0TFRnelkyWXRZVEV4TkRNeFpEWmhNR1l3T0RoaE9HRmpORFl0TWpZd05pMDBNekZpTFRsaE5UVXRNRFJtT1RSbVpXUTNPVEl3IiwiaWF0IjoxNTY0NTk1MTc0LCJhdF9oYXNoIjoiNmFJSGhkMUFfb21LXzRuSlNBRDVRZyIsImNfaGFzaCI6Il9RV3VEVUhlTkZPczh0NzhxVk1xeXciLCJzaWQiOiJjMDQ1NGYyMWY2NmM1YzVjM2M5ZDNjMGI5Njk1M2M2ZSIsInN1YiI6IkFkbWluIiwiYXV0aF90aW1lIjoxNTY0NTk1MTY5LCJpZHAiOiJpZHNydiIsImFtciI6WyJwYXNzd29yZCJdfQ.VkGOc_TZkkPdNC5mxEXgJAfc8EfGCE-JuYDEl8pil7DdE_FOwbmedgG-qhBkLqTqKuZNvwACoBkZu5Bb6a1guY1_dgCWxeX1EtAK2JuwbugxNsBUdJ5pTieSzsntcz-lktMSCe-RYbcPBC-_lFMzWDWhgTFfOepaDW1hyvAbsTmOG3UDrFw0bDUYXNjZMr-v--ruO0nRNPsZs3v7i7zgpbIX2P9zSJCK3rKswFgQ2hDyRL6DebFPimzX6ixhNJ6XIBJn0dCH358pHose_ESnelSyyTR3_2pPi_VTAs2bryU1OzVDhydq1wq5Wql9VvnrEJ_GLJmEM9v726lXoT-rxw\",
+    \"post_logout_redirect_uri\": \"http://localhost:62034\"
+  }
+}"
+[Error] ()
+ Unhandled exception accessing: /identity/connect/authorize
+System.ServiceModel.FaultException: Internal Server error occurred. Please contact administrator.
+   at PortKonnect.UserAccessManagement.ApplicationServices.ServiceBase.ExecuteFaultHandledOperationWithoutToken[T](Func`1 codetoExecute) in D:\COPT\UAM_COPT\UAM2.0\branches\UAM2_Customizations\Dev\PortKonnect.UserAccessManagement.ApplicationServices\ServiceBase.cs:line 231
+   at PortKonnect.UserAccessManagement.ApplicationServices.AccountService.GetAuthorisedUserFunctionsByRoles(Int32 applicationId, String subscriberId, String userId, String portCode, List`1 roles) in D:\COPT\UAM_COPT\UAM2.0\branches\UAM2_Customizations\Dev\PortKonnect.UserAccessManagement.ApplicationServices\AccountService.cs:line 287
+   at PortConnect.UserAccessManagement.TokenService.Services.CustomUserService.GetProfileDataAsync(ProfileDataRequestContext context) in D:\COPT\UAM_COPT\UAM2.0\branches\UAM2_Customizations\Dev\PortKonnect.UserAccessManagemnet.TokenService\Services\CustomUserService.cs:line 118
+   at IdentityServer3.Core.Services.Default.ExternalClaimsFilterUserService.GetProfileDataAsync(ProfileDataRequestContext context) in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Services\ExternalClaimsFilter\ExternalClaimsFilterUserService.cs:line 60
+   at IdentityServer3.Core.Services.Default.DefaultClaimsProvider.<GetAccessTokenClaimsAsync>d__a.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Services\Default\DefaultClaimsProvider.cs:line 215
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at IdentityServer3.Core.Services.Default.DefaultTokenService.<CreateAccessTokenAsync>d__7.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Services\Default\DefaultTokenService.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at IdentityServer3.Core.ResponseHandling.AuthorizeResponseGenerator.<CreateImplicitFlowResponseAsync>d__18.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\ResponseHandling\AuthorizeResponseGenerator.cs:line 149
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at IdentityServer3.Core.ResponseHandling.AuthorizeResponseGenerator.<CreateHybridFlowResponseAsync>d__3.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\ResponseHandling\AuthorizeResponseGenerator.cs:line 74
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at IdentityServer3.Core.ResponseHandling.AuthorizeResponseGenerator.<CreateResponseAsync>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\ResponseHandling\AuthorizeResponseGenerator.cs:line 62
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at IdentityServer3.Core.Endpoints.AuthorizeEndpointController.<CreateAuthorizeResponseAsync>d__12.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Endpoints\Connect\AuthorizeEndpointController.cs:line 193
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at IdentityServer3.Core.Endpoints.AuthorizeEndpointController.<ProcessRequestAsync>d__4.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Endpoints\Connect\AuthorizeEndpointController.cs:line 172
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at IdentityServer3.Core.Endpoints.AuthorizeEndpointController.<Get>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Endpoints\Connect\AuthorizeEndpointController.cs:line 104
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.System.Web.Http910911.TaskHelpersExtensions.<CastToObject>d__3`1.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+[Error] ()
+ Unhandled exception accessing: /identity/login
+System.ServiceModel.FaultException: Internal Server error occurred. Please contact administrator.
+   at PortKonnect.UserAccessManagement.ApplicationServices.ServiceBase.ExecuteFaultHandledOperationWithoutToken[T](Func`1 codetoExecute) in D:\COPT\UAM_COPT\UAM2.0\branches\UAM2_Customizations\Dev\PortKonnect.UserAccessManagement.ApplicationServices\ServiceBase.cs:line 231
+   at PortKonnect.UserAccessManagement.ApplicationServices.AccountService.GetUserDetails(Int32 applicationId, String subscriberId, String userName) in D:\COPT\UAM_COPT\UAM2.0\branches\UAM2_Customizations\Dev\PortKonnect.UserAccessManagement.ApplicationServices\AccountService.cs:line 270
+   at PortConnect.UserAccessManagement.TokenService.Services.CustomUserService.AuthenticateLocalAsync(LocalAuthenticationContext context) in D:\COPT\UAM_COPT\UAM2.0\branches\UAM2_Customizations\Dev\PortKonnect.UserAccessManagemnet.TokenService\Services\CustomUserService.cs:line 52
+   at IdentityServer3.Core.Services.Default.ExternalClaimsFilterUserService.AuthenticateLocalAsync(LocalAuthenticationContext context) in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Services\ExternalClaimsFilter\ExternalClaimsFilterUserService.cs:line 44
+   at IdentityServer3.Core.Endpoints.AuthenticationController.<LoginLocal>d__9.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Endpoints\AuthenticationController.cs:line 227
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.System.Web.Http910911.TaskHelpersExtensions.<CastToObject>d__3`1.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+[Error] ()
+ "Invalid post logout URI"
+"{
+  \"ClientId\": \"KPCL.PKCargo.IPMS.Web\",
+  \"ClientName\": \"Marine WebApp\",
+  \"SubjectId\": \"Admin\",
+  \"PostLogOutUri\": \"http://localhost:62034\",
+  \"Raw\": {
+    \"id_token_hint\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSIsImtpZCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSJ9.eyJpc3MiOiJodHRwOi8vUG9ydEtvbm5lY3QvaWRlbnRpdHkiLCJhdWQiOiJLUENMLlBLQ2FyZ28uSVBNUy5XZWIiLCJleHAiOjE1NjU3OTQzNzUsIm5iZiI6MTU2NTc4ODk3NSwibm9uY2UiOiI2MzcwMTM4NTc2OTA5Nzk0NzcuWVRCaE9UQTRPVEF0WkRVMk9DMDBZelkzTFRobU4ySXRPVEJtWVdVd1pXVmlObVJoWldKak56SmxNek10WXpoaE1DMDBOV1E1TFdJME1EZ3RaVFEwTURaa1pUbG1aV1V4IiwiaWF0IjoxNTY1Nzg4OTc1LCJhdF9oYXNoIjoidVVaM3lPVURwNXVmZVhXMU14UEh2dyIsImNfaGFzaCI6IlNyWm9rYnpUN3dxTkl0ekxYd3J4MWciLCJzaWQiOiJmNmQ4YjJjZTVmZjBkOGJiM2E3MTAzNGY0OTBjYjEzYiIsInN1YiI6IkFkbWluIiwiYXV0aF90aW1lIjoxNTY1Nzg4OTc1LCJpZHAiOiJpZHNydiIsImFtciI6WyJwYXNzd29yZCJdfQ.pnlVCZPFQu9MeHZE7cgtGbB99LAc4-rM59M5j0DysDcGK3RoA-f7G4PPBcGPyudYPPeQuDEOcdJKKNjhf7vEJjdQZQQZUXsftQltOb73dd5UKGiM3a2utJGNGPq7_rzLcQ2LI2m6lBkU0kgeSj9vtMsHCpYyUJ46cBDANkIiWQWNAMqYey8W1EZs8zUgAtyWbQIFe_8z96AxAkZduyWelhgmQCW1Io9VYdmxVoI_LbrX7GjgyM_JFdCvnOS3socah1uYJVBmmc2TmfgUQ33Vu6FRWxG5qJk1GP369i4v4L8xMRUbu6CWGwhg4wbBxgEs5R_Y8JouSPuuyPSgbK_UNA\",
+    \"post_logout_redirect_uri\": \"http://localhost:62034\"
+  }
+}"
+[Error] ()
+ Unhandled exception accessing: /identity/login
+System.ServiceModel.FaultException: Internal Server error occurred. Please contact administrator.
+   at PortKonnect.UserAccessManagement.ApplicationServices.ServiceBase.ExecuteFaultHandledOperationWithoutToken[T](Func`1 codetoExecute) in D:\COPT\UAM_COPT\UAM2.0\branches\Dev\PortKonnect.UserAccessManagement.ApplicationServices\ServiceBase.cs:line 231
+   at PortKonnect.UserAccessManagement.ApplicationServices.AccountService.GetUserDetails(Int32 applicationId, String subscriberId, String userName) in D:\COPT\UAM_COPT\UAM2.0\branches\Dev\PortKonnect.UserAccessManagement.ApplicationServices\AccountService.cs:line 270
+   at PortConnect.UserAccessManagement.TokenService.Services.CustomUserService.AuthenticateLocalAsync(LocalAuthenticationContext context) in D:\COPT\UAM_COPT\UAM2.0\branches\Dev\PortKonnect.UserAccessManagemnet.TokenService\Services\CustomUserService.cs:line 52
+   at IdentityServer3.Core.Services.Default.ExternalClaimsFilterUserService.AuthenticateLocalAsync(LocalAuthenticationContext context) in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Services\ExternalClaimsFilter\ExternalClaimsFilterUserService.cs:line 44
+   at IdentityServer3.Core.Endpoints.AuthenticationController.<LoginLocal>d__9.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Endpoints\AuthenticationController.cs:line 227
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.System.Web.Http910911.TaskHelpersExtensions.<CastToObject>d__3`1.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+[Error] ()
+ Unhandled exception accessing: /identity/login
+System.ServiceModel.FaultException: Internal Server error occurred. Please contact administrator.
+   at PortKonnect.UserAccessManagement.ApplicationServices.ServiceBase.ExecuteFaultHandledOperationWithoutToken[T](Func`1 codetoExecute) in D:\COPT\UAM_COPT\UAM2.0\branches\Dev\PortKonnect.UserAccessManagement.ApplicationServices\ServiceBase.cs:line 231
+   at PortKonnect.UserAccessManagement.ApplicationServices.AccountService.GetUserDetails(Int32 applicationId, String subscriberId, String userName) in D:\COPT\UAM_COPT\UAM2.0\branches\Dev\PortKonnect.UserAccessManagement.ApplicationServices\AccountService.cs:line 270
+   at PortConnect.UserAccessManagement.TokenService.Services.CustomUserService.AuthenticateLocalAsync(LocalAuthenticationContext context) in D:\COPT\UAM_COPT\UAM2.0\branches\Dev\PortKonnect.UserAccessManagemnet.TokenService\Services\CustomUserService.cs:line 52
+   at IdentityServer3.Core.Services.Default.ExternalClaimsFilterUserService.AuthenticateLocalAsync(LocalAuthenticationContext context) in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Services\ExternalClaimsFilter\ExternalClaimsFilterUserService.cs:line 44
+   at IdentityServer3.Core.Endpoints.AuthenticationController.<LoginLocal>d__9.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Endpoints\AuthenticationController.cs:line 227
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.System.Web.Http910911.TaskHelpersExtensions.<CastToObject>d__3`1.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext() in c:\ballen\github\identity\IdSrv3\IdentityServer3\source\Core\Configuration\Hosting\NoCacheAttribute.cs:line 0
+[Error] ()
+ "Invalid redirect_uri: http://localhost:7778"
+ "{
+  \"ClientId\": \"KPCL.PKCargo.IPMS.Web\",
+  \"ClientName\": \"Marine WebApp\",
+  \"RedirectUri\": \"http://localhost:7778\",
+  \"AllowedRedirectUris\": [
+    \"http://192.168.0.139:7778\",
+    \"http://localhost:77781\",
+    \"http://192.168.0.243:7778\"
+  ],
+  \"SubjectId\": \"unknown\",
+  \"Flow\": \"AuthorizationCode\",
+  \"RequestedScopes\": \"\",
+  \"Raw\": {
+    \"client_id\": \"KPCL.PKCargo.IPMS.Web\",
+    \"redirect_uri\": \"http://localhost:7778\",
+    \"response_mode\": \"form_post\",
+    \"response_type\": \"code id_token token\",
+    \"scope\": \"openid profile portkonnect.cargoops.scope\",
+    \"state\": \"OpenIdConnect.AuthenticationProperties=Esf3e2XTmsmYYYINDULfyV97PXdtOU6vonbM2rkkjvRg5UP1C8UMtvPZy15_vldDo6AB47kWNg9NyFyHedaDnmp7-_UedZpQS8uTcfAGQDsoGDVoWDojsa4dCI5A84rNdwmkzGFlzu2iLQOq0J955KNQd_S0Dt__DSUkw006zkPj5dKOVHoT5N6uZMyqu1hp9DT-jc1-6y345qZfAr8hbPZu5yuWMd7UporQJMOhvQk\",
+    \"nonce\": \"637019044895438292.OTI5OWNlOGUtMGQ4NS00MzI3LWJjYWUtYWJlYTI3NjliOGFkMDJkZmE1ZmYtNDI5OS00ZWYxLTk1MzAtZTEwMDlkNzc5OWI2\",
+    \"x-client-SKU\": \"ID_NET45\",
+    \"x-client-ver\": \"5.3.0.0\"
+  }
+}"
+[Error] ()
+ "Invalid redirect_uri: http://localhost:7778"
+ "{
+  \"ClientId\": \"KPCL.PKCargo.IPMS.Web\",
+  \"ClientName\": \"Marine WebApp\",
+  \"RedirectUri\": \"http://localhost:7778\",
+  \"AllowedRedirectUris\": [
+    \"http://192.168.0.139:7778\",
+    \"http://localhost:77781\",
+    \"http://192.168.0.243:7778\"
+  ],
+  \"SubjectId\": \"unknown\",
+  \"Flow\": \"AuthorizationCode\",
+  \"RequestedScopes\": \"\",
+  \"Raw\": {
+    \"client_id\": \"KPCL.PKCargo.IPMS.Web\",
+    \"redirect_uri\": \"http://localhost:7778\",
+    \"response_mode\": \"form_post\",
+    \"response_type\": \"code id_token token\",
+    \"scope\": \"openid profile portkonnect.cargoops.scope\",
+    \"state\": \"OpenIdConnect.AuthenticationProperties=Esf3e2XTmsmYYYINDULfyV97PXdtOU6vonbM2rkkjvRg5UP1C8UMtvPZy15_vldDo6AB47kWNg9NyFyHedaDnmp7-_UedZpQS8uTcfAGQDsoGDVoWDojsa4dCI5A84rNdwmkzGFlzu2iLQOq0J955KNQd_S0Dt__DSUkw006zkPj5dKOVHoT5N6uZMyqu1hp9DT-jc1-6y345qZfAr8hbPZu5yuWMd7UporQJMOhvQk\",
+    \"nonce\": \"637019044895438292.OTI5OWNlOGUtMGQ4NS00MzI3LWJjYWUtYWJlYTI3NjliOGFkMDJkZmE1ZmYtNDI5OS00ZWYxLTk1MzAtZTEwMDlkNzc5OWI2\",
+    \"x-client-SKU\": \"ID_NET45\",
+    \"x-client-ver\": \"5.3.0.0\"
+  }
+}"
+[Error] ()
+ "Invalid redirect_uri: http://localhost:7778"
+ "{
+  \"ClientId\": \"KPCL.PKCargo.IPMS.Web\",
+  \"ClientName\": \"Marine WebApp\",
+  \"RedirectUri\": \"http://localhost:7778\",
+  \"AllowedRedirectUris\": [
+    \"http://192.168.0.139:7778\",
+    \"http://localhost:77781\",
+    \"http://192.168.0.243:7778\"
+  ],
+  \"SubjectId\": \"unknown\",
+  \"Flow\": \"AuthorizationCode\",
+  \"RequestedScopes\": \"\",
+  \"Raw\": {
+    \"client_id\": \"KPCL.PKCargo.IPMS.Web\",
+    \"redirect_uri\": \"http://localhost:7778\",
+    \"response_mode\": \"form_post\",
+    \"response_type\": \"code id_token token\",
+    \"scope\": \"openid profile portkonnect.cargoops.scope\",
+    \"state\": \"OpenIdConnect.AuthenticationProperties=Esf3e2XTmsmYYYINDULfyV97PXdtOU6vonbM2rkkjvRg5UP1C8UMtvPZy15_vldDo6AB47kWNg9NyFyHedaDnmp7-_UedZpQS8uTcfAGQDsoGDVoWDojsa4dCI5A84rNdwmkzGFlzu2iLQOq0J955KNQd_S0Dt__DSUkw006zkPj5dKOVHoT5N6uZMyqu1hp9DT-jc1-6y345qZfAr8hbPZu5yuWMd7UporQJMOhvQk\",
+    \"nonce\": \"637019044895438292.OTI5OWNlOGUtMGQ4NS00MzI3LWJjYWUtYWJlYTI3NjliOGFkMDJkZmE1ZmYtNDI5OS00ZWYxLTk1MzAtZTEwMDlkNzc5OWI2\",
+    \"x-client-SKU\": \"ID_NET45\",
+    \"x-client-ver\": \"5.3.0.0\"
+  }
+}"

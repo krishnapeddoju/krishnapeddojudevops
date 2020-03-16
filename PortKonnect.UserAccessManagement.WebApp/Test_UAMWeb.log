@@ -1,0 +1,765 @@
+Build started 3/12/2020 12:06:29 PM.
+Overriding target "GetFrameworkPaths" in project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" with target "GetFrameworkPaths" from project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.NETFramework.targets".
+Overriding target "SatelliteDllsProjectOutputGroup" in project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" with target "SatelliteDllsProjectOutputGroup" from project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.WinFX.targets".
+Project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" on node 1 (default targets).
+Building with tools version "12.0".
+Project file contains ToolsVersion="12.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="4.0". For more information, please see http://go.microsoft.com/fwlink/?LinkId=291333.
+Target "_CheckForInvalidConfigurationAndPlatform" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (entry point):
+Task "Error" skipped, due to false condition; ( '$(_InvalidConfigurationError)' == 'true' ) was evaluated as ( '' == 'true' ).
+Task "Warning" skipped, due to false condition; ( '$(_InvalidConfigurationWarning)' == 'true' ) was evaluated as ( '' == 'true' ).
+Using "Message" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "Message"
+  Configuration=Release
+Done executing task "Message".
+Task "Message"
+  Platform=AnyCPU
+Done executing task "Message".
+Task "Error" skipped, due to false condition; ('$(OutDir)' != '' and !HasTrailingSlash('$(OutDir)')) was evaluated as ('bin\' != '' and !HasTrailingSlash('bin\')).
+Task "Error" skipped, due to false condition; ('$(BaseIntermediateOutputPath)' != '' and !HasTrailingSlash('$(BaseIntermediateOutputPath)')) was evaluated as ('obj\' != '' and !HasTrailingSlash('obj\')).
+Task "Error" skipped, due to false condition; ('$(IntermediateOutputPath)' != '' and !HasTrailingSlash('$(IntermediateOutputPath)')) was evaluated as ('obj\Release\' != '' and !HasTrailingSlash('obj\Release\')).
+Done building target "_CheckForInvalidConfigurationAndPlatform" in project "PortKonnect.UserAccessManagement.WebApp.csproj".
+Target "EntityDeploy" skipped, due to false condition; ('@(EntityDeploy)' != '') was evaluated as ('' != '').
+Target "BeforeBuild" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (target "Build" depends on it):
+Done building target "BeforeBuild" in project "PortKonnect.UserAccessManagement.WebApp.csproj".
+Target "BuildOnlySettings" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (target "CoreBuild" depends on it):
+Done building target "BuildOnlySettings" in project "PortKonnect.UserAccessManagement.WebApp.csproj".
+Target "GetFrameworkPaths" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.NETFramework.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (target "PrepareForBuild" depends on it):
+Done building target "GetFrameworkPaths" in project "PortKonnect.UserAccessManagement.WebApp.csproj".
+Target "GetWinFXPath" skipped, due to false condition; (('@(Page)' != '' or '@(ApplicationDefinition)' != '' or '@(Resource)' != '') and ('$(GetWinFXNativePath)' != '' or '$(GetWinFXWoWPath)' != '' )) was evaluated as (('' != '' or '' != '' or '' != '') and ('' != '' or '' != '' )).
+Target "GetReferenceAssemblyPaths" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (target "PrepareForBuild" depends on it):
+Using "GetReferenceAssemblyPaths" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "GetReferenceAssemblyPaths"
+Done executing task "GetReferenceAssemblyPaths".
+Done building target "GetReferenceAssemblyPaths" in project "PortKonnect.UserAccessManagement.WebApp.csproj".
+Target "EnsureNuGetPackageBuildImports" in project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (target "PrepareForBuild" depends on it):
+Task "Error" skipped, due to false condition; (!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')) was evaluated as (!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')).
+Task "Error" skipped, due to false condition; (!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')) was evaluated as (!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')).
+Done building target "EnsureNuGetPackageBuildImports" in project "PortKonnect.UserAccessManagement.WebApp.csproj".
+Target "PrepareForBuild" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (target "CoreBuild" depends on it):
+Using "FindAppConfigFile" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "FindAppConfigFile"
+Done executing task "FindAppConfigFile".
+Using "MakeDir" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "MakeDir"
+Done executing task "MakeDir".
+Done building target "PrepareForBuild" in project "PortKonnect.UserAccessManagement.WebApp.csproj".
+Target "PreBuildEvent" skipped, due to false condition; ('$(PreBuildEvent)'!='') was evaluated as (''!='').
+Target "BeforeResolveReferences" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (target "ResolveReferences" depends on it):
+Done building target "BeforeResolveReferences" in project "PortKonnect.UserAccessManagement.WebApp.csproj".
+Target "AssignProjectConfiguration" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (target "ResolveReferences" depends on it):
+Using "AssignProjectConfiguration" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "AssignProjectConfiguration"
+  Project reference "..\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj" has not been resolved.
+  Project reference "..\PortKonnect.UserAccessManagement.ApplicationServices\PortKonnect.UserAccessManagement.ApplicationServices.csproj" has not been resolved.
+  Project reference "..\PortKonnect.UserAccessManagement.DataServcies\PortKonnect.UserAccessManagement.DataServcies.csproj" has not been resolved.
+  Project reference "..\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj" has not been resolved.
+  Project reference "..\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj" has not been resolved.
+  Project reference "..\PortKonnect.UserAccessManagement.Domain\PortKonnect.UserAccessManagement.Domain.csproj" has not been resolved.
+  Project reference "..\PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj" has not been resolved.
+  Project reference "..\PortKonnect.UserAccessManagement.Repositories\PortKonnect.UserAccessManagement.Repositories.csproj" has not been resolved.
+Done executing task "AssignProjectConfiguration".
+Done building target "AssignProjectConfiguration" in project "PortKonnect.UserAccessManagement.WebApp.csproj".
+Target "AssignProjectConfiguration" skipped. Previously built successfully.
+Target "_SplitProjectReferencesByFileExistence" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (target "ResolveProjectReferences" depends on it):
+Task "ResolveNonMSBuildProjectOutput" skipped, due to false condition; ('$(BuildingInsideVisualStudio)'=='true' and '@(ProjectReferenceWithConfiguration)'!='') was evaluated as (''=='true' and '..\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj;..\PortKonnect.UserAccessManagement.ApplicationServices\PortKonnect.UserAccessManagement.ApplicationServices.csproj;..\PortKonnect.UserAccessManagement.DataServcies\PortKonnect.UserAccessManagement.DataServcies.csproj;..\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj;..\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj;..\PortKonnect.UserAccessManagement.Domain\PortKonnect.UserAccessManagement.Domain.csproj;..\PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj;..\PortKonnect.UserAccessManagement.Repositories\PortKonnect.UserAccessManagement.Repositories.csproj'!='').
+Done building target "_SplitProjectReferencesByFileExistence" in project "PortKonnect.UserAccessManagement.WebApp.csproj".
+Target "ResolveProjectReferences" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (target "ResolveReferences" depends on it):
+Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and ('$(BuildingInsideVisualStudio)' == 'true' or '$(BuildProjectReferences)' != 'true') and '$(VisualStudioVersion)' != '10.0' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('true' == 'true' and '..\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj;..\PortKonnect.UserAccessManagement.ApplicationServices\PortKonnect.UserAccessManagement.ApplicationServices.csproj;..\PortKonnect.UserAccessManagement.DataServcies\PortKonnect.UserAccessManagement.DataServcies.csproj;..\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj;..\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj;..\PortKonnect.UserAccessManagement.Domain\PortKonnect.UserAccessManagement.Domain.csproj;..\PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj;..\PortKonnect.UserAccessManagement.Repositories\PortKonnect.UserAccessManagement.Repositories.csproj' != '' and ('' == 'true' or 'true' != 'true') and '11.0' != '10.0' and '..\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj;..\PortKonnect.UserAccessManagement.ApplicationServices\PortKonnect.UserAccessManagement.ApplicationServices.csproj;..\PortKonnect.UserAccessManagement.DataServcies\PortKonnect.UserAccessManagement.DataServcies.csproj;..\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj;..\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj;..\PortKonnect.UserAccessManagement.Domain\PortKonnect.UserAccessManagement.Domain.csproj;..\PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj;..\PortKonnect.UserAccessManagement.Repositories\PortKonnect.UserAccessManagement.Repositories.csproj' != '').
+Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and ('$(BuildingInsideVisualStudio)' == 'true' or '$(BuildProjectReferences)' != 'true') and '$(VisualStudioVersion)' == '10.0' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('true' == 'true' and '..\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj;..\PortKonnect.UserAccessManagement.ApplicationServices\PortKonnect.UserAccessManagement.ApplicationServices.csproj;..\PortKonnect.UserAccessManagement.DataServcies\PortKonnect.UserAccessManagement.DataServcies.csproj;..\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj;..\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj;..\PortKonnect.UserAccessManagement.Domain\PortKonnect.UserAccessManagement.Domain.csproj;..\PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj;..\PortKonnect.UserAccessManagement.Repositories\PortKonnect.UserAccessManagement.Repositories.csproj' != '' and ('' == 'true' or 'true' != 'true') and '11.0' == '10.0' and '..\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj;..\PortKonnect.UserAccessManagement.ApplicationServices\PortKonnect.UserAccessManagement.ApplicationServices.csproj;..\PortKonnect.UserAccessManagement.DataServcies\PortKonnect.UserAccessManagement.DataServcies.csproj;..\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj;..\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj;..\PortKonnect.UserAccessManagement.Domain\PortKonnect.UserAccessManagement.Domain.csproj;..\PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj;..\PortKonnect.UserAccessManagement.Repositories\PortKonnect.UserAccessManagement.Repositories.csproj' != '').
+Using "MSBuild" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "MSBuild"
+Overriding target "GetFrameworkPaths" in project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" with target "GetFrameworkPaths" from project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.NETFramework.targets".
+Overriding target "SatelliteDllsProjectOutputGroup" in project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" with target "SatelliteDllsProjectOutputGroup" from project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.WinFX.targets".
+Project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (1) is building "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj" (2) on node 1 (default targets).
+Building with tools version "14.0".
+Target "_CheckForInvalidConfigurationAndPlatform" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj" (entry point):
+Task "Error" skipped, due to false condition; ( '$(_InvalidConfigurationError)' == 'true' ) was evaluated as ( '' == 'true' ).
+Task "Warning" skipped, due to false condition; ( '$(_InvalidConfigurationWarning)' == 'true' ) was evaluated as ( '' == 'true' ).
+Using "Message" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "Message"
+  Configuration=Release
+Done executing task "Message".
+Task "Message"
+  Platform=AnyCPU
+Done executing task "Message".
+Task "Error" skipped, due to false condition; ('$(OutDir)' != '' and !HasTrailingSlash('$(OutDir)')) was evaluated as ('bin\Release\' != '' and !HasTrailingSlash('bin\Release\')).
+Task "Error" skipped, due to false condition; ('$(BaseIntermediateOutputPath)' != '' and !HasTrailingSlash('$(BaseIntermediateOutputPath)')) was evaluated as ('obj\' != '' and !HasTrailingSlash('obj\')).
+Task "Error" skipped, due to false condition; ('$(IntermediateOutputPath)' != '' and !HasTrailingSlash('$(IntermediateOutputPath)')) was evaluated as ('obj\Release\' != '' and !HasTrailingSlash('obj\Release\')).
+Done building target "_CheckForInvalidConfigurationAndPlatform" in project "PortKonnect.Common.Contracts.csproj".
+Target "EntityDeploy" skipped, due to false condition; ('@(EntityDeploy)' != '') was evaluated as ('' != '').
+Target "BeforeBuild" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj" (target "Build" depends on it):
+Done building target "BeforeBuild" in project "PortKonnect.Common.Contracts.csproj".
+Target "BuildOnlySettings" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj" (target "CoreBuild" depends on it):
+Done building target "BuildOnlySettings" in project "PortKonnect.Common.Contracts.csproj".
+Target "GetFrameworkPaths" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.NETFramework.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj" (target "PrepareForBuild" depends on it):
+Done building target "GetFrameworkPaths" in project "PortKonnect.Common.Contracts.csproj".
+Target "GetWinFXPath" skipped, due to false condition; (('@(Page)' != '' or '@(ApplicationDefinition)' != '' or '@(Resource)' != '') and ('$(GetWinFXNativePath)' != '' or '$(GetWinFXWoWPath)' != '' )) was evaluated as (('' != '' or '' != '' or '' != '') and ('' != '' or '' != '' )).
+Target "GetReferenceAssemblyPaths" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj" (target "PrepareForBuild" depends on it):
+Using "GetReferenceAssemblyPaths" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "GetReferenceAssemblyPaths"
+Done executing task "GetReferenceAssemblyPaths".
+Done building target "GetReferenceAssemblyPaths" in project "PortKonnect.Common.Contracts.csproj".
+Target "PrepareForBuild" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj" (target "CoreBuild" depends on it):
+Using "FindAppConfigFile" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "FindAppConfigFile"
+Done executing task "FindAppConfigFile".
+Using "MakeDir" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "MakeDir"
+Done executing task "MakeDir".
+Done building target "PrepareForBuild" in project "PortKonnect.Common.Contracts.csproj".
+Target "PreBuildEvent" skipped, due to false condition; ('$(PreBuildEvent)'!='') was evaluated as (''!='').
+Target "BeforeResolveReferences" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj" (target "ResolveReferences" depends on it):
+Done building target "BeforeResolveReferences" in project "PortKonnect.Common.Contracts.csproj".
+Target "AssignProjectConfiguration" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj" (target "ResolveReferences" depends on it):
+Using "AssignProjectConfiguration" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "AssignProjectConfiguration"
+  Project reference "..\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj" has not been resolved.
+Done executing task "AssignProjectConfiguration".
+Done building target "AssignProjectConfiguration" in project "PortKonnect.Common.Contracts.csproj".
+Target "AssignProjectConfiguration" skipped. Previously built successfully.
+Target "_SplitProjectReferencesByFileExistence" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj" (target "ResolveProjectReferences" depends on it):
+Task "ResolveNonMSBuildProjectOutput" skipped, due to false condition; ('$(BuildingInsideVisualStudio)'=='true' and '@(ProjectReferenceWithConfiguration)'!='') was evaluated as (''=='true' and '..\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj'!='').
+Done building target "_SplitProjectReferencesByFileExistence" in project "PortKonnect.Common.Contracts.csproj".
+Target "ResolveProjectReferences" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj" (target "ResolveReferences" depends on it):
+Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and ('$(BuildingInsideVisualStudio)' == 'true' or '$(BuildProjectReferences)' != 'true') and '$(VisualStudioVersion)' != '10.0' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('true' == 'true' and '..\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj' != '' and ('' == 'true' or 'true' != 'true') and '11.0' != '10.0' and '..\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj' != '').
+Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and ('$(BuildingInsideVisualStudio)' == 'true' or '$(BuildProjectReferences)' != 'true') and '$(VisualStudioVersion)' == '10.0' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('true' == 'true' and '..\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj' != '' and ('' == 'true' or 'true' != 'true') and '11.0' == '10.0' and '..\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj' != '').
+Using "MSBuild" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "MSBuild"
+Overriding target "GetFrameworkPaths" in project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" with target "GetFrameworkPaths" from project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.NETFramework.targets".
+Overriding target "SatelliteDllsProjectOutputGroup" in project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" with target "SatelliteDllsProjectOutputGroup" from project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.WinFX.targets".
+Project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj" (2) is building "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj" (3) on node 1 (default targets).
+Building with tools version "4.0".
+Target "_CheckForInvalidConfigurationAndPlatform" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj" (entry point):
+Task "Error" skipped, due to false condition; ( '$(_InvalidConfigurationError)' == 'true' ) was evaluated as ( '' == 'true' ).
+Task "Warning" skipped, due to false condition; ( '$(_InvalidConfigurationWarning)' == 'true' ) was evaluated as ( '' == 'true' ).
+Task "Message"
+  Configuration=Release
+Done executing task "Message".
+Task "Message"
+  Platform=AnyCPU
+Done executing task "Message".
+Task "Error" skipped, due to false condition; ('$(OutDir)' != '' and !HasTrailingSlash('$(OutDir)')) was evaluated as ('bin\Release\' != '' and !HasTrailingSlash('bin\Release\')).
+Task "Error" skipped, due to false condition; ('$(BaseIntermediateOutputPath)' != '' and !HasTrailingSlash('$(BaseIntermediateOutputPath)')) was evaluated as ('obj\' != '' and !HasTrailingSlash('obj\')).
+Task "Error" skipped, due to false condition; ('$(IntermediateOutputPath)' != '' and !HasTrailingSlash('$(IntermediateOutputPath)')) was evaluated as ('obj\Release\' != '' and !HasTrailingSlash('obj\Release\')).
+Done building target "_CheckForInvalidConfigurationAndPlatform" in project "PortKonnect.UserAccessManagement.Domain.DTOS.csproj".
+Target "EntityDeploy" skipped, due to false condition; ('@(EntityDeploy)' != '') was evaluated as ('' != '').
+Target "BeforeBuild" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj" (target "Build" depends on it):
+Done building target "BeforeBuild" in project "PortKonnect.UserAccessManagement.Domain.DTOS.csproj".
+Target "BuildOnlySettings" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj" (target "CoreBuild" depends on it):
+Done building target "BuildOnlySettings" in project "PortKonnect.UserAccessManagement.Domain.DTOS.csproj".
+Target "GetFrameworkPaths" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.NETFramework.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj" (target "PrepareForBuild" depends on it):
+Done building target "GetFrameworkPaths" in project "PortKonnect.UserAccessManagement.Domain.DTOS.csproj".
+Target "GetWinFXPath" skipped, due to false condition; (('@(Page)' != '' or '@(ApplicationDefinition)' != '' or '@(Resource)' != '') and ('$(GetWinFXNativePath)' != '' or '$(GetWinFXWoWPath)' != '' )) was evaluated as (('' != '' or '' != '' or '' != '') and ('' != '' or '' != '' )).
+Target "GetReferenceAssemblyPaths" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj" (target "PrepareForBuild" depends on it):
+Task "GetReferenceAssemblyPaths"
+Done executing task "GetReferenceAssemblyPaths".
+Done building target "GetReferenceAssemblyPaths" in project "PortKonnect.UserAccessManagement.Domain.DTOS.csproj".
+Target "PrepareForBuild" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj" (target "CoreBuild" depends on it):
+Task "FindAppConfigFile"
+Done executing task "FindAppConfigFile".
+Task "MakeDir"
+Done executing task "MakeDir".
+Done building target "PrepareForBuild" in project "PortKonnect.UserAccessManagement.Domain.DTOS.csproj".
+Target "PreBuildEvent" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj" (target "CoreBuild" depends on it):
+Using "Exec" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "Exec"
+  DEL "*Undefined*CommonDlls\PortKonnect.UserAccessManagement.Domain.DTOS.dll"
+  The filename, directory name, or volume label syntax is incorrect.
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets(1063,5): error MSB3073: The command "DEL "*Undefined*CommonDlls\PortKonnect.UserAccessManagement.Domain.DTOS.dll"" exited with code 1. [E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj]
+Done executing task "Exec" -- FAILED.
+Done building target "PreBuildEvent" in project "PortKonnect.UserAccessManagement.Domain.DTOS.csproj" -- FAILED.
+Target "_CheckForCompileOutputs" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj" (target "_CleanGetCurrentAndPriorFileWrites" depends on it):
+Done building target "_CheckForCompileOutputs" in project "PortKonnect.UserAccessManagement.Domain.DTOS.csproj".
+Target "_SGenCheckForOutputs" skipped, due to false condition; ('$(_SGenGenerateSerializationAssembliesConfig)' == 'On' or ('@(WebReferenceUrl)'!='' and '$(_SGenGenerateSerializationAssembliesConfig)' == 'Auto')) was evaluated as ('Auto' == 'On' or (''!='' and 'Auto' == 'Auto')).
+Target "_CleanGetCurrentAndPriorFileWrites" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj" (target "_CleanRecordFileWrites" depends on it):
+Using "ReadLinesFromFile" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "ReadLinesFromFile"
+Done executing task "ReadLinesFromFile".
+Using "ConvertToAbsolutePath" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "ConvertToAbsolutePath"
+Done executing task "ConvertToAbsolutePath".
+Using "FindUnderPath" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "FindUnderPath"
+  Comparison path is "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS".
+Done executing task "FindUnderPath".
+Task "FindUnderPath"
+  Comparison path is "bin\Release\".
+Done executing task "FindUnderPath".
+Task "FindUnderPath"
+  Comparison path is "obj\Release\".
+Done executing task "FindUnderPath".
+Using "RemoveDuplicates" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "RemoveDuplicates"
+Done executing task "RemoveDuplicates".
+Done building target "_CleanGetCurrentAndPriorFileWrites" in project "PortKonnect.UserAccessManagement.Domain.DTOS.csproj".
+Target "_CleanRecordFileWrites" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj" (target "CoreBuild" depends on it):
+Task "RemoveDuplicates"
+Done executing task "RemoveDuplicates".
+Task "MakeDir"
+Done executing task "MakeDir".
+Using "WriteLinesToFile" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "WriteLinesToFile"
+Done executing task "WriteLinesToFile".
+Done building target "_CleanRecordFileWrites" in project "PortKonnect.UserAccessManagement.Domain.DTOS.csproj".
+Done Building Project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj" (default targets) -- FAILED.
+
+Project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (1) is building "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj" (3:2) on node 1 (default targets).
+Building with tools version "4.0".
+Target "_CheckForInvalidConfigurationAndPlatform" skipped. Previously built successfully.
+Target "Build" skipped. Previously built unsuccessfully.
+Done Building Project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj" (default targets) -- FAILED.
+
+Done executing task "MSBuild" -- FAILED.
+Done building target "ResolveProjectReferences" in project "PortKonnect.Common.Contracts.csproj" -- FAILED.
+Target "_CheckForCompileOutputs" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj" (target "_CleanGetCurrentAndPriorFileWrites" depends on it):
+Done building target "_CheckForCompileOutputs" in project "PortKonnect.Common.Contracts.csproj".
+Target "_SGenCheckForOutputs" skipped, due to false condition; ('$(_SGenGenerateSerializationAssembliesConfig)' == 'On' or ('@(WebReferenceUrl)'!='' and '$(_SGenGenerateSerializationAssembliesConfig)' == 'Auto')) was evaluated as ('Auto' == 'On' or (''!='' and 'Auto' == 'Auto')).
+Target "_CleanGetCurrentAndPriorFileWrites" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj" (target "_CleanRecordFileWrites" depends on it):
+Using "ReadLinesFromFile" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "ReadLinesFromFile"
+Done executing task "ReadLinesFromFile".
+Using "ConvertToAbsolutePath" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "ConvertToAbsolutePath"
+Done executing task "ConvertToAbsolutePath".
+Using "FindUnderPath" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "FindUnderPath"
+  Comparison path is "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.Common.Contracts".
+Done executing task "FindUnderPath".
+Task "FindUnderPath"
+  Comparison path is "bin\Release\".
+Done executing task "FindUnderPath".
+Task "FindUnderPath"
+  Comparison path is "obj\Release\".
+Done executing task "FindUnderPath".
+Using "RemoveDuplicates" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "RemoveDuplicates"
+Done executing task "RemoveDuplicates".
+Done building target "_CleanGetCurrentAndPriorFileWrites" in project "PortKonnect.Common.Contracts.csproj".
+Target "_CleanRecordFileWrites" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj" (target "CoreBuild" depends on it):
+Task "RemoveDuplicates"
+Done executing task "RemoveDuplicates".
+Task "MakeDir"
+Done executing task "MakeDir".
+Using "WriteLinesToFile" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "WriteLinesToFile"
+Done executing task "WriteLinesToFile".
+Done building target "_CleanRecordFileWrites" in project "PortKonnect.Common.Contracts.csproj".
+Done Building Project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj" (default targets) -- FAILED.
+
+Overriding target "GetFrameworkPaths" in project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" with target "GetFrameworkPaths" from project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.NETFramework.targets".
+Overriding target "SatelliteDllsProjectOutputGroup" in project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" with target "SatelliteDllsProjectOutputGroup" from project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.WinFX.targets".
+Project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (1) is building "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.ApplicationServices\PortKonnect.UserAccessManagement.ApplicationServices.csproj" (4) on node 1 (default targets).
+Building with tools version "4.0".
+Target "_CheckForInvalidConfigurationAndPlatform" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.ApplicationServices\PortKonnect.UserAccessManagement.ApplicationServices.csproj" (entry point):
+Task "Error" skipped, due to false condition; ( '$(_InvalidConfigurationError)' == 'true' ) was evaluated as ( '' == 'true' ).
+Task "Warning" skipped, due to false condition; ( '$(_InvalidConfigurationWarning)' == 'true' ) was evaluated as ( '' == 'true' ).
+Task "Message"
+  Configuration=Release
+Done executing task "Message".
+Task "Message"
+  Platform=AnyCPU
+Done executing task "Message".
+Task "Error" skipped, due to false condition; ('$(OutDir)' != '' and !HasTrailingSlash('$(OutDir)')) was evaluated as ('bin\Release\' != '' and !HasTrailingSlash('bin\Release\')).
+Task "Error" skipped, due to false condition; ('$(BaseIntermediateOutputPath)' != '' and !HasTrailingSlash('$(BaseIntermediateOutputPath)')) was evaluated as ('obj\' != '' and !HasTrailingSlash('obj\')).
+Task "Error" skipped, due to false condition; ('$(IntermediateOutputPath)' != '' and !HasTrailingSlash('$(IntermediateOutputPath)')) was evaluated as ('obj\Release\' != '' and !HasTrailingSlash('obj\Release\')).
+Done building target "_CheckForInvalidConfigurationAndPlatform" in project "PortKonnect.UserAccessManagement.ApplicationServices.csproj".
+Target "EntityDeploy" skipped, due to false condition; ('@(EntityDeploy)' != '') was evaluated as ('' != '').
+Target "BeforeBuild" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.ApplicationServices\PortKonnect.UserAccessManagement.ApplicationServices.csproj" (target "Build" depends on it):
+Done building target "BeforeBuild" in project "PortKonnect.UserAccessManagement.ApplicationServices.csproj".
+Target "BuildOnlySettings" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.ApplicationServices\PortKonnect.UserAccessManagement.ApplicationServices.csproj" (target "CoreBuild" depends on it):
+Done building target "BuildOnlySettings" in project "PortKonnect.UserAccessManagement.ApplicationServices.csproj".
+Target "GetFrameworkPaths" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.NETFramework.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.ApplicationServices\PortKonnect.UserAccessManagement.ApplicationServices.csproj" (target "PrepareForBuild" depends on it):
+Done building target "GetFrameworkPaths" in project "PortKonnect.UserAccessManagement.ApplicationServices.csproj".
+Target "GetWinFXPath" skipped, due to false condition; (('@(Page)' != '' or '@(ApplicationDefinition)' != '' or '@(Resource)' != '') and ('$(GetWinFXNativePath)' != '' or '$(GetWinFXWoWPath)' != '' )) was evaluated as (('' != '' or '' != '' or '' != '') and ('' != '' or '' != '' )).
+Target "GetReferenceAssemblyPaths" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.ApplicationServices\PortKonnect.UserAccessManagement.ApplicationServices.csproj" (target "PrepareForBuild" depends on it):
+Task "GetReferenceAssemblyPaths"
+Done executing task "GetReferenceAssemblyPaths".
+Done building target "GetReferenceAssemblyPaths" in project "PortKonnect.UserAccessManagement.ApplicationServices.csproj".
+Target "EnsureNuGetPackageBuildImports" in project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.ApplicationServices\PortKonnect.UserAccessManagement.ApplicationServices.csproj" (target "PrepareForBuild" depends on it):
+Using "Error" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "Error"
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.ApplicationServices\PortKonnect.UserAccessManagement.ApplicationServices.csproj(165,5): error : This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is ..\..\\.nuget\NuGet.targets.
+Done executing task "Error" -- FAILED.
+Done building target "EnsureNuGetPackageBuildImports" in project "PortKonnect.UserAccessManagement.ApplicationServices.csproj" -- FAILED.
+Target "_CheckForCompileOutputs" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.ApplicationServices\PortKonnect.UserAccessManagement.ApplicationServices.csproj" (target "_CleanGetCurrentAndPriorFileWrites" depends on it):
+Done building target "_CheckForCompileOutputs" in project "PortKonnect.UserAccessManagement.ApplicationServices.csproj".
+Target "_SGenCheckForOutputs" skipped, due to false condition; ('$(_SGenGenerateSerializationAssembliesConfig)' == 'On' or ('@(WebReferenceUrl)'!='' and '$(_SGenGenerateSerializationAssembliesConfig)' == 'Auto')) was evaluated as ('Auto' == 'On' or (''!='' and 'Auto' == 'Auto')).
+Target "_CleanGetCurrentAndPriorFileWrites" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.ApplicationServices\PortKonnect.UserAccessManagement.ApplicationServices.csproj" (target "_CleanRecordFileWrites" depends on it):
+Task "ReadLinesFromFile"
+Done executing task "ReadLinesFromFile".
+Task "ConvertToAbsolutePath"
+Done executing task "ConvertToAbsolutePath".
+Task "FindUnderPath"
+  Comparison path is "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.ApplicationServices".
+Done executing task "FindUnderPath".
+Task "FindUnderPath"
+  Comparison path is "bin\Release\".
+Done executing task "FindUnderPath".
+Task "FindUnderPath"
+  Comparison path is "obj\Release\".
+Done executing task "FindUnderPath".
+Task "RemoveDuplicates"
+Done executing task "RemoveDuplicates".
+Done building target "_CleanGetCurrentAndPriorFileWrites" in project "PortKonnect.UserAccessManagement.ApplicationServices.csproj".
+Target "_CleanRecordFileWrites" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.ApplicationServices\PortKonnect.UserAccessManagement.ApplicationServices.csproj" (target "CoreBuild" depends on it):
+Task "RemoveDuplicates"
+Done executing task "RemoveDuplicates".
+Task "MakeDir"
+Done executing task "MakeDir".
+Task "WriteLinesToFile"
+Done executing task "WriteLinesToFile".
+Done building target "_CleanRecordFileWrites" in project "PortKonnect.UserAccessManagement.ApplicationServices.csproj".
+Done Building Project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.ApplicationServices\PortKonnect.UserAccessManagement.ApplicationServices.csproj" (default targets) -- FAILED.
+
+Overriding target "GetFrameworkPaths" in project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" with target "GetFrameworkPaths" from project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.NETFramework.targets".
+Overriding target "SatelliteDllsProjectOutputGroup" in project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" with target "SatelliteDllsProjectOutputGroup" from project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.WinFX.targets".
+Project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (1) is building "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.DataServcies\PortKonnect.UserAccessManagement.DataServcies.csproj" (5) on node 1 (default targets).
+Building with tools version "4.0".
+Target "_CheckForInvalidConfigurationAndPlatform" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.DataServcies\PortKonnect.UserAccessManagement.DataServcies.csproj" (entry point):
+Task "Error" skipped, due to false condition; ( '$(_InvalidConfigurationError)' == 'true' ) was evaluated as ( '' == 'true' ).
+Task "Warning" skipped, due to false condition; ( '$(_InvalidConfigurationWarning)' == 'true' ) was evaluated as ( '' == 'true' ).
+Task "Message"
+  Configuration=Release
+Done executing task "Message".
+Task "Message"
+  Platform=AnyCPU
+Done executing task "Message".
+Task "Error" skipped, due to false condition; ('$(OutDir)' != '' and !HasTrailingSlash('$(OutDir)')) was evaluated as ('bin\Release\' != '' and !HasTrailingSlash('bin\Release\')).
+Task "Error" skipped, due to false condition; ('$(BaseIntermediateOutputPath)' != '' and !HasTrailingSlash('$(BaseIntermediateOutputPath)')) was evaluated as ('obj\' != '' and !HasTrailingSlash('obj\')).
+Task "Error" skipped, due to false condition; ('$(IntermediateOutputPath)' != '' and !HasTrailingSlash('$(IntermediateOutputPath)')) was evaluated as ('obj\Release\' != '' and !HasTrailingSlash('obj\Release\')).
+Done building target "_CheckForInvalidConfigurationAndPlatform" in project "PortKonnect.UserAccessManagement.DataServcies.csproj".
+Target "EntityDeploy" skipped, due to false condition; ('@(EntityDeploy)' != '') was evaluated as ('' != '').
+Target "BeforeBuild" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.DataServcies\PortKonnect.UserAccessManagement.DataServcies.csproj" (target "Build" depends on it):
+Done building target "BeforeBuild" in project "PortKonnect.UserAccessManagement.DataServcies.csproj".
+Target "BuildOnlySettings" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.DataServcies\PortKonnect.UserAccessManagement.DataServcies.csproj" (target "CoreBuild" depends on it):
+Done building target "BuildOnlySettings" in project "PortKonnect.UserAccessManagement.DataServcies.csproj".
+Target "GetFrameworkPaths" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.NETFramework.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.DataServcies\PortKonnect.UserAccessManagement.DataServcies.csproj" (target "PrepareForBuild" depends on it):
+Done building target "GetFrameworkPaths" in project "PortKonnect.UserAccessManagement.DataServcies.csproj".
+Target "GetWinFXPath" skipped, due to false condition; (('@(Page)' != '' or '@(ApplicationDefinition)' != '' or '@(Resource)' != '') and ('$(GetWinFXNativePath)' != '' or '$(GetWinFXWoWPath)' != '' )) was evaluated as (('' != '' or '' != '' or '' != '') and ('' != '' or '' != '' )).
+Target "GetReferenceAssemblyPaths" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.DataServcies\PortKonnect.UserAccessManagement.DataServcies.csproj" (target "PrepareForBuild" depends on it):
+Task "GetReferenceAssemblyPaths"
+Done executing task "GetReferenceAssemblyPaths".
+Done building target "GetReferenceAssemblyPaths" in project "PortKonnect.UserAccessManagement.DataServcies.csproj".
+Target "EnsureNuGetPackageBuildImports" in project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.DataServcies\PortKonnect.UserAccessManagement.DataServcies.csproj" (target "PrepareForBuild" depends on it):
+Task "Error"
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.DataServcies\PortKonnect.UserAccessManagement.DataServcies.csproj(113,5): error : This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is ..\..\\.nuget\NuGet.targets.
+Done executing task "Error" -- FAILED.
+Done building target "EnsureNuGetPackageBuildImports" in project "PortKonnect.UserAccessManagement.DataServcies.csproj" -- FAILED.
+Target "_CheckForCompileOutputs" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.DataServcies\PortKonnect.UserAccessManagement.DataServcies.csproj" (target "_CleanGetCurrentAndPriorFileWrites" depends on it):
+Done building target "_CheckForCompileOutputs" in project "PortKonnect.UserAccessManagement.DataServcies.csproj".
+Target "_SGenCheckForOutputs" skipped, due to false condition; ('$(_SGenGenerateSerializationAssembliesConfig)' == 'On' or ('@(WebReferenceUrl)'!='' and '$(_SGenGenerateSerializationAssembliesConfig)' == 'Auto')) was evaluated as ('Auto' == 'On' or (''!='' and 'Auto' == 'Auto')).
+Target "_CleanGetCurrentAndPriorFileWrites" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.DataServcies\PortKonnect.UserAccessManagement.DataServcies.csproj" (target "_CleanRecordFileWrites" depends on it):
+Task "ReadLinesFromFile"
+Done executing task "ReadLinesFromFile".
+Task "ConvertToAbsolutePath"
+Done executing task "ConvertToAbsolutePath".
+Task "FindUnderPath"
+  Comparison path is "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.DataServcies".
+Done executing task "FindUnderPath".
+Task "FindUnderPath"
+  Comparison path is "bin\Release\".
+Done executing task "FindUnderPath".
+Task "FindUnderPath"
+  Comparison path is "obj\Release\".
+Done executing task "FindUnderPath".
+Task "RemoveDuplicates"
+Done executing task "RemoveDuplicates".
+Done building target "_CleanGetCurrentAndPriorFileWrites" in project "PortKonnect.UserAccessManagement.DataServcies.csproj".
+Target "_CleanRecordFileWrites" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.DataServcies\PortKonnect.UserAccessManagement.DataServcies.csproj" (target "CoreBuild" depends on it):
+Task "RemoveDuplicates"
+Done executing task "RemoveDuplicates".
+Task "MakeDir"
+Done executing task "MakeDir".
+Task "WriteLinesToFile"
+Done executing task "WriteLinesToFile".
+Done building target "_CleanRecordFileWrites" in project "PortKonnect.UserAccessManagement.DataServcies.csproj".
+Done Building Project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.DataServcies\PortKonnect.UserAccessManagement.DataServcies.csproj" (default targets) -- FAILED.
+
+Overriding target "GetFrameworkPaths" in project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" with target "GetFrameworkPaths" from project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.NETFramework.targets".
+Overriding target "SatelliteDllsProjectOutputGroup" in project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" with target "SatelliteDllsProjectOutputGroup" from project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.WinFX.targets".
+Project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (1) is building "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj" (6) on node 1 (default targets).
+Building with tools version "4.0".
+Target "_CheckForInvalidConfigurationAndPlatform" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj" (entry point):
+Task "Error" skipped, due to false condition; ( '$(_InvalidConfigurationError)' == 'true' ) was evaluated as ( '' == 'true' ).
+Task "Warning" skipped, due to false condition; ( '$(_InvalidConfigurationWarning)' == 'true' ) was evaluated as ( '' == 'true' ).
+Task "Message"
+  Configuration=Release
+Done executing task "Message".
+Task "Message"
+  Platform=AnyCPU
+Done executing task "Message".
+Task "Error" skipped, due to false condition; ('$(OutDir)' != '' and !HasTrailingSlash('$(OutDir)')) was evaluated as ('bin\Release\' != '' and !HasTrailingSlash('bin\Release\')).
+Task "Error" skipped, due to false condition; ('$(BaseIntermediateOutputPath)' != '' and !HasTrailingSlash('$(BaseIntermediateOutputPath)')) was evaluated as ('obj\' != '' and !HasTrailingSlash('obj\')).
+Task "Error" skipped, due to false condition; ('$(IntermediateOutputPath)' != '' and !HasTrailingSlash('$(IntermediateOutputPath)')) was evaluated as ('obj\Release\' != '' and !HasTrailingSlash('obj\Release\')).
+Done building target "_CheckForInvalidConfigurationAndPlatform" in project "PortKonnect.UserAccessManagement.Data.csproj".
+Target "CheckPrerequisites" in file "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\.nuget\NuGet.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj" (target "RestorePackages" depends on it):
+Task "Error" skipped, due to false condition; ('$(DownloadNuGetExe)' != 'true' AND !Exists('$(NuGetExePath)')) was evaluated as ('false' != 'true' AND !Exists('..\.nuget\NuGet.exe')).
+Task "MsBuild"
+  Global Properties:
+    Configuration=NOT_IMPORTANT
+    DownloadNuGetExe=false
+Project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj" (6) is building "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\.nuget\NuGet.targets" (7) on node 1 (_DownloadNuGet target(s)).
+Building with tools version "4.0".
+Target "_DownloadNuGet" in project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\.nuget\NuGet.targets" (entry point):
+Task "DownloadNuGet" skipped, due to false condition; ( '$(DownloadNuGetExe)' == 'true' AND !Exists('$(NuGetExePath)')) was evaluated as ( 'false' == 'true' AND !Exists('E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\.nuget\..\.nuget\NuGet.exe')).
+Done building target "_DownloadNuGet" in project "NuGet.targets".
+Done Building Project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\.nuget\NuGet.targets" (_DownloadNuGet target(s)).
+
+Done executing task "MsBuild".
+Done building target "CheckPrerequisites" in project "PortKonnect.UserAccessManagement.Data.csproj".
+Target "RestorePackages" in file "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\.nuget\NuGet.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj" (target "Build" depends on it):
+Task "Exec" skipped, due to false condition; ('$(OS)' != 'Windows_NT' And Exists('$(PackagesConfig)')) was evaluated as ('Windows_NT' != 'Windows_NT' And Exists('E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Data\packages.config')).
+Task "Exec"
+  "..\.nuget\NuGet.exe" install "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Data\packages.config" -source ""  -NonInteractive -RequireConsent -solutionDir "..\ "
+  Restoring NuGet packages...
+  To prevent NuGet from downloading packages during build, open the Visual Studio Options dialog, click on the Package Manager node and uncheck 'Allow NuGet to download missing packages'.
+  Feeds used:
+    C:\Users\ramakrishnap\AppData\Local\NuGet\Cache
+    C:\Users\ramakrishnap\.nuget\packages\
+    C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\
+  
+  All packages listed in E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Data\packages.config are already installed.
+Done executing task "Exec".
+Done building target "RestorePackages" in project "PortKonnect.UserAccessManagement.Data.csproj".
+Target "EntityDeploy" skipped, due to false condition; ('@(EntityDeploy)' != '') was evaluated as ('' != '').
+Target "BeforeBuild" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj" (target "Build" depends on it):
+Done building target "BeforeBuild" in project "PortKonnect.UserAccessManagement.Data.csproj".
+Target "BuildOnlySettings" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj" (target "CoreBuild" depends on it):
+Done building target "BuildOnlySettings" in project "PortKonnect.UserAccessManagement.Data.csproj".
+Target "GetFrameworkPaths" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.NETFramework.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj" (target "PrepareForBuild" depends on it):
+Done building target "GetFrameworkPaths" in project "PortKonnect.UserAccessManagement.Data.csproj".
+Target "GetWinFXPath" skipped, due to false condition; (('@(Page)' != '' or '@(ApplicationDefinition)' != '' or '@(Resource)' != '') and ('$(GetWinFXNativePath)' != '' or '$(GetWinFXWoWPath)' != '' )) was evaluated as (('' != '' or '' != '' or '' != '') and ('' != '' or '' != '' )).
+Target "GetReferenceAssemblyPaths" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj" (target "PrepareForBuild" depends on it):
+Task "GetReferenceAssemblyPaths"
+Done executing task "GetReferenceAssemblyPaths".
+Done building target "GetReferenceAssemblyPaths" in project "PortKonnect.UserAccessManagement.Data.csproj".
+Target "PrepareForBuild" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj" (target "CoreBuild" depends on it):
+Task "FindAppConfigFile"
+  Found "App.config".
+Done executing task "FindAppConfigFile".
+Task "MakeDir"
+Done executing task "MakeDir".
+Done building target "PrepareForBuild" in project "PortKonnect.UserAccessManagement.Data.csproj".
+Target "PreBuildEvent" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj" (target "CoreBuild" depends on it):
+Task "Exec"
+  DEL "..\CommonDlls\PortKonnect.UserAccessManagement.Data.dll"
+  The system cannot find the file specified.
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets(1063,5): error MSB3073: The command "DEL "..\CommonDlls\PortKonnect.UserAccessManagement.Data.dll"" exited with code 1. [E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj]
+Done executing task "Exec" -- FAILED.
+Done building target "PreBuildEvent" in project "PortKonnect.UserAccessManagement.Data.csproj" -- FAILED.
+Target "_CheckForCompileOutputs" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj" (target "_CleanGetCurrentAndPriorFileWrites" depends on it):
+Done building target "_CheckForCompileOutputs" in project "PortKonnect.UserAccessManagement.Data.csproj".
+Target "_SGenCheckForOutputs" skipped, due to false condition; ('$(_SGenGenerateSerializationAssembliesConfig)' == 'On' or ('@(WebReferenceUrl)'!='' and '$(_SGenGenerateSerializationAssembliesConfig)' == 'Auto')) was evaluated as ('Auto' == 'On' or (''!='' and 'Auto' == 'Auto')).
+Target "_CleanGetCurrentAndPriorFileWrites" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj" (target "_CleanRecordFileWrites" depends on it):
+Task "ReadLinesFromFile"
+Done executing task "ReadLinesFromFile".
+Task "ConvertToAbsolutePath"
+Done executing task "ConvertToAbsolutePath".
+Task "FindUnderPath"
+  Comparison path is "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Data".
+Done executing task "FindUnderPath".
+Task "FindUnderPath"
+  Comparison path is "bin\Release\".
+Done executing task "FindUnderPath".
+Task "FindUnderPath"
+  Comparison path is "obj\Release\".
+Done executing task "FindUnderPath".
+Task "RemoveDuplicates"
+Done executing task "RemoveDuplicates".
+Done building target "_CleanGetCurrentAndPriorFileWrites" in project "PortKonnect.UserAccessManagement.Data.csproj".
+Target "_CleanRecordFileWrites" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj" (target "CoreBuild" depends on it):
+Task "RemoveDuplicates"
+Done executing task "RemoveDuplicates".
+Task "MakeDir"
+Done executing task "MakeDir".
+Task "WriteLinesToFile"
+Done executing task "WriteLinesToFile".
+Done building target "_CleanRecordFileWrites" in project "PortKonnect.UserAccessManagement.Data.csproj".
+Done Building Project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj" (default targets) -- FAILED.
+
+Overriding target "GetFrameworkPaths" in project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" with target "GetFrameworkPaths" from project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.NETFramework.targets".
+Overriding target "SatelliteDllsProjectOutputGroup" in project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" with target "SatelliteDllsProjectOutputGroup" from project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.WinFX.targets".
+Project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (1) is building "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain\PortKonnect.UserAccessManagement.Domain.csproj" (8) on node 1 (default targets).
+Building with tools version "4.0".
+Target "_CheckForInvalidConfigurationAndPlatform" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain\PortKonnect.UserAccessManagement.Domain.csproj" (entry point):
+Task "Error" skipped, due to false condition; ( '$(_InvalidConfigurationError)' == 'true' ) was evaluated as ( '' == 'true' ).
+Task "Warning" skipped, due to false condition; ( '$(_InvalidConfigurationWarning)' == 'true' ) was evaluated as ( '' == 'true' ).
+Task "Message"
+  Configuration=Release
+Done executing task "Message".
+Task "Message"
+  Platform=AnyCPU
+Done executing task "Message".
+Task "Error" skipped, due to false condition; ('$(OutDir)' != '' and !HasTrailingSlash('$(OutDir)')) was evaluated as ('bin\Release\' != '' and !HasTrailingSlash('bin\Release\')).
+Task "Error" skipped, due to false condition; ('$(BaseIntermediateOutputPath)' != '' and !HasTrailingSlash('$(BaseIntermediateOutputPath)')) was evaluated as ('obj\' != '' and !HasTrailingSlash('obj\')).
+Task "Error" skipped, due to false condition; ('$(IntermediateOutputPath)' != '' and !HasTrailingSlash('$(IntermediateOutputPath)')) was evaluated as ('obj\Release\' != '' and !HasTrailingSlash('obj\Release\')).
+Done building target "_CheckForInvalidConfigurationAndPlatform" in project "PortKonnect.UserAccessManagement.Domain.csproj".
+Target "EntityDeploy" skipped, due to false condition; ('@(EntityDeploy)' != '') was evaluated as ('' != '').
+Target "BeforeBuild" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain\PortKonnect.UserAccessManagement.Domain.csproj" (target "Build" depends on it):
+Done building target "BeforeBuild" in project "PortKonnect.UserAccessManagement.Domain.csproj".
+Target "BuildOnlySettings" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain\PortKonnect.UserAccessManagement.Domain.csproj" (target "CoreBuild" depends on it):
+Done building target "BuildOnlySettings" in project "PortKonnect.UserAccessManagement.Domain.csproj".
+Target "GetFrameworkPaths" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.NETFramework.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain\PortKonnect.UserAccessManagement.Domain.csproj" (target "PrepareForBuild" depends on it):
+Done building target "GetFrameworkPaths" in project "PortKonnect.UserAccessManagement.Domain.csproj".
+Target "GetWinFXPath" skipped, due to false condition; (('@(Page)' != '' or '@(ApplicationDefinition)' != '' or '@(Resource)' != '') and ('$(GetWinFXNativePath)' != '' or '$(GetWinFXWoWPath)' != '' )) was evaluated as (('' != '' or '' != '' or '' != '') and ('' != '' or '' != '' )).
+Target "GetReferenceAssemblyPaths" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain\PortKonnect.UserAccessManagement.Domain.csproj" (target "PrepareForBuild" depends on it):
+Task "GetReferenceAssemblyPaths"
+Done executing task "GetReferenceAssemblyPaths".
+Done building target "GetReferenceAssemblyPaths" in project "PortKonnect.UserAccessManagement.Domain.csproj".
+Target "PrepareForBuild" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain\PortKonnect.UserAccessManagement.Domain.csproj" (target "CoreBuild" depends on it):
+Task "FindAppConfigFile"
+Done executing task "FindAppConfigFile".
+Task "MakeDir"
+Done executing task "MakeDir".
+Done building target "PrepareForBuild" in project "PortKonnect.UserAccessManagement.Domain.csproj".
+Target "PreBuildEvent" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain\PortKonnect.UserAccessManagement.Domain.csproj" (target "CoreBuild" depends on it):
+Task "Exec"
+  DEL "*Undefined*CommonDlls\PortKonnect.UserAccessManagement.Domain.dll"
+  The filename, directory name, or volume label syntax is incorrect.
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets(1063,5): error MSB3073: The command "DEL "*Undefined*CommonDlls\PortKonnect.UserAccessManagement.Domain.dll"" exited with code 1. [E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain\PortKonnect.UserAccessManagement.Domain.csproj]
+Done executing task "Exec" -- FAILED.
+Done building target "PreBuildEvent" in project "PortKonnect.UserAccessManagement.Domain.csproj" -- FAILED.
+Target "_CheckForCompileOutputs" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain\PortKonnect.UserAccessManagement.Domain.csproj" (target "_CleanGetCurrentAndPriorFileWrites" depends on it):
+Done building target "_CheckForCompileOutputs" in project "PortKonnect.UserAccessManagement.Domain.csproj".
+Target "_SGenCheckForOutputs" skipped, due to false condition; ('$(_SGenGenerateSerializationAssembliesConfig)' == 'On' or ('@(WebReferenceUrl)'!='' and '$(_SGenGenerateSerializationAssembliesConfig)' == 'Auto')) was evaluated as ('Auto' == 'On' or (''!='' and 'Auto' == 'Auto')).
+Target "_CleanGetCurrentAndPriorFileWrites" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain\PortKonnect.UserAccessManagement.Domain.csproj" (target "_CleanRecordFileWrites" depends on it):
+Task "ReadLinesFromFile"
+Done executing task "ReadLinesFromFile".
+Task "ConvertToAbsolutePath"
+Done executing task "ConvertToAbsolutePath".
+Task "FindUnderPath"
+  Comparison path is "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain".
+Done executing task "FindUnderPath".
+Task "FindUnderPath"
+  Comparison path is "bin\Release\".
+Done executing task "FindUnderPath".
+Task "FindUnderPath"
+  Comparison path is "obj\Release\".
+Done executing task "FindUnderPath".
+Task "RemoveDuplicates"
+Done executing task "RemoveDuplicates".
+Done building target "_CleanGetCurrentAndPriorFileWrites" in project "PortKonnect.UserAccessManagement.Domain.csproj".
+Target "_CleanRecordFileWrites" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain\PortKonnect.UserAccessManagement.Domain.csproj" (target "CoreBuild" depends on it):
+Task "RemoveDuplicates"
+Done executing task "RemoveDuplicates".
+Task "MakeDir"
+Done executing task "MakeDir".
+Task "WriteLinesToFile"
+Done executing task "WriteLinesToFile".
+Done building target "_CleanRecordFileWrites" in project "PortKonnect.UserAccessManagement.Domain.csproj".
+Done Building Project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain\PortKonnect.UserAccessManagement.Domain.csproj" (default targets) -- FAILED.
+
+Overriding target "GetFrameworkPaths" in project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" with target "GetFrameworkPaths" from project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.NETFramework.targets".
+Overriding target "SatelliteDllsProjectOutputGroup" in project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" with target "SatelliteDllsProjectOutputGroup" from project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.WinFX.targets".
+Project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (1) is building "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj" (9) on node 1 (default targets).
+Building with tools version "4.0".
+Target "_CheckForInvalidConfigurationAndPlatform" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj" (entry point):
+Task "Error" skipped, due to false condition; ( '$(_InvalidConfigurationError)' == 'true' ) was evaluated as ( '' == 'true' ).
+Task "Warning" skipped, due to false condition; ( '$(_InvalidConfigurationWarning)' == 'true' ) was evaluated as ( '' == 'true' ).
+Task "Message"
+  Configuration=Release
+Done executing task "Message".
+Task "Message"
+  Platform=AnyCPU
+Done executing task "Message".
+Task "Error" skipped, due to false condition; ('$(OutDir)' != '' and !HasTrailingSlash('$(OutDir)')) was evaluated as ('bin\Release\' != '' and !HasTrailingSlash('bin\Release\')).
+Task "Error" skipped, due to false condition; ('$(BaseIntermediateOutputPath)' != '' and !HasTrailingSlash('$(BaseIntermediateOutputPath)')) was evaluated as ('obj\' != '' and !HasTrailingSlash('obj\')).
+Task "Error" skipped, due to false condition; ('$(IntermediateOutputPath)' != '' and !HasTrailingSlash('$(IntermediateOutputPath)')) was evaluated as ('obj\Release\' != '' and !HasTrailingSlash('obj\Release\')).
+Done building target "_CheckForInvalidConfigurationAndPlatform" in project "PortKonnect.UserAccessManagement.GlobalConstants.csproj".
+Target "EntityDeploy" skipped, due to false condition; ('@(EntityDeploy)' != '') was evaluated as ('' != '').
+Target "BeforeBuild" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj" (target "Build" depends on it):
+Done building target "BeforeBuild" in project "PortKonnect.UserAccessManagement.GlobalConstants.csproj".
+Target "BuildOnlySettings" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj" (target "CoreBuild" depends on it):
+Done building target "BuildOnlySettings" in project "PortKonnect.UserAccessManagement.GlobalConstants.csproj".
+Target "GetFrameworkPaths" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.NETFramework.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj" (target "PrepareForBuild" depends on it):
+Done building target "GetFrameworkPaths" in project "PortKonnect.UserAccessManagement.GlobalConstants.csproj".
+Target "GetWinFXPath" skipped, due to false condition; (('@(Page)' != '' or '@(ApplicationDefinition)' != '' or '@(Resource)' != '') and ('$(GetWinFXNativePath)' != '' or '$(GetWinFXWoWPath)' != '' )) was evaluated as (('' != '' or '' != '' or '' != '') and ('' != '' or '' != '' )).
+Target "GetReferenceAssemblyPaths" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj" (target "PrepareForBuild" depends on it):
+Task "GetReferenceAssemblyPaths"
+Done executing task "GetReferenceAssemblyPaths".
+Done building target "GetReferenceAssemblyPaths" in project "PortKonnect.UserAccessManagement.GlobalConstants.csproj".
+Target "PrepareForBuild" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj" (target "CoreBuild" depends on it):
+Task "FindAppConfigFile"
+Done executing task "FindAppConfigFile".
+Task "MakeDir"
+Done executing task "MakeDir".
+Done building target "PrepareForBuild" in project "PortKonnect.UserAccessManagement.GlobalConstants.csproj".
+Target "PreBuildEvent" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj" (target "CoreBuild" depends on it):
+Task "Exec"
+  DEL "*Undefined*CommonDlls\PortKonnect.UserAccessManagement.GlobalConstants.dll"
+  The filename, directory name, or volume label syntax is incorrect.
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets(1063,5): error MSB3073: The command "DEL "*Undefined*CommonDlls\PortKonnect.UserAccessManagement.GlobalConstants.dll"" exited with code 1. [E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj]
+Done executing task "Exec" -- FAILED.
+Done building target "PreBuildEvent" in project "PortKonnect.UserAccessManagement.GlobalConstants.csproj" -- FAILED.
+Target "_CheckForCompileOutputs" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj" (target "_CleanGetCurrentAndPriorFileWrites" depends on it):
+Done building target "_CheckForCompileOutputs" in project "PortKonnect.UserAccessManagement.GlobalConstants.csproj".
+Target "_SGenCheckForOutputs" skipped, due to false condition; ('$(_SGenGenerateSerializationAssembliesConfig)' == 'On' or ('@(WebReferenceUrl)'!='' and '$(_SGenGenerateSerializationAssembliesConfig)' == 'Auto')) was evaluated as ('Auto' == 'On' or (''!='' and 'Auto' == 'Auto')).
+Target "_CleanGetCurrentAndPriorFileWrites" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj" (target "_CleanRecordFileWrites" depends on it):
+Task "ReadLinesFromFile"
+Done executing task "ReadLinesFromFile".
+Task "ConvertToAbsolutePath"
+Done executing task "ConvertToAbsolutePath".
+Task "FindUnderPath"
+  Comparison path is "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants".
+Done executing task "FindUnderPath".
+Task "FindUnderPath"
+  Comparison path is "bin\Release\".
+Done executing task "FindUnderPath".
+Task "FindUnderPath"
+  Comparison path is "obj\Release\".
+Done executing task "FindUnderPath".
+Task "RemoveDuplicates"
+Done executing task "RemoveDuplicates".
+Done building target "_CleanGetCurrentAndPriorFileWrites" in project "PortKonnect.UserAccessManagement.GlobalConstants.csproj".
+Target "_CleanRecordFileWrites" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj" (target "CoreBuild" depends on it):
+Task "RemoveDuplicates"
+Done executing task "RemoveDuplicates".
+Task "MakeDir"
+Done executing task "MakeDir".
+Task "WriteLinesToFile"
+Done executing task "WriteLinesToFile".
+Done building target "_CleanRecordFileWrites" in project "PortKonnect.UserAccessManagement.GlobalConstants.csproj".
+Done Building Project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj" (default targets) -- FAILED.
+
+Overriding target "GetFrameworkPaths" in project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" with target "GetFrameworkPaths" from project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.NETFramework.targets".
+Overriding target "SatelliteDllsProjectOutputGroup" in project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" with target "SatelliteDllsProjectOutputGroup" from project "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.WinFX.targets".
+Project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (1) is building "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Repositories\PortKonnect.UserAccessManagement.Repositories.csproj" (10) on node 1 (default targets).
+Building with tools version "4.0".
+Target "_CheckForInvalidConfigurationAndPlatform" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Repositories\PortKonnect.UserAccessManagement.Repositories.csproj" (entry point):
+Task "Error" skipped, due to false condition; ( '$(_InvalidConfigurationError)' == 'true' ) was evaluated as ( '' == 'true' ).
+Task "Warning" skipped, due to false condition; ( '$(_InvalidConfigurationWarning)' == 'true' ) was evaluated as ( '' == 'true' ).
+Task "Message"
+  Configuration=Release
+Done executing task "Message".
+Task "Message"
+  Platform=AnyCPU
+Done executing task "Message".
+Task "Error" skipped, due to false condition; ('$(OutDir)' != '' and !HasTrailingSlash('$(OutDir)')) was evaluated as ('bin\Release\' != '' and !HasTrailingSlash('bin\Release\')).
+Task "Error" skipped, due to false condition; ('$(BaseIntermediateOutputPath)' != '' and !HasTrailingSlash('$(BaseIntermediateOutputPath)')) was evaluated as ('obj\' != '' and !HasTrailingSlash('obj\')).
+Task "Error" skipped, due to false condition; ('$(IntermediateOutputPath)' != '' and !HasTrailingSlash('$(IntermediateOutputPath)')) was evaluated as ('obj\Release\' != '' and !HasTrailingSlash('obj\Release\')).
+Done building target "_CheckForInvalidConfigurationAndPlatform" in project "PortKonnect.UserAccessManagement.Repositories.csproj".
+Target "EntityDeploy" skipped, due to false condition; ('@(EntityDeploy)' != '') was evaluated as ('' != '').
+Target "BeforeBuild" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Repositories\PortKonnect.UserAccessManagement.Repositories.csproj" (target "Build" depends on it):
+Done building target "BeforeBuild" in project "PortKonnect.UserAccessManagement.Repositories.csproj".
+Target "BuildOnlySettings" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Repositories\PortKonnect.UserAccessManagement.Repositories.csproj" (target "CoreBuild" depends on it):
+Done building target "BuildOnlySettings" in project "PortKonnect.UserAccessManagement.Repositories.csproj".
+Target "GetFrameworkPaths" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.NETFramework.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Repositories\PortKonnect.UserAccessManagement.Repositories.csproj" (target "PrepareForBuild" depends on it):
+Done building target "GetFrameworkPaths" in project "PortKonnect.UserAccessManagement.Repositories.csproj".
+Target "GetWinFXPath" skipped, due to false condition; (('@(Page)' != '' or '@(ApplicationDefinition)' != '' or '@(Resource)' != '') and ('$(GetWinFXNativePath)' != '' or '$(GetWinFXWoWPath)' != '' )) was evaluated as (('' != '' or '' != '' or '' != '') and ('' != '' or '' != '' )).
+Target "GetReferenceAssemblyPaths" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Repositories\PortKonnect.UserAccessManagement.Repositories.csproj" (target "PrepareForBuild" depends on it):
+Task "GetReferenceAssemblyPaths"
+Done executing task "GetReferenceAssemblyPaths".
+Done building target "GetReferenceAssemblyPaths" in project "PortKonnect.UserAccessManagement.Repositories.csproj".
+Target "EnsureNuGetPackageBuildImports" in project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Repositories\PortKonnect.UserAccessManagement.Repositories.csproj" (target "PrepareForBuild" depends on it):
+Task "Error"
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Repositories\PortKonnect.UserAccessManagement.Repositories.csproj(117,5): error : This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is ..\..\\.nuget\NuGet.targets.
+Done executing task "Error" -- FAILED.
+Done building target "EnsureNuGetPackageBuildImports" in project "PortKonnect.UserAccessManagement.Repositories.csproj" -- FAILED.
+Target "_CheckForCompileOutputs" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Repositories\PortKonnect.UserAccessManagement.Repositories.csproj" (target "_CleanGetCurrentAndPriorFileWrites" depends on it):
+Done building target "_CheckForCompileOutputs" in project "PortKonnect.UserAccessManagement.Repositories.csproj".
+Target "_SGenCheckForOutputs" skipped, due to false condition; ('$(_SGenGenerateSerializationAssembliesConfig)' == 'On' or ('@(WebReferenceUrl)'!='' and '$(_SGenGenerateSerializationAssembliesConfig)' == 'Auto')) was evaluated as ('Auto' == 'On' or (''!='' and 'Auto' == 'Auto')).
+Target "_CleanGetCurrentAndPriorFileWrites" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Repositories\PortKonnect.UserAccessManagement.Repositories.csproj" (target "_CleanRecordFileWrites" depends on it):
+Task "ReadLinesFromFile"
+Done executing task "ReadLinesFromFile".
+Task "ConvertToAbsolutePath"
+Done executing task "ConvertToAbsolutePath".
+Task "FindUnderPath"
+  Comparison path is "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Repositories".
+Done executing task "FindUnderPath".
+Task "FindUnderPath"
+  Comparison path is "bin\Release\".
+Done executing task "FindUnderPath".
+Task "FindUnderPath"
+  Comparison path is "obj\Release\".
+Done executing task "FindUnderPath".
+Task "RemoveDuplicates"
+Done executing task "RemoveDuplicates".
+Done building target "_CleanGetCurrentAndPriorFileWrites" in project "PortKonnect.UserAccessManagement.Repositories.csproj".
+Target "_CleanRecordFileWrites" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Repositories\PortKonnect.UserAccessManagement.Repositories.csproj" (target "CoreBuild" depends on it):
+Task "RemoveDuplicates"
+Done executing task "RemoveDuplicates".
+Task "MakeDir"
+Done executing task "MakeDir".
+Task "WriteLinesToFile"
+Done executing task "WriteLinesToFile".
+Done building target "_CleanRecordFileWrites" in project "PortKonnect.UserAccessManagement.Repositories.csproj".
+Done Building Project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Repositories\PortKonnect.UserAccessManagement.Repositories.csproj" (default targets) -- FAILED.
+
+Done executing task "MSBuild" -- FAILED.
+Done building target "ResolveProjectReferences" in project "PortKonnect.UserAccessManagement.WebApp.csproj" -- FAILED.
+Target "_CheckForCompileOutputs" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (target "_CleanGetCurrentAndPriorFileWrites" depends on it):
+Done building target "_CheckForCompileOutputs" in project "PortKonnect.UserAccessManagement.WebApp.csproj".
+Target "_SGenCheckForOutputs" skipped, due to false condition; ('$(_SGenGenerateSerializationAssembliesConfig)' == 'On' or ('@(WebReferenceUrl)'!='' and '$(_SGenGenerateSerializationAssembliesConfig)' == 'Auto')) was evaluated as ('Auto' == 'On' or (''!='' and 'Auto' == 'Auto')).
+Target "_CleanGetCurrentAndPriorFileWrites" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (target "_CleanRecordFileWrites" depends on it):
+Task "ReadLinesFromFile"
+Done executing task "ReadLinesFromFile".
+Task "ConvertToAbsolutePath"
+Done executing task "ConvertToAbsolutePath".
+Task "FindUnderPath"
+  Comparison path is "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp".
+Done executing task "FindUnderPath".
+Task "FindUnderPath"
+  Comparison path is "bin\".
+Done executing task "FindUnderPath".
+Task "FindUnderPath"
+  Comparison path is "obj\Release\".
+Done executing task "FindUnderPath".
+Task "RemoveDuplicates"
+Done executing task "RemoveDuplicates".
+Done building target "_CleanGetCurrentAndPriorFileWrites" in project "PortKonnect.UserAccessManagement.WebApp.csproj".
+Target "_CleanRecordFileWrites" in file "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets" from project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (target "CoreBuild" depends on it):
+Task "RemoveDuplicates"
+Done executing task "RemoveDuplicates".
+Task "MakeDir"
+Done executing task "MakeDir".
+Task "WriteLinesToFile"
+Done executing task "WriteLinesToFile".
+Done building target "_CleanRecordFileWrites" in project "PortKonnect.UserAccessManagement.WebApp.csproj".
+Done Building Project "E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (default targets) -- FAILED.
+
+
+Build FAILED.
+
+"E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (default target) (1) ->
+"E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.Common.Contracts\PortKonnect.Common.Contracts.csproj" (default target) (2) ->
+"E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj" (default target) (3) ->
+(PreBuildEvent target) -> 
+  C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets(1063,5): error MSB3073: The command "DEL "*Undefined*CommonDlls\PortKonnect.UserAccessManagement.Domain.DTOS.dll"" exited with code 1. [E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj]
+
+
+"E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (default target) (1) ->
+"E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.ApplicationServices\PortKonnect.UserAccessManagement.ApplicationServices.csproj" (default target) (4) ->
+(EnsureNuGetPackageBuildImports target) -> 
+  E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.ApplicationServices\PortKonnect.UserAccessManagement.ApplicationServices.csproj(165,5): error : This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is ..\..\\.nuget\NuGet.targets.
+
+
+"E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (default target) (1) ->
+"E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.DataServcies\PortKonnect.UserAccessManagement.DataServcies.csproj" (default target) (5) ->
+  E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.DataServcies\PortKonnect.UserAccessManagement.DataServcies.csproj(113,5): error : This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is ..\..\\.nuget\NuGet.targets.
+
+
+"E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (default target) (1) ->
+"E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj" (default target) (6) ->
+(PreBuildEvent target) -> 
+  C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets(1063,5): error MSB3073: The command "DEL "..\CommonDlls\PortKonnect.UserAccessManagement.Data.dll"" exited with code 1. [E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Data\PortKonnect.UserAccessManagement.Data.csproj]
+
+
+"E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (default target) (1) ->
+"E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain\PortKonnect.UserAccessManagement.Domain.csproj" (default target) (8) ->
+  C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets(1063,5): error MSB3073: The command "DEL "*Undefined*CommonDlls\PortKonnect.UserAccessManagement.Domain.dll"" exited with code 1. [E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain\PortKonnect.UserAccessManagement.Domain.csproj]
+
+
+"E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (default target) (1) ->
+"E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj" (default target) (9) ->
+  C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets(1063,5): error MSB3073: The command "DEL "*Undefined*CommonDlls\PortKonnect.UserAccessManagement.GlobalConstants.dll"" exited with code 1. [E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj]
+
+
+"E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.WebApp\PortKonnect.UserAccessManagement.WebApp.csproj" (default target) (1) ->
+"E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Repositories\PortKonnect.UserAccessManagement.Repositories.csproj" (default target) (10) ->
+(EnsureNuGetPackageBuildImports target) -> 
+  E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Repositories\PortKonnect.UserAccessManagement.Repositories.csproj(117,5): error : This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is ..\..\\.nuget\NuGet.targets.
+
+    0 Warning(s)
+    7 Error(s)
+
+Time Elapsed 00:00:00.94

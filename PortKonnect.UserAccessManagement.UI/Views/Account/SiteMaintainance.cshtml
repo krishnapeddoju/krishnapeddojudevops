@@ -1,0 +1,111 @@
+﻿@using PortKonnect.UserAccessManagement.UI;
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";    
+}
+ 
+@section scripts
+{
+
+   <script src="~/Scripts/Application/UAM/Model/UserModel.js"></script>
+   <script src="~/Scripts/Application/UAM/ViewModel/UserViewModel.js"></script> 
+
+    <script src="~/Scripts/Application/CustomisedControls.js"></script>      
+    <script src="~/Scripts/Application/Model/ModuleModel.js"></script>  
+    <script src="~/Scripts/Application/ViewModel/ModuleViewModel.js"></script>    
+      
+    <script src="~/Scripts/Application/Model/NotificationsModel.js"></script>
+    <script src="~/Scripts/Application/ViewModel/NotificationsViewModel.js"></script>  
+
+
+
+}
+
+@section ko_apply
+{ 
+   var viewModel = new eGateRoot.UserViewModel(application);
+  ko.applyBindingsWithValidation(viewModel, $("#accountlogin")[0], { insertMessages: false, messagesOnModified: false, grouping: { deep: true }});
+}
+   
+<script> var ParentUrl = '' </script>
+<style>
+    #classadd .backstretch img {display:none !important;}
+</style>
+
+<body>
+    <div style="background: #FFF; display: block"></div>
+
+    <header class="header navbar navbar-inverse navbar-fixed-top">
+        <div style="padding: 0px">
+            <div class="header-inner">
+                <span class="name" style="padding-left: 0px; margin-top: -5px;"><img src="~/Content/Images/eGate-HeaderLogo.png" style="vertical-align: bottom;"></span>
+            </div>
+        </div>
+    </header>
+    <script id="customMessageTemplate" type="text/html">
+        <span class="validationError" data-bind='validationMessage: field'></span>
+    </script>
+
+
+        <div class="row">
+           <div class="down-alert">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-body" style="">
+							<i class="fa fa-cog fa-spin fa-3x fa-fw " aria-hidden="true"></i>
+                            <h4>e-Xpressway application is</h4>
+                            <h2>under maintanance till 4 pm</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
+
+   
+    <script>
+        eGateRoot.rootPath = '@Url.Content("~")';
+        var application = {viewbag : @Helpers.ToJson(Html, ViewBag)};
+
+        $('.register-form input').keypress(function (e) {
+            if (e.which == 13) {
+                if ($('.register-form').validate().form()) {
+                    $('.register-form').submit();
+                }
+                return false;
+            }
+        });
+
+        $('.forget-form input').keypress(function (e) {
+            if (e.which == 13) {
+                if ($('.forget-form').validate().form()) {
+                    $('.forget-form').submit();
+                }
+                return false;
+            }
+        });
+
+        jQuery('#forget-password').click(function () {
+            jQuery('.login-form').hide();
+            jQuery('.forget-form').show();
+        });
+
+        jQuery('#back-btn').click(function () {
+            jQuery('.login-form').show();
+            jQuery('.forget-form').hide();
+        });
+
+
+        jQuery(document).ready(function () { 
+            Login.init();
+        });
+
+    	
+      
+
+
+    </script>
+    
+
+
+</body>
+</html>
+

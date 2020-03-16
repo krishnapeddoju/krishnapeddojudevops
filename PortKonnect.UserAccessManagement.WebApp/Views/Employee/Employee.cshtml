@@ -1,0 +1,260 @@
+﻿@section scripts
+{
+  
+    <script src="~/Scripts/Application/UAM/Model/EmployeeModel.js"></script>
+    <script src="~/Scripts/Application/UAM/ViewModel/EmployeeViewModel.js"></script>
+
+}
+
+@section ko_apply
+{
+    var viewModel = new eGateRoot.EmployeeViewModel("@ViewBag.empId");
+    ko.applyBindingsWithValidation(viewModel, $("#Employee")[0], { insertMessages: false, messagesOnModified: false, grouping: { deep: true }});
+}
+<style>
+    .demo-section .k-checkbox:checked + .k-checkbox-label:before {
+        background-color: #032F52 !important;
+        border-color: #032F52 !important;
+        color: #fff !important;
+    }
+
+    .demo-section .k-state-hover:hover {
+        color: #444;
+        background-color: #F1F6FA !important;
+        border-color: #F1F6FA !important;
+        font-weight: bold;
+    }
+
+    .demo-section .k-state-focused {
+        color: #444;
+        background-color: #F1F6FA !important;
+        border-color: #F1F6FA !important;
+        font-weight: bold;
+    }
+
+    .demo-section .k-checkbox:indeterminate + .k-checkbox-label:before {
+        border-color: #ccc !important;
+    }
+
+    .demo-section .k-checkbox:indeterminate + .k-checkbox-label:before {
+        border-width: 3px !important;
+    }
+
+    .demo-section .k-checkbox:indeterminate + .k-checkbox-label:after {
+        background-color: #3687C8 !important;
+        background-image: none;
+        border-color: #3687C8 !important;
+        border-radius: 0;
+    }
+
+    .demo-section .k-state-selected {
+        color: #f00 !important;
+        font-weight: bold;
+    }
+
+    .demo-section input.k-checkbox + label {
+        margin-top: -9px;
+    }
+
+    .k-button {
+        text-transform: none !important;
+    }
+</style>
+
+<!-- BEGIN CONTENT -->
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="page-title"><span id="spnTitle"></span></h3>
+        <ul class="page-breadcrumb breadcrumb"></ul>
+    </div>
+</div>
+
+<div id="Employee">
+    <div data-bind="visible: viewMode() == 'Form', template: { name: 'Employee-template' }"></div>
+</div>
+<div class="clearfix"></div>
+
+<div class="portlet-body">
+    <div class="table-toolbar">
+        <script type="text/html" id="Employee-template">
+            <div class="portlet portlet-body form" data-bind="loadingWhen: $root.viewModelHelper.isLoading">
+                <div class="form-wizard">
+                    <div class="form-body form-horizontal" data-bind="with: employeeModel">
+                        <div class="tab-pane active" id="tab1">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-11"></div>
+                                </div>
+                                <fieldset>
+                                    <legend>Employee</legend>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-6">Department :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input id="ddDepartment" data-bind="kendoDropDownList: { data: $parent.DepartmentsList, value: Department, dataTextField: 'SubCatName', dataValueField: 'SubCatCode', enabled: $parent.IsSubCodeEnable, optionLabel: 'Select...' } " />
+                                                    <span class="validationError" data-bind="validationMessage: Department"></span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-6">Designation :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input id="ddDesignation" data-bind="kendoDropDownList: { data: $parent.DesignationsList, value: Designation, dataTextField: 'SubCatName', dataValueField: 'SubCatCode', enabled: $parent.IsSubCodeEnable, optionLabel: 'Select...' }" />
+                                                    <span class="validationError" data-bind="validationMessage: Designation"></span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-6">First Name :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input id="FirstName" type="text" style="text-transform: capitalize;" class="form-control" data-bind="value: FirstName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpacesChange }, enable: $root.IsEmployeeEnable" name="FirstName" maxlength="50" />
+                                                    <span class="validationError" data-bind="validationMessage: FirstName"></span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-6">Last Name :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input id="LastName" type="text" style="text-transform: capitalize;" class="form-control" data-bind="value: LastName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpacesChange  }, enable: $root.IsEmployeeEnable" name="LastName" maxlength="50" />
+                                                    <span class="validationError" data-bind="validationMessage: LastName"></span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-6">Employee No. :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input id="EmployeeNo" type="text" autofocus="autofocus" data-bind="value: EmployeeNo, enable: $root.IsEmployeeCodeEnable, event: { keypress: $root.validationHelper.ValidateAlphaNumeric }" maxlength="10" class="form-control" name="EmployeeNo" />
+                                                    <span class="validationError" data-bind="validationMessage: EmployeeNo"></span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-6">Official Mobile No. :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input id="OfficialMobileNo" type="text" class="form-control" data-bind="value: OfficialMobileNo, event: { keypress: $root.validationHelper.ValidateNumericChange }, enable: $root.IsEmployeeEnable" name="OfficialMobileNo" maxlength="17" />
+                                                    <span class="validationError" data-bind="validationMessage: OfficialMobileNo"></span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-6">Birth Date :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input id="BirthDate" type="text" class="form-control date-picker" onkeypress="return false;" onkeydown="PreventBackSpace();" data-bind="kendoDatePicker: { value: BirthDate, format: 'dd-MM-yyyy', open: calmaxtoday18, month: { empty: '<span class=k-state-disabled>#= data.value #</span>' } }, enable: $root.IsEmployeeEnable, event: { keypress: $root.validationHelper.ValidateNumericChange }" name="BirthDate" maxlength="10" />
+                                                    <span class="validationError" data-bind="validationMessage: BirthDate"></span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-6">Personal Mobile No. :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input id="PersonalMobileNo" type="text" class="form-control" data-bind="value: PersonalMobileNo, event: { keypress: $root.validationHelper.ValidateNumericChange }, enable: $root.IsEmployeeEnable" name="PersonalMobileNo" maxlength="17" />
+                                                    <span class="validationError" data-bind="validationMessage: PersonalMobileNo"></span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-6">Date of Joining :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input id="JoiningDate" type="text" class="form-control date-picker" onkeypress="return false;" onkeydown="PreventBackSpace();" data-bind="kendoDatePicker: { value: JoiningDate, format: 'dd-MM-yyyy', open: calmaxtoday, month: { empty: '<span class=k-state-disabled>#= data.value #</span>' } }, enable: $root.IsEmployeeEnable, event: { keypress: $root.validationHelper.ValidateNumericChange }" name="JoiningDate" maxlength="10" />
+                                                    <span class="validationError" data-bind="validationMessage: JoiningDate"></span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-6">Email Address :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input id="EmailID" name="" onchange="validateEmailId()" type="text" class="form-control" data-bind="value: EmailID, event: { keypress: $root.validationHelper.ValidateAlphaNumericChange }, enable: $root.IsEmployeeEnable" maxlength="60" />
+                                                    <span class="validationError" id="validationEmailId"></span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-6">License Capability :</label>
+                                                <div class="col-md-6">
+                                                    <input id="LicenseCapability" type="number" autofocus="autofocus" maxlength="8" class="form-control" name="LicenseCapability" data-bind="value: LicenseCapability, enable: true, event: { keypress: $root.validationHelper.ValidateNumeric }" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-6">Gender :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <div class="radio-list">
+                                                        <input type="radio" name="Gender" value="GENM" data-bind="checked: Gender, enable: $root.IsEmployeeEnable">
+                                                        <label class="radio-inline">Male</label>
+                                                        <input name="Gender" type="radio" value="GENF" data-bind="checked: Gender, enable: $root.IsEmployeeEnable">
+                                                        <label class="radio-inline">Female</label>
+                                                        <span id="spangender" class="validationError"></span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-6">Status :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <div class="radio-list">
+                                                        <input type="radio" name="Status" value="A" data-bind="checked: RecordStatus, enable: $root.IsEmployeeEnable">
+                                                        <label class="radio-inline">Active</label>
+                                                        <input name="Status" type="radio" value="I" data-bind="checked: RecordStatus, enable: $root.IsEmployeeEnable">
+                                                        <label class="radio-inline">Inactive</label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+                                <div class="btns-group form-actions fluid">
+                                    <input type="button" value="Save" class="btn green" data-bind="click: $root.SaveEmployee, visible: $root.IsSave" />
+                                    <input type="button" value="Update" class="btn green" data-bind="click: $root.UpdateEmployee, visible: $root.IsUpdate" />
+                                    <button type="submit" class="btn blue" data-bind="click: $root.ResetEmployee">Reset</button>
+                                    <button type="submit" class="btn default button-previous" data-bind="click: $root.ExitScreen"><i class="m-icon-swapleft"></i>Back</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </script>
+    </div>
+</div>
+
+
+

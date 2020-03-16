@@ -1,0 +1,287 @@
+﻿@{    
+    ViewBag.Title = "Pending Partner Registration";
+    var userRole = ViewBag.UserRole;
+    Layout = "~/Views/Shared/_eGateLayout.cshtml";
+}
+
+@section scripts
+{
+    <script src="~/Scripts/Application/UAM/Model/PendingPartnerRegistrationModel.js"></script>
+    <script src="~/Scripts/Application/UAM/ViewModel/PendingPartnerRegistrationViewModel.js"></script>
+}
+
+@section ko_apply
+{
+    var viewModel = new eGateRoot.PendingPartnerRegistrationViewModel('@userRole');
+ko.applyBindingsWithValidation(viewModel, $("#PendingRegistration")[0], { insertMessages: false, messagesOnModified: false, grouping: { deep: true }});
+}
+<style>
+    .k-grid-header .k-header {
+        white-space: nowrap;
+        line-height: 15px;
+    }
+
+    .k-upload-status .k-upload-status-total {
+        visibility: hidden;
+        display: none;
+    }
+
+    .k-icon .k-i-tick {
+        visibility: hidden;
+        display: none;
+    }
+
+    .k-dropzone strong {
+        display: none;
+    }
+     
+    .modal-dialog1 {        
+        width: 500px !important;
+    }
+</style>
+
+<!-- BEGIN CONTENT -->
+<div class="clearfix"></div>
+
+
+<div class="portlet-body">
+    <div class="table-toolbar" id="PendingRegistration">
+
+        <div class="portlet box advbg">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-search" aria-hidden="true"></i>Advance Search
+                </div>
+                <div class="tools">
+                    <a href="javascript:;" class="expand"></a>
+                </div>
+            </div>
+            <div class="portlet-body" data-bind="with: $root.AdvanceSearch" style="display: none;">
+                <div class="form-wizard form-horizontal">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Partner Name:</label>
+                                    <div class="col-md-6">
+                                        <input class="form-control" data-bind="value: PartnerName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces }" id="PartnerName" maxlength="50" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">PartnerType:</label>
+                                    <div class="col-md-6">
+                                        <select class="form-control" name="PartnerType" data-bind="options: $root.PartnerTypeVals, optionsText: 'name', optionsValue: 'val', value: PartnerType"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Status:</label>
+                                    <div class="col-md-6">
+                                        <select class="form-control" name="" data-bind="options: ['All','New', 'Verified', 'Rejected At Verification', 'Approved', 'Rejected'], value: WFStatus"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                            </div>
+                            <div class="col-md-4">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4"></label>
+                                    <div class="col-md-6">
+                                        <button class="btn btn-xs green" data-bind="click: $root.FilterPartnerRegistrations" type="submit">Search</button>
+                                        <button class="btn btn-xs blue" id="btnReset" data-bind="click: $root.ResetAdvanceSearchFilters" type="submit">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-body form-horizontal " data-bind='with: PendingPartnerRegistrationModel'>
+                <div id="tableheader">
+                </div>
+                <div data-bind="loadingWhen: $root.viewModelHelper.isLoading">
+                    <div id="Grid" data-bind="kendoGrid: {
+	data: $root.PendingRegistrationList,
+	groupable: false,
+	sortable: true,
+	scrollable: true,
+	filterable: {
+		extra: false, operators: {
+			string: {
+				startswith: 'Starts with',
+				eq: 'Is equal to',
+				neq: 'Is not equal to', contains: 'Contains', doesnotcontain: 'Does not Contain'
+			},
+			number: { eq: 'Is equal to' }
+		}
+	},
+	rowTemplate: 'rowTmpl',
+	useKOTemplates: true,
+	columns: [{ title: 'Actions', filterable: false, width: 90 },
+        { field: 'RequisitionNoSort', width: 150, title: 'Request No.', filterable: true },
+        { field: 'PartnerTypeSort', width: 150, title: 'Partner Type', filterable: true },
+        { field: 'PartnerNameSort', width: 150, title: 'Establishment Name', filterable: true, sortable: true },
+         { field: 'RequestedDateSort', width: 150, title: 'Requested Date', filterable: false, sortable: true },
+                         { field: 'StatusDisplaySort', width: 150, title: 'Status', filterable: true, sortable: true }
+	]
+}">
+	    </div>
+	    <script id="rowTmpl" type="text/html">
+	    <tr>
+	        <td align="center">
+	            <a href="#" id="btnView" data-bind="click: $root.ViewForm" title="View Pending Partner Registration" class="afterapproval"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;
+	            <span data-bind="visible: ((WFStatus() == 'New' && '@userRole' == 'ACC') || ('@userRole' == 'TerminalOperator'))" >          
+                                        <a href="#" title="Edit Pending Partner Registration" data-bind="click: $root.EditForm"><i class="fa fa-edit"></i></a>
+                                </span> 
+	            <span data-bind="visible: ((WFStatus() != 'New' && '@userRole' == 'ACC'))" >          
+                                        <a title="Edit Pending Partner Registration"><i class="fa fa-edit" style="color: #f3c398;"></i></a>
+
+                                </span>
+                                <span data-bind="visible: ('@userRole' == 'TerminalOperator' && WFStatus()=='Verified')">
+                                    <a href="#" id="btnApprove" data-target="#rejectBulk" data-toggle="modal" data-bind="click: $root.ShowContainersPopup" title="Approve Pending Partner Registration"><i class="fa fa-thumbs-up" aria-hidden="true" style="color: green;"></i></a>&nbsp;&nbsp;
+                                        <a href="#" id="btnReject" data-target="#rejectBulk" data-toggle="modal" data-bind="click: $root.ShowContainersPopup" title="Reject Pending Partner Registration"><i class="fa fa-times red" style="color: red;"></i></a>
+                                </span>
+                                <span data-bind="visible: ('@userRole' == 'TerminalOperator' && WFStatus()!='Verified')">
+                                    <a title="Approve Pending Partner Registration"><i class="fa fa-thumbs-up" aria-hidden="true"  style="color: #a8fca8;"></i></a>&nbsp;&nbsp;
+                                        <a title="Reject Pending Partner Registration"><i class="fa fa-times red" style="color: #f8aeae;"></i></a>
+                                </span>
+                                <span data-bind="visible: ('@userRole' == 'ACC' && WFStatus()=='New')">
+                                    <a href="#" id="btnVerify" data-target="#rejectBulk" data-toggle="modal" data-bind="click: $root.ShowContainersPopup" title="Verify Pending Partner Registration"><i class="fa fa-check green" style="color: green;"></i></a>&nbsp;&nbsp;
+                                        <a href="#" id="btnRejectVerification" data-target="#rejectBulk" data-toggle="modal" data-bind="click: $root.ShowContainersPopup" title="Reject Pending Partner Registration"><i class="fa fa-times red" style="color: red;"></i></a>
+                                </span>
+                                <span data-bind="visible: ('@userRole' == 'ACC' && WFStatus()!='New')">
+                                    <a title="Verify Pending Partner Registration"><i class="fa fa-check green" style="color: #a8fca8;"></i></a>&nbsp;&nbsp;
+                                        <a title="Reject Pending Partner Registration"><i class="fa fa-times red" style="color: #f8aeae;"></i></a>
+                                </span>
+                            </td>
+                            <td align="center">
+                                <span data-bind="text: RequisitionNo, attr: { title: RequisitionNo }"></span>
+                            </td>
+                            <td align="center">
+                                <span data-bind="text: PartnerTypeDisplay, attr: { title: PartnerType }"></span>
+                            </td>
+                            <td align="center">
+                                <span data-bind="text: PartnerName, attr: { title: PartnerName }"></span>
+                            </td>
+                            <td align="center">
+                                <span data-bind="text: RequestedDate, attr: { title: RequestedDate }"></span>
+                            </td>
+                            <td align="center">
+                                <span data-bind="text: StatusDisplay, attr: { title: StatusDisplay }"></span>
+                            </td>
+                        </tr>
+                    </script>
+
+                    <div id="rejectBulk" class="modal fade" tabindex="-1">
+                        <div class="modal-dialog1" id="stk">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <button type="button" class="close" id="rejectBulkClose" data-dismiss="modal" data-bind="visible: false"></button>
+                                    <div class="form-wizard">
+                                        <div class="col-md-12 form-group">
+                                            <h3 id="lblMainHeading" style="border-bottom: 2px solid #ccc; margin-top: 1px; padding-bottom: 5px;"></h3>
+                                        </div>
+                                        <div data-always-visible="1" data-rail-visible1="1">
+                                            <div class="form-group">
+                                                <label id="lblRejectsContainer"></label>
+                                            </div>
+                                            <div data-bind="visible: $root.IsRemarksVisible">
+                                                <fieldset>
+                                                    <form action="#" id="form_sample_2" class="form-horizontal">
+
+                                                        <div class="row" data-bind="if: $root.IsReject">
+                                                            <div class="form-group">
+                                                                <label id="lblheadingReject" class="col-md-4 control-label">Reason For Reject:<span class="required" style="color: red">*</span></label>
+                                                                <div class="col-md-8">
+                                                                    <textarea rows="4" class="form-control" onchange=" HandleValidateRejectRemarks(this); " id="txtAreaRejectsRemarks" style="resize: none; width: 100%; border: 1px solid #ccc;" data-bind="value: $root.Remarks, visible: $root.IsReject" maxlength="500"></textarea>
+                                                                    <span id="spanReject" class="validationError"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row" data-bind="if: $root.IsApprove">
+                                                            <div class="form-group">
+                                                                <label id="lblheadingApprove" class="col-md-6 control-label">Partner Code:<span class="required" style="color: red">*</span></label>
+                                                                <div class="col-md-6">
+                                                                    <input type="text" class="form-control" onchange=" HandleValidateRejectRemarks(this); " id="txtAreaPartnerCode" style="resize: none; width: 100%; border: 1px solid #ccc;" data-bind="value: $root.PartnerCode, visible: $root.IsApprove, event: { keypress: $root.validationHelper.ValidateAlphaNumeric, change: $root.DupliacteValidation }" maxlength="25" />
+                                                                    <span id="spanApprove" class="validationError"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row" data-bind="if: $root.IsApprove">
+                                                            <div class="form-group">
+                                                                <label id="lblheading1" class="col-md-6 control-label">User Name:<span class="required" style="color: red">*</span></label>
+                                                                <div class="col-md-6">
+                                                                    <input class="form-control" type="text" onchange=" HandleValidateRejectRemarks(this); " id="txtAreaUserName" style="resize: none;" data-bind="value: $root.UserName, visible: $root.IsApprove, event: { keypress: $root.validationHelper.ValidateAlphaNumeric, change: $root.validateUserName }" maxlength="30" />
+                                                                    <span id="spanUserName" class="validationError"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row" data-bind="if: $root.IsApprove">
+                                                            <div class="form-group">
+                                                                <label id="lblheading2" class="col-md-6 control-label">First Name:<span class="required" style="color: red">*</span></label>
+                                                                <div class="col-md-6">
+                                                                    <input type="text" class="form-control" onchange="changeFirstname(this);" id="txtAreaFirstName" style="resize: none; width: 100%; border: 1px solid #ccc;" data-bind="value: $root.FirstName, visible: $root.IsApprove, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }" maxlength="50" />
+                                                                    <span id="spanFirstName" class="validationError"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row" data-bind="if: $root.IsApprove">
+                                                            <div class="form-group">
+                                                                <label id="lblheading3" class="col-md-6 control-label">Last Name:<span class="required" style="color: red">*</span></label>
+                                                                <div class="col-md-6">
+                                                                    <input type="text" class="form-control" onchange=" changeLastname(this);" id="txtAreaLastName" style="resize: none; width: 100%; border: 1px solid #ccc;" data-bind="value: $root.LastName, visible: $root.IsApprove, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }" maxlength="50" />
+                                                                    <span id="spanLastName" class="validationError"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" data-bind="if: $root.IsApprove">
+                                                            <div class="form-group">
+                                                                <label id="lblheading4" class="col-md-6 control-label">Roles:<span class="required" style="color: red">*</span></label>
+                                                                <div class="col-md-6">
+
+                                                                    <input class="displaytxt col-md-12" id="userPort" onchange="validateRole(this);" data-bind="kendoMultiSelect: { dataTextField: 'RoleName', dataValueField: 'RoleId', data: $parent.Roles, value: UserRoleArray }" />
+
+                                                                    <span id="spnrole" style="margin: 15px -0px 0px 0px" class="validationError"></span>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </fieldset>
+                                            </div>
+
+
+
+                                        </div>
+                                        <div class="btns-group fluid " data-bind="loadingWhen: $root.viewModelHelper.isLoading">
+                                            <button type="submit" class="btn green" data-bind="click: $parent.RejectsForm, visible: $root.IsReject" value="POST VAL">Yes</button>
+                                            <button type="submit" class="btn green" data-bind="click: $parent.ApproveForm, visible: $root.IsApprove" value="POST VAL">Save</button>
+                                            <button type="submit" class="btn green" data-bind="click: $parent.VerifyForm, visible: $root.IsVerify" value="POST VAL">Yes</button>
+                                            <button id="btnPopUpNo" type="submit" class="btn red" data-bind="click: $parent.closeRejectBulkPopup,text:($root.IsVerify()?'No':'No')"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">&nbsp;</div>
+
+            </div>
+        </div>
+    </div>
+</div>

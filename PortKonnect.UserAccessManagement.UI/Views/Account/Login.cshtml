@@ -1,0 +1,266 @@
+﻿@using PortKonnect.UserAccessManagement.UI;
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";    
+}
+ 
+@section scripts
+{
+
+   <script src="~/Scripts/Application/UAM/Model/UserModel.js"></script>
+   <script src="~/Scripts/Application/UAM/ViewModel/UserViewModel.js"></script> 
+
+    <script src="~/Scripts/Application/CustomisedControls.js"></script>      
+    <script src="~/Scripts/Application/Model/ModuleModel.js"></script>  
+    <script src="~/Scripts/Application/ViewModel/ModuleViewModel.js"></script>    
+      
+    <script src="~/Scripts/Application/Model/NotificationsModel.js"></script>
+    <script src="~/Scripts/Application/ViewModel/NotificationsViewModel.js"></script>  
+
+
+
+}
+
+@section ko_apply
+{ 
+   var viewModel = new eGateRoot.UserViewModel(application);
+  ko.applyBindingsWithValidation(viewModel, $("#accountlogin")[0], { insertMessages: false, messagesOnModified: false, grouping: { deep: true }});
+}
+   
+<script> var ParentUrl = '' </script>
+
+<body>
+    <div style="background: #FFF; display: block"></div>
+
+    <header class="header navbar navbar-inverse navbar-fixed-top">
+        <div style="padding: 0px">
+            <div class="header-inner">
+                <span class="name" style="padding-left: 0px; margin-top: -5px;"><img src="~/Content/Images/eGate-HeaderLogo.png" style="vertical-align: bottom;"></span>
+                <ul class="nav navbar-nav pull-right">
+
+                    @*<li class="dropdown" id="header_notification_bar">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <i class="fa fa-home"></i>Home
+                        </a>
+                    </li>*@
+                    <li class="dropdown" id="profileDropDown" style="display: none;">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" onclick="onclickDropDown()">
+                            <i class="fa fa-compass" ></i>About Us</a>
+                        <ul class="dropdown-menu extended inbox">
+                            <li>
+                                <p><b>About KPCT</b></p>
+                            </li>
+                            <li>
+                                <ul class="dropdown-menu-list scroller" style="height: 250px; padding: 10px; ">
+                                    <li><b>Krishnapatnam Port Container Terminal</b></li>
+                                    <li>Considering India’s growing maritime trade in the world market with unprecedented growth in containerized trade and bulk commodities, Krishnapatnam Port is building a world-class container terminal with outstanding services, facilities and state-of-art infrastructure. It will connect demand with supply, industry with port, rail and road with port and capital with business making Indian exporters and importers globally competitive.</li>
+<li>&nbsp;</li>
+<li>One of India’s largest and fastest growing seaports, Krishnapatnam Port has emerged as a world-class port with outstanding services and facilities. It is fast becoming a port of choice for all international cargo originating from and destined to the Southern and Central India.</li>
+<li>&nbsp;</li>
+<li>Krishnapatnam Port Company has won the mandate from the Govt. of Andhra Pradesh to develop the existing minor port into a modern, deep water & high productivity port, on BOST basis for 50 years. The port is being built in three phases and currently the second phase of development is underway. Port has numerous strengths like its area, location, weather and new generation world class port facilities; it will soon be poised to become one of the biggest ports in the world and the Largest port in India.</li>
+  <li>&nbsp;</li>                                  
+
+                                </ul>
+                            </li>
+                            <li>&nbsp;</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="profileDropDown" style="display: none;">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" onclick="onclickDropDown()">
+                            <i class="fa fa-phone" aria-hidden="true"></i>Contact Us &nbsp; &nbsp;</a>
+                        <ul class="dropdown-menu extended inbox" style="width:300px !important;">
+                            <li>
+                                <p style="background-color:#032f52;"><b>KPCT Customer Service</b></p>
+                            </li>
+                            <li>
+                                <ul class="dropdown-menu-list scroller" style="height: 160px; padding: 10px; ">
+                                    <li style="color:#2FA1DB;"><b>Krishnapatnam Port Container Terminal</b></li>
+                                    <li></li>
+<span style="font-size:11px;"><li>P.O Bag No.1, Muthukur Mandal,</li>
+<li>SPSR Nellore District,</li>
+<li>Andhra Pradesh – 524 344, INDIA</li></span>
+<li><b>Customer Service – 24 x 7:</b></li>
+<span style="font-size:11px;"><li>Tel: +91 80086 12345, Fax: +91-0861-237 7046</li>
+<li>E Mail: <a href="mailto:cs.kpct@krishnapatnam.com"  >cs.kpct@krishnapatnamport.com</a></li>
+
+
+<li>URL: <a href="http://www.krishnapatnam.com" target="_blank" >www.krishnapatnamport.com</a></li>
+</span>
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <script id="customMessageTemplate" type="text/html">
+        <span class="validationError" data-bind='validationMessage: field'></span>
+    </script>
+   @* <div class="row">
+                        <a  data-toggle="modal" href="#downtime" style="color:#f00;">Down Time Alert</a>
+
+                        <div class="modal fade  down-alert" id="downtime" tabindex="-1" role="basic" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+										
+										</div>
+										<div class="modal-body">
+											 <i class="fa fa-exclamation-triangle faa-flash animated" aria-hidden="true"></i>
+                                                <h4> e-Xpressway application is going to down with in 4 hours</h4>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+
+                    </div>*@
+
+    <section class="login" id="accountlogin">
+        <article class="content">
+            <div class="form-wizard" data-bind='validationOptions: { messageTemplate: "customMessageTemplate" }'>
+                <div class="login-form">
+                    <form data-bind="with: accountModel">
+                        <div style="margin-top: 25px; margin-bottom: 25px;">
+                            <div align="center">
+                                <img src="~/Content/Images/eGate-Logo.png">
+                            </div>
+                        </div>
+                        @*<h3 class="form-title">Welcome to e-Xpressway</h3>*@
+                        <p>Please enter username &amp; password to login</p>
+                        <div class="alert alert-danger display-hide">
+                            <button class="close" data-close="alert"></button>
+                            <span>Enter any username and password.
+                            </span>
+                        </div>
+
+                        <div class="form-group" id="MyForm">
+                            <label class="control-label visible-ie8 visible-ie9">Username</label><span id="cusername" hidden="hidden">@ViewBag.UserName</span>
+                            <div class="input-icon">
+                                <i class="fa fa-user"></i>
+                                <input id="txtusername" class="form-control placeholder-no-fix" style="height: 30px;" type="text" autocomplete="off" placeholder="Username" name="username" data-bind="value: userName"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label visible-ie8 visible-ie9">Password</label><span id="cpwd" hidden="hidden">@ViewBag.Password</span>
+                            <div class="input-icon">
+                                <i class="fa fa-lock"></i>
+                                <input id="txtpwd" class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" data-bind="value: password, enterkey: checkLogindet"/>
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                            <br>
+                        </div>
+                        <div class="form-actions rem">
+                           <label class="checkbox">
+                                <input type="checkbox" id="chkRemember" data-bind="checked: RememberMe"/>
+                                Remember me
+                            </label>
+
+                            <button type="submit" class="btn green pull-right" id="btnLogin" data-bind="click: checkLogindet" style="margin-right: 0;" >
+                                Login <i class="m-icon-swapright m-icon-white"></i>
+                            </button>
+                            <span id="spanReturnUrl" hidden="hidden">@ViewBag.ReturnUrl</span>
+                        </div>
+                    </form>
+                    <div id="loader" class="loading-loader" style="position: relative; display: none; margin-left: 90px; margin-top: -80px;"></div>
+                    <div class="forget-password">
+                        <a href="javascript:;" id="forget-password"><span class="fa fa-arrow-circle-right">&nbsp; </span>Forgot password?</a>
+                    </div>
+                    <div class="login-pen-reg" data-bind="visible:$root.LinkVisible">
+                    <div class="login-heading" data-bind="visible:$root.LinkVisible">Partner Registation</div>
+                    <ul>
+                        <li  data-bind="visible:$root.LinkVisible"><a href="/PartnerRegistration"><span class="fa fa-arrow-circle-right">&nbsp; </span>New Registration  @*<i class="fa fa-angle-double-right" aria-hidden="true"></i>*@</a></li>
+                        <li  data-bind="visible:$root.LinkVisible"><a href="/PartnerRegistrationEdit"><span class="fa fa-arrow-circle-right">&nbsp; </span>Update Registration  @*<i class="fa fa-angle-double-right" aria-hidden="true"></i>*@</a></li>
+                    </ul>
+                    </div>
+                    
+
+                    <div class="row newsCss" style="width: 100%; text-align: center;"><a href="http://www.krishnapatnam.com/container-terminal.html" target="_blank" style="display: none;">
+                        <img src="~/Content/Images/kpct-print-logo-medium.png"></a></div>
+                    <div style="font-size: 11px; text-align: center;"><a href="http://www.krishnapatnam.com/container-terminal.html" target="_blank" style="color: #fff; text-decoration: none; display: none;">India's Largest Container Terminal on the Horizon</a></div>
+                    <div class="clearfix">
+                        <br>
+                    </div>
+
+
+                    <div id="newsData" class="row newsCss"></div>
+                    <div class="clearfix">
+                        <br>
+                    </div>
+                </div>
+
+                <form class="forget-form" action="~/Account/Login" method="post" data-bind="with: forgotPasswordModel">
+                    <h3>Forgot password ?</h3>
+                    <p>
+                        Enter your username below to reset your password.
+                    </p>
+                    <div class="form-group">
+                        <div>
+                            <input id="txtusername1" class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" data-bind="value: userName" />
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" id="back-btn" class="btn" data-bind="click: Back">
+                            <i class="m-icon-swapleft"></i> Back
+                        </button>
+                        <button type="submit" id="btnFgtPwd" class="btn green pull-right" data-bind="click: ResetUserPwd">
+                            Submit <i class="m-icon-swapright m-icon-white"></i>
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </article>
+    </section>
+    <script>
+    	eGateRoot.rootPath = '@Url.Content("~")';
+    	var application = {viewbag : @Helpers.ToJson(Html, ViewBag)};
+
+    	$('.register-form input').keypress(function (e) {
+    		if (e.which == 13) {
+    			if ($('.register-form').validate().form()) {
+    				$('.register-form').submit();
+    			}
+    			return false;
+    		}
+    	});
+
+    	$('.forget-form input').keypress(function (e) {
+    		if (e.which == 13) {
+    			if ($('.forget-form').validate().form()) {
+    				$('.forget-form').submit();
+    			}
+    			return false;
+    		}
+    	});
+
+    	jQuery('#forget-password').click(function () {
+    		jQuery('.login-form').hide();
+    		jQuery('.forget-form').show();
+    	});
+
+    	jQuery('#back-btn').click(function () {
+    		jQuery('.login-form').show();
+    		jQuery('.forget-form').hide();
+    	});
+
+
+    	jQuery(document).ready(function () { 
+    		Login.init();
+    	});
+
+    	
+      
+
+
+    </script>
+    
+
+
+</body>
+</html>
+

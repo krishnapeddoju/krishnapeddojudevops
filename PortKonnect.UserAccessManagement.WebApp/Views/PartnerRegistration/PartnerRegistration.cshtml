@@ -1,0 +1,741 @@
+﻿@model PortKonnect.UserAccessManagement.Domain.DTOS.PrivilegeDTO
+@{    
+    ViewBag.Title = "PartnerRegistration";
+    Layout = "~/Views/Shared/_eGateLayout.cshtml";
+}
+
+@section scripts
+{
+    @* <script src="~/Scripts/Application/UAM/Model/PartnerKYCFormModel.js"></script>
+    <script src="~/Scripts/Application/UAM/ViewModel/PartnerKYCFormViewModel.js"></script>*@
+    <script src="~/Scripts/Application/UAM/Model/PartnerRegistrationModel.js"></script>
+    <script src="~/Scripts/Application/UAM/ViewModel/PartnerRegistrationViewModel.js"></script>
+}
+@section ko_apply
+{
+var viewModel = new eGateRoot.PartnerKYCFormViewModel();
+ko.applyBindingsWithValidation(viewModel, $("#KYCForm")[0], { insertMessages: false, messagesOnModified: false, grouping: { deep: true }});
+}
+
+<style>
+    .k-upload-status .k-upload-status-total {
+        visibility: hidden;
+        display: none;
+    }
+
+    .k-icon .k-i-tick {
+        visibility: hidden;
+        display: none;
+    }
+
+    .k-upload-status .k-upload-status-total {
+        visibility: hidden;
+        display: none;
+    }
+
+    .k-upload-button > span {
+        padding: 8px !important;
+    }
+
+    .k-dropzone strong {
+        display: none;
+    }
+
+    .k-upload-empty > validationError {
+        position: relative !important;
+    }
+
+    .k-upload-status {
+        display: none;
+    }
+
+    .k-widget {
+        border-color: #F1F6FA;
+    }
+</style>
+
+
+<div id="KYCForm">
+    <div data-bind="visible: viewMode() == 'Form', template: { name: 'Form-template' }"></div>
+</div>
+<div class="clearfix"></div>
+
+<script type="text/html" id="Form-template">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="page-title"><span id="spnTitle">Partner Registration</span></h3>
+            <ul class="page-breadcrumb breadcrumb"></ul>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="table-toolbar">
+
+            <div class="portlet portlet-body form" data-bind="loadingWhen: $root.viewModelHelper.isLoading">
+                <div class="form-wizard">
+                    <div class="form-body form-horizontal">
+                        <div class="form-group" data-bind="with: PartnerRegistrationModel">
+                            <fieldset>
+                                <legend>Partner Selection</legend>
+                                <div class="row">
+                                    <div class="">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2">Partner Selection:</label>
+                                            <div class="col-md-5">
+                                                <div class="radio-list">
+                                                    <input type="radio" id="partVOA" name="partnerselection" value="VesselOperatingAgent" data-bind="checked: PartnerType, event: { click: $root.GetDocTypes }">
+                                                    <label class="radio-inline">VOA</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <input type="radio" id="partCOA" name="partnerselection" value="ContainerOperatorAgent" data-bind="checked: PartnerType, event: { click: $root.GetDocTypes }">
+                                                    <label class="radio-inline">COA</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <input type="radio" id="partCHA" name="partnerselection" value="CustomHouseAgent" data-bind="checked: PartnerType, event: { click: $root.GetDocTypes }">
+                                                    <label class="radio-inline">CHA</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <input type="radio" id="partCFS" name="partnerselection" value="ContainerFreightStation" data-bind="checked: PartnerType, event: { click: $root.GetDocTypes }">
+                                                    <label class="radio-inline">CFS</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <input type="radio" id="partM&R" name="partnerselection" value="MandR" data-bind="checked: PartnerType, event: { click: $root.GetDocTypes }">
+                                                    <label class="radio-inline">M&R</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>Establishment Details</legend>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Name:<span class="required">*</span></label>
+                                            <div class="col-md-6">
+                                                <div>
+                                                    <input type="text" id="partnerName" name="" class="form-control" data-bind="value: PartnerName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpacesAndSpecialChars_keypressEvent, change: $root.CheckUniquePartnerName }" maxlength="50">
+                                                    <span class="validationError" data-bind="validationMessage: PartnerName"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Year:<span class="required">*</span></label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="txtYear" name="" class="form-control" maxlength="4" data-bind="value: Year, event: { keypress: $root.validationHelper.ValidateNumeric }">
+                                                <span class="validationError" data-bind="validationMessage: Year"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">House Number:<span class="required">*</span></label>
+                                            <div class="col-md-6" data-bind="with: PartnerRegistrationAddress">
+                                                <div>
+                                                    <input type="text" id="houseNumber" name="" class="form-control" data-bind="value: HouseNumber, event: { keypress: $root.validationHelper.ValidateAlphaNumericWithSpacesAndSpecialCharsForHouseNo_keypressEvent }" onchange=" validateHouseNumber() " maxlength="10">
+                                                    <span class="validationError" id="validationHouseNumber"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Street Name:<span class="required">*</span></label>
+                                            <div class="col-md-6" data-bind="with: PartnerRegistrationAddress">
+                                                <input type="text" id="streetName" name="" class="form-control" onchange=" validateStreetName() " maxlength="100" data-bind="value: StreetName">
+                                                <span class="validationError" id="validationStreetName"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Area Name :<span class="required">*</span></label>
+                                            <div class="col-md-6" data-bind="with: PartnerRegistrationAddress">
+                                                <div>
+                                                    <input type="text" id="areaName" name="" class="form-control" maxlength="100" data-bind="value: AreaName" onchange=" validateareaName() ">
+                                                    <span class="validationError" id="validationAreaName"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Town Or City :<span class="required">*</span></label>
+                                            <div class="col-md-6" data-bind="with: PartnerRegistrationAddress">
+                                                <div>
+                                                    <input type="text" id="townOrCity" name="" class="form-control" maxlength="50" data-bind="value: TownOrCity" onchange=" validatetownOrCity() ">
+                                                    <span class="validationError" id="validationTownOrCity"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Zip Code:<span class="required">*</span></label>
+                                            <div class="col-md-6" data-bind="with: PartnerRegistrationAddress">
+                                                <div>
+                                                    <input type="text" id="zipCode" name="" class="form-control" maxlength="6" data-bind="value: ZipCode, event: { keypress: $root.validationHelper.ValidateNumeric }" onchange=" validatezipCode() ">
+                                                    <span class="validationError" id="validationZipCode"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Country :<span class="required">*</span></label>
+                                            <div class="col-md-6" data-bind="with: PartnerRegistrationAddress">
+                                                <div>
+                                                    <select id="ddlCountry" name="" class="form-control" data-bind="options: $root.Countries, optionsText: 'CountryName', optionsCaption: 'Select...', optionsValue: 'CountryCode', value: Country, event: { change: $root.SelectStates }" onchange=" validateCountry() "></select>
+                                                    <span class="validationError" id="validationCountry"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">State :<span class="required">*</span></label>
+                                            <div class="col-md-6" data-bind="with: PartnerRegistrationAddress">
+                                                <div>
+                                                    <select id="ddlState" name="" class="form-control" data-bind="options: $root.States, optionsText: 'StateName', optionsCaption: 'Select...', optionsValue: 'StateCode', value: State" onchange=" validateState() "></select>
+                                                    <span class="validationError" id="validationState"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Status :<span class="required">*</span></label>
+
+
+
+                                            <div class="col-md-6">
+                                                <div>
+                                                    <select id="ddlStatus" name="" class="form-control" data-bind="options: $root.StatusList, optionsCaption: 'Select...',
+    value: Status">
+                                                    </select>
+                                                    <span class="validationError" data-bind="validationMessage: Status"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Corporate Indentification Number (CIN) (in case of company / LLP):<span class="required">*</span></label>
+                                            <div class="col-md-6">
+                                                <div>
+                                                    <input type="text" id="txtCIN" name="" class="form-control" maxlength="21" data-bind="value: CIN, event: { keypress: $root.validationHelper.ValidateNumeric, change: $root.CheckUniqueCIN }">
+
+                                                    <span class="validationError" data-bind="validationMessage: CIN"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Establishment Regn. No.:<span class="required">*</span></label>
+                                            <div class="col-md-6">
+                                                <div>
+                                                    <input type="text" id="registrationNo" name="" class="form-control" maxlength="8" data-bind="value: RegistrationNo, event: { keypress: $root.validationHelper.ValidateAlphaNumeric, change: $root.CheckUniqueRegistrationNo }">
+                                                    <span class="validationError" data-bind="validationMessage: RegistrationNo"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Permanent Account Number (PAN):<span class="required">*</span></label>
+                                            <div class="col-md-6">
+                                                <div>
+                                                    <input type="text" style="text-transform: uppercase" id="txtPAN" name="" class="form-control" maxlength="10" data-bind="value: PAN, event: { keypress: $root.validationHelper.ValidateAlphaNumeric, change: $root.CheckUniquePAN }" onchange="validatePAN()">
+                                                    <span class="validationError" id="validationPAN"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Registration Place:<span class="required">*</span></label>
+                                            <div class="col-md-6">
+                                                <div>
+                                                    <input type="text" id="txtPlace" name="" class="form-control" maxlength="15" data-bind="value: Place, event: { keypress: $root.validationHelper.ValidateAlphaNumericWithSpaces_keypressEvent }">
+
+                                                    <span class="validationError" data-bind="validationMessage: Place"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Tax Deduction & Collection Account Number (TAN):<span class="required">*</span></label>
+                                            <div class="col-md-6">
+                                                <div>
+                                                    <input type="text" id="txtTAN" style="text-transform: uppercase" name="" class="form-control" maxlength="10" data-bind="value: TAN, event: { keypress: $root.validationHelper.ValidateAlphaNumeric, change: $root.CheckUniqueTAN }">
+                                                    <span class="validationError" data-bind="validationMessage: TAN"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Service Tax / VAT Regn. No.:<span class="required">*</span></label>
+                                            <div class="col-md-6">
+                                                <div>
+                                                    <input type="text" id="txtVAT" name="" class="form-control" maxlength="11" data-bind="value: VAT, event: { keypress: $root.validationHelper.ValidateNumeric, change: $root.CheckUniqueVAT }">
+                                                    <span class="validationError" data-bind="validationMessage: VAT"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Nature of Business:<span class="required">*</span></label>
+                                            <div class="col-md-6" >
+                                                <div>
+                                                    <input type="text" id="txtNatureOfBusiness" name="" class="form-control" maxlength="20" data-bind="value: NatureOfBusiness, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }">
+                                                    <span class="validationError" data-bind="validationMessage: NatureOfBusiness"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                     <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Email Id:<span class="required">*</span></label>
+                                            <div class="col-md-6" data-bind="with: PartnerRegistrationAddress">
+                                                <div>
+                                                     <input type="text" id="PartnerEmailId" name="" class="form-control" data-bind="value: Email, event: { keypress: $root.validationHelper.ValidateAlphanumericEmail }" maxlength="254" onchange="validatePartnerEmail()" >
+                                                    <span class="validationError" id="validationPartnerEmail"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="row form-group">
+                                                <label class="control-label col-md-6">Logo :<span class="required">&nbsp;&nbsp;</span></label>
+                                                <div class="col-md-6" style="border: 1px solid #ccc; border-radius: 5px;">
+                                                    <table style="width: 100%; height: 20px;">
+                                                        <tr>
+                                                            <td>
+                                                                <img id="sigImage" src="#" height="60" data-bind="visible: (PartnerRegistrationAddress().LogoPath() != '' && PartnerRegistrationAddress().LogoPath() != null)">
+                                                                <span class="validationError" id="validationLogo"></span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label class="control-label col-md-6"></label>
+                                                    <div class="col-md-6">
+                                                        <span style="color: red">Preferred Dimensions : 90 X 30</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label class="control-label col-md-6"></label>
+                                                <div class="col-md-6">
+                                                    <table>
+                                                        <tbody data-bind="with: PartnerRegistrationAddress">
+                                                            <tr>
+                                                                <td data-bind="visible: (LogoPath() != '' && LogoPath() != null)">
+                                                                    <a href="" id="fileNameLink" data-bind="attr: { href: application.viewbag.appSettings.uamapiUrl + '/FileUploads/Logo/' + LogoPath() }" target="_blank"><span data-bind="    text: LogoFileName"></span></a>
+
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <label class="control-label col-md-6"></label>
+                                                <div class="col-md-6">
+                                                    <div class="fileupload-buttonbar">
+                                                        <div class="form-group">
+                                                            <div class="col-md-6" data-bind="visible: $parent.IsUpload">
+                                                                <span class="btn btn-xs green fileinput-button">
+                                                                    <i class="fa fa-plus"></i>
+                                                                    <span data-bind="visible: $parent.IsUpload">Browse
+                                                                    </span>
+                                                                    <input type="file" class="upload" name="files[]" id="fileToUpload" multiple />
+                                                                </span>
+                                                                <button type="button" id="CapturePicture" data-icon="upload" data-role="button" data-bind="click: $root.uploadFile, visible: $root.IsUpload" class="btn btn-xs blue start">
+                                                                    <i class="fa fa-upload"></i>
+                                                                    <span>Upload
+                                                                    </span>
+
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+
+
+
+                            <fieldset>
+                                <legend>Details of Directors/Partners/Promoters</legend>
+                                <div class="row">
+                                    <div class="table-toolbar">
+                                        <div id="tableheader">
+                                            <a class="button gbtngreen" id="btnAddNew" data-bind="click: $root.AddNewDetails"><i class="fa fa-plus"></i>Add New</a>
+                                        </div>
+                                        <div class="table-scrollable">
+                                            <table cellpadding="0" cellspacing="0" border="0" id="tblmovementsdetails" class="table tinytable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Action</th>
+                                                        <th>Name</th>
+                                                        <th>Permanent Account Number (PAN)</th>
+                                                        <th>Address</th>
+                                                        <th>Mobile</th>
+                                                        <th>Telephone</th>
+                                                        <th>Email</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody data-bind="foreach: PartnerDirectorDetailss">
+                                                    <tr data-bind="css: { trhighlight: ErrorStatus() }">
+                                                        <td style="text-align: center;">
+                                                            <a href='#' id="btnRemove" data-bind='click: $root.RemoveDetails' title="Delete"><i class="fa fa-ban ban-before"></i></a>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control" maxlength="20" data-bind="value: PDirectorName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }"></td>
+                                                        <td>
+                                                            <input type="text" class="form-control" style="text-transform: uppercase" maxlength="10" data-bind="value: PDirectorPAN, event: { keypress: $root.validationHelper.ValidateAlphaNumeric }"></td>
+                                                        <td>
+                                                            <textarea class="form-control" style="resize: none;" rows="1" data-bind="value: PDirectorAddress, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }"></textarea></td>
+                                                        <td>
+                                                            <input type="text" class="form-control" maxlength="15" data-bind="value: PDirectorMobile, event: { keypress: $root.validationHelper.ValidateNumeric }, attr: { id: 'pDirectorMobile' + $index() }"></td>
+                                                        <td>
+                                                            <input type="text" class="form-control" maxlength="11" data-bind="value: PDirectorTele, event: { keypress: $root.validationHelper.ValidateNumeric }"></td>
+                                                        <td>
+                                                            <input type="text" id="emailId" name="" class="form-control" data-bind="value: PDirectorEmail, event: { keypress: $root.validationHelper.ValidateAlphanumericEmail }" maxlength="254">
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Bank Details</legend>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Bank Name:<span class="required">*</span></label>
+                                            <div class="col-md-6">
+                                                <input type="text" name="" class="form-control" maxlength="20" data-bind="value: BankName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }">
+                                                <span class="validationError" data-bind="validationMessage: BankName"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Account No.:<span class="required">*</span></label>
+                                            <div class="col-md-6">
+                                                <input type="text" name="" class="form-control" maxlength="18" data-bind="value: AccountNo, event: { keypress: $root.validationHelper.ValidateNumeric }">
+                                                <span class="validationError" data-bind="validationMessage: AccountNo"></span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Bank Address :<span class="required">*</span></label>
+                                            <div class="col-md-6">
+                                                <textarea name="" class="form-control" maxlength="40" style="resize: none;" data-bind="value: BankAddress, event: { keypress: $root.validationHelper.ValidateAlphaNumericWithSpaces_keypressEvent }"></textarea>
+                                                <span class="validationError" data-bind="validationMessage: BankAddress"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">IFSC Code :<span class="required">*</span></label>
+                                            <div class="col-md-6">
+                                                <input type="text" name="" class="form-control" maxlength="11" data-bind="value: IFSCCode, event: { keypress: $root.validationHelper.ValidateAlphaNumeric }">
+
+                                                <span class="validationError" data-bind="validationMessage: IFSCCode"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>Details of Representatives</legend>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h4>Finance</h4>
+                                        <div class="row">
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Name :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input type="text" name="" class="form-control" maxlength="20" data-bind="value: FinanceName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }">
+                                                    <span class="validationError" data-bind="validationMessage: FinanceName"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Email :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="finEmail" class="form-control" data-bind="value: FinanceEmail, event: { keypress: $root.validationHelper.ValidateAlphanumericEmail }" onchange=" validateFinEmailId() " maxlength="254">
+                                                    <span class="validationError" id="validationFinEmail"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Mobile :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="finMobile" name="" class="form-control" maxlength="15" data-bind="value: FinanceMobile, event: { keypress: $root.validationHelper.ValidateNumeric }" onchange="validatefinNumber()">
+                                                    <span class="validationError" id="validationfinMobile"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h4>Operations</h4>
+                                        <div class="row">
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Name :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input type="text" name="" class="form-control" maxlength="20" data-bind="value: OperationsName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }">
+                                                    <span class="validationError" data-bind="validationMessage: OperationsName"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Email :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="operationEmail" class="form-control" data-bind="value: OperationsEmail, event: { keypress: $root.validationHelper.ValidateAlphanumericEmail }" onchange=" validateOperationEmail() " maxlength="254">
+                                                    <span class="validationError" id="validationOperationsEmail"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Mobile :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="operationMobile" name="" class="form-control" maxlength="10" data-bind="value: OperationsMobile, event: { keypress: $root.validationHelper.ValidateNumeric }" onchange="validateOperationMobile()">
+                                                    <span class="validationError" id="validationOperationMobile"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h4>IT</h4>
+                                        <div class="row">
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Name :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input type="text" name="" maxlength="20" class="form-control" data-bind="value: ITName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }">
+                                                    <span class="validationError" data-bind="validationMessage: ITName"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Email :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="itEmail" class="form-control" data-bind="value: ITEmail, event: { keypress: $root.validationHelper.ValidateAlphanumericEmail }" onchange=" validateITEmail() " maxlength="254">
+                                                    <span class="validationError" id="ValidationiTEmail"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Mobile :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="iTMobile" name="" class="form-control" maxlength="10" data-bind="value: ITMobile, event: { keypress: $root.validationHelper.ValidateNumeric }" onchange="validateITMobile()">
+                                                    <span class="validationError" id="validationiTMobile"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"></div>
+                                </div>
+                            </fieldset>
+
+
+
+                            <fieldset>
+                                <legend>Documents Upload (All documents to be self attested with Company Seal)</legend>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Document Type:<span class="required">*</span></label>
+                                            <div class="col-md-9">
+                                                <select id="ddlDoctype" name="" class="form-control" data-bind="options: $root.DocumentList, optionsCaption: 'Select...', value: DocumentType"></select>
+                                                <span class="validationError" data-bind="validationMessage: DocumentType"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Valid Till:<span class="required">*</span></label>
+                                            <div class="col-md-6">
+
+                                                <input type="text" style="border-width: 1px" id="validTill" class="form-control date-picker" onkeydown="" data-bind="value: ValidTill" maxlength="12" />
+                                                <span class="validationError" data-bind="validationMessage: ValidTill"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="portlet box advbg">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            Uploaded Files
+                                        </div>
+                                        <div class="tools">
+                                            <a href="javascript:;" class="collapse"></a>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <div class="row">
+                                            <div>
+                                                <div class="col-md-2">
+                                                    <input id="btnFileUpload" class="btn btn" data-bind="kendoUpload: {
+    async: {
+        saveUrl: '/api/MultipleFileUpload/DocType_Copy/' + '@Html.Encode(User.Identity.Name)    ',
+        autoUpload: true
+    }, localization: {
+        select: 'Upload Document', dropFilesHere: ''
+    }, enabled: $root.IsbuttonsEnable, multiple: false, select: SelectFile, upload: $root.Upload, success: $root.FileSuccess,
+    showFileList: false
+}"type="file" multiple="multiple"/>
+                                                </div>
+                                                <div class="col-md-10" style="margin-top: 13px;">
+                                                    <span>
+                                                        <label class="text text-danger"><i class="fa fa-info-circle"></i>Please upload [ .pdf, .jpg, .jpeg, .bmp, .gif, .png, .csv , .docx, .doc, .xlsx, .xls ] files only</label></span>
+                                                </div>
+                                                <div style="height: 5px;"></div>
+                                                <div class="row">
+                                                    <div class="table-responsive">
+                                                        <table class="tinytable">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="bg-dark font-color1" style="width: 50px;">S.No.</th>
+                                                                    <th class="bg-dark font-color1">Document Name</th>
+                                                                    <th class="bg-dark font-color1">Document Type</th>
+                                                                    <th class="bg-dark font-color1" style="width: 100px;">Valid Till</th>
+                                                                    <th class="bd-dark font-color1" style="width: 100px;">Action</th>
+
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody data-bind="foreach: DocumentDTOs">
+                                                                <tr>
+                                                                    <td data-bind="text: $index() + 1" style="text-align: center;"></td>
+                                                                    <td><a data-bind="text: OriginalName, attr: { href: '/FileUploads/' + FileName() }" target="_blank" style="text-decoration: underline;"></a></td>
+                                                                    <td data-bind="text: DocumentType" style="text-align: center;"></td>
+                                                                    <td data-bind="text: ValidTill" style="text-align: center;"></td>
+                                                                    <td style="text-align: center;">
+                                                                        <a href="#" title="Remove" data-bind="click: $root.RemoveDocument, visible: IsCurrentdoc() == 'Y'"><i class="fa fa-ban ban-before"></i></a>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </fieldset>
+
+                            <div class="row">
+                                <div class="col-md-1" align="right">
+                                    <input class="k-header k-with-icon k-filterable" type='Checkbox' data-bind="checked: IsAccept" />
+                                </div>
+                                <div class="col-md-11">I / We hereby declare that the above stated information is tru and correct and will be held liable for any omission, incorrect, incomplete of misdeclaration to herein above. We undertake to keep your office informed of any changes to the above details and re-submit the relevant documents along with revised KYC Form</div>
+                            </div>
+                            <div class="row">&nbsp;</div>
+
+
+                            <div class="btns-group form-actions fluid">
+                                <input type="button" value="Save" class="btn green" data-bind="click: $root.SaveScreen" />
+                                @*<input type="button" value="Update" class="btn green"/>*@
+                                <button type="submit" class="btn blue" data-bind="click: $root.ResetScreen">Reset</button>
+                                <button type="submit" class="btn default button-previous" data-bind="click: $root.ExitScreen"><i class="m-icon-swapleft"></i>Back</button>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</script>

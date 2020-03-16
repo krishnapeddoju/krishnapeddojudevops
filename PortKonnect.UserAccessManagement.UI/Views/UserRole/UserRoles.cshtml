@@ -1,0 +1,298 @@
+﻿@model PortKonnect.UserAccessManagement.Domain.DTOS.PrivilegeDTO
+@{    
+    ViewBag.Title = "UserRoles";
+    Layout = "~/Views/Shared/_eGateLayout.cshtml";
+}
+
+@section scripts
+{
+<script src="~/Scripts/Lib/jquery-ui.js"></script>
+<script src="~/Scripts/Lib/jquery.slimscroll.min.js"></script>
+<script src="~/Scripts/Lib/form-components.js"></script>
+<script src="~/Scripts/Lib/app.js"></script>
+<script src="~/Scripts/Application/UAM/Model/UserRolesModel.js"></script>
+<script src="~/Scripts/Application/UAM/ViewModel/UserRolesViewModel.js"></script>
+<script src="~/Scripts/CustomPopup.js"></script>
+<script src="~/Scripts/Application/CustomisedControls.js"></script>
+}
+
+@section ko_apply
+{
+var viewModel = new eGateRoot.UserRolesViewModel();
+ko.applyBindingsWithValidation(viewModel, $("#UserRoles")[0], { insertMessages: false, messagesOnModified: false, grouping: { deep: true }});
+}
+
+<style type="text/css">
+	#blanket {
+		background-color: #111;
+		-ms-opacity: 0.65;
+		opacity: 0.65;
+		*background: none;
+		position: absolute;
+		z-index: 9001;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+	}
+
+	
+</style>
+<!-- BEGIN CONTENT -->
+<div class="row">
+	<div class="col-md-12">
+		<h3 class="page-title"><span id="spnTitle"></span></h3>
+		<ul class="page-breadcrumb breadcrumb"></ul>
+	</div>
+</div>
+
+<div class="row">
+</div>
+
+<div id="UserRoles">
+	<div data-bind="visible: viewMode() == 'List', template: { name: 'UserRoles-template' }"></div>
+</div>
+
+<div class="row">
+	<div class="portlet-body">
+
+		<script type="text/html" id="UserRoles-template">
+
+			<div class="table-toolbar">
+
+				<div class="portlet box advbg">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-search" aria-hidden="true"></i>Advance Search
+						</div>
+						<div class="tools">
+							<a href="javascript:;" class="expand"></a>
+						</div>
+					</div>
+					<div class="portlet-body" style="display:none;" >
+						<div class="form-wizard form-horizontal" data-bind="with: UserRolesModel">
+							<div class="form-body">
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="control-label col-md-4">User Name:</label>
+											<div class="col-md-6">
+												<input type="text" id="SearchUserName" class="form-control" data-bind="value: UserName, event: { keypress: $root.validationHelper.ValidateAlphaNumeric }" maxlength="50">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="control-label col-md-4">Name:</label>
+											<div class="col-md-6">
+												<input type="text" id="SearchFirstName" class="form-control" data-bind="value: Name, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }" maxlength="50">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="control-label col-md-4">Email Id:</label>
+											<div class="col-md-6">
+												<input type="text" id="SearchEmailId" class="form-control" data-bind="value: EmailId, event: { keypress: $root.validationHelper.ValidateAlphanumericEmail }" maxlength="50">
+											</div>
+
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="control-label col-md-4">Contact Number:</label>
+											<div class="col-md-6">
+												<input type="text" id="SearchContactNumber" class="form-control" data-bind="value: ContactNumber" maxlength="50">
+											</div>
+
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="control-label col-md-4"></label>
+											<div class="col-md-6">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group ">
+											<label class="control-label col-md-4"></label>
+											<div class="col-md-6">
+
+												<button type="submit" class="btn btn-xs green" data-bind="click: $root.GetUsers">Search</button>
+												<button type="submit" class="btn btn-xs blue" data-bind="click: $root.ResetFilters">Reset</button>
+											</div>
+
+										</div>
+									</div>
+
+								</div>
+
+								
+							</div>
+						</div>
+
+						
+						
+					</div>
+                    
+				</div>
+                    <div id="blanket" style="display: none"></div>
+                    <div id="popUpDiv" style="display: none; margin-left:0; top:75px;">
+							<div class="modal-body">
+								<div class="form-horizontal" data-bind="with: UserRolesGridModel">
+									<div>
+										<div class="row">&nbsp</div>
+										<fieldset>
+
+											<legend>User Roles</legend>
+											<div class="row">
+												<div class="col-md-12">
+
+													<div class="row">
+														<div class="col-md-4">
+															<div class="form-group">
+																<label class="control-label col-md-6">User Name:</label>
+																<div class="col-md-6 control-label">
+																	<label class="displaytxt col-md-12" data-bind="text: UserName"></label>
+																</div>
+															</div>
+														</div>
+														<div class="col-md-8">
+															<div class="form-group">
+																<label class="control-label col-md-3">Name:</label>
+																<div class="col-md-9 control-label">
+																	<label class="displaytxt col-md-12" data-bind="text: Name"></label>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-4">
+															<div class="form-group">
+																<label class="control-label col-md-6">Contact No.:</label>
+																<div class="col-md-6 control-label">
+																	<label class="displaytxt col-md-12" data-bind="text: ContactNumber"></label>
+																</div>
+															</div>
+														</div>
+														<div class="col-md-8">
+															<div class="form-group">
+																<label class="control-label col-md-3">Email Id:</label>
+																<div class="col-md-9 control-label">
+																	<label class="displaytxt col-md-12" data-bind="text: EmailId"></label>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="form-group">
+															<label class="control-label col-md-2">Roles:<span class="required">*</span></label>
+															<div class="col-md-9 control-label">
+
+
+																<input class="displaytxt col-md-12" id="userPort" data-bind="kendoMultiSelect: { dataTextField: 'RoleName', dataValueField: 'RoleId', data: $parent.Roles, value: UserRoleArray }" />
+
+																<span id="spnrole" class="validationError" data-bind="validationMessage: UserRoleArray"></span>
+															</div>
+														</div>
+													</div>
+
+
+
+												</div>
+										</fieldset>
+									</div>
+									<div class="btns-group form-actions fluid" data-bind="loadingWhen: $root.viewModelHelper.isLoading">
+										<input type="button" class="btn green" value="Save" data-bind="click: $root.SaveRoles" />
+										<input type="button" class="btn blue" value="Reset" data-bind="click: $root.ResetRoles" />
+										<input type="button" class="btn red" value="Cancel" onclick=" popup('popUpDiv')" data-bind="    click: $root.CancelRoles" />
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+
+				<div id="Grid" data-bind="kendoGrid: {
+	data: UsersList,
+	groupable: false,
+	sortable: true,
+	scrollable: true,
+	filterable: {
+		extra: false, operators: {
+			string: {
+				startswith: 'Starts with',
+				eq: 'Is equal to',
+				neq: 'Is not equal to',
+				contains: 'Contains',
+				doesnotcontain: 'Does not Contain'
+			},
+			number: { eq: 'Is equal to' }
+		}
+	},
+	rowTemplate: 'rowTmpl',
+	useKOTemplates: true,
+	columns: [{ title: 'Actions', width: 110, filterable: false },
+        { field: 'UserNameSort', title: 'User Name', width: 70, filterable: true },
+        { field: 'NameSort', title: 'Name', width: 70, filterable: true },
+  { field: 'RoleNameSort', title: 'Roles', width: 70, filterable: true },
+        { field: 'ContactNumberSort', title: 'Contact Number', width: 140, filterable: true },
+  { field: 'EmailIdSort', title: 'Email', width: 70, filterable: true },
+
+	]
+}">
+				</div>
+				<script id="rowTmpl" type="text/html">
+					<tr>
+						<td>
+							<div class="nowrap">
+								@if (Model.HasPrivilege("eGateAssignUserRole")) //TODO: Need to implment Entity Functions as Enums
+                                        {
+                                <input type="button" class="btn green" value="Assign Roles" data-bind="click: $root.AddRoles" />
+								}
+							</div>
+						</td>
+						<td>
+							<div class="nowrap"><span data-bind="text: UserName"></span></div>
+						</td>
+						<td>
+							<div class="nowrap"><span data-bind="text: Name"></span></div>
+						</td>
+
+						<td>
+							<div class="nowrap"><span data-bind="text: UserRoleNameArray"></span></div>
+						</td>
+						<td>
+							<div class="nowrap"><span data-bind="text: ContactNumber"></span></div>
+						</td>
+						<td>
+							<div class="nowrap" style="word-wrap:break-word; text-align:left;"><span data-bind="text: EmailId"></span></div>
+						</td>
+
+
+
+
+					</tr>
+				</script>
+
+
+			</div>
+
+
+
+
+
+
+
+		</script>
+
+	</div>
+
+</div>
+
+</div>

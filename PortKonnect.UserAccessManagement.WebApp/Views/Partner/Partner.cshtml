@@ -1,0 +1,345 @@
+﻿@model PortKonnect.UserAccessManagement.Domain.DTOS.PrivilegeDTO
+@{
+    ViewBag.Title = "Partner";
+    Layout = "~/Views/Shared/_eGateLayout.cshtml";
+    
+}
+@section scripts
+{<script src="~/Scripts/Application/CustomisedControls.js"></script>
+    <script src="~/Scripts/Application/UAM/Model/PartnerModel.js"></script>
+    <script src="~/Scripts/Application/UAM/ViewModel/PartnerViewModel.js"></script>
+}
+
+@section ko_apply
+{
+    var viewModel = new eGateRoot.PartnerViewModel("@ViewBag.PartnerId","@ViewBag.Path");  
+  ko.applyBindingsWithValidation(viewModel, $("#Partner")[0], { insertMessages: false, messagesOnModified: false, grouping: { deep: true }});
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="page-title"><span id="spnTitle"></span></h3>
+        <ul class="page-breadcrumb breadcrumb"></ul>
+    </div>
+</div>
+
+<div id="Partner">
+    <div data-bind="visible: viewMode() == 'Form', template: { name: 'Partner-template' }"></div>
+</div>
+<div class="clearfix"></div>
+
+<div class="portlet-body">
+    <div class="table-toolbar">
+
+        <script type="text/html" id="Partner-template">
+
+            <div class="portlet portlet-body form" data-bind="loadingWhen: $root.viewModelHelper.isLoading">
+                <div class="form-wizard">
+                    <div class="form-body form-horizontal" data-bind="with: PartnerModel">
+						@*<div class="row paget-row">
+						<div class="col-sm-9"><span id="spnTitle"></span></div>
+						<div class="col-sm-3 right-back-arrow" style=""><span><a href="#" data-bind="click: $root.ExitScreen"><i class="fa fa-arrow-circle-o-left" aria-hidden="true" style="font-size: 24px;"></i></a></span></div>
+					</div>*@
+                        <div class="tab-pane active" id="tab1">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-11"></div>
+                                    <div class="col-md-1" style="display: none;">
+                                        @if (Model.HasPrivilege("cargoPartnerEdit")) //TODO: Need to implment Entity Functions as Enums
+                                        {
+                                            <input type="button" value="Edit" class="btn blue" data-bind="click: $root.EditPartner, visible: $root.IsEdit" />
+                                        }
+                                    </div>
+                                </div>
+                                <fieldset>
+                                    <legend>Partner Details</legend>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-5">Partner Code:<span class="required">*</span></label>
+                                                <div class="col-md-7">
+
+                                                    <input type="text" id="PartnerCode" name="" class="form-control" data-bind="value: PartnerCode, event: { keypress: $root.validationHelper.ValidateAlphaNumeric }, enable: $root.EditMode, enable: $parent.PartnerCodeEnable," maxlength="25">
+                                                    <span class="validationError" data-bind="validationMessage: PartnerCode"></span>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-5">Partner Type :<span class="required">*</span></label>
+                                                <div class="col-md-7">
+                                                    <input id="mulselectPartnerType"  data-bind="kendoMultiSelect: { dataTextField: 'PartnerTypeName', dataValueField: 'PartnerTypeId', data: $parent.PartnerTypes, enabled: $root.EditMode, value: PartnerTypeArray }, event: { blur: $root.DupliacteValidation, change: $root.validatepartnerType }" />
+                                                    @*<select id="ddlPartnerType" name="" class="form-control" data-bind="options: $root.PartnerTypes, optionsText: 'PartnerTypeName', optionsCaption: 'Select...', optionsValue: 'PartnerTypeId', enable: $root.EditMode, value: PartnerType, event: { change: $root.DupliacteValidation }"></select>*@
+                                                    <span class="validationError" id="validationParterType"></span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-5">Partner Name :<span class="required">*</span></label>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="partnerName" name="" class="form-control" data-bind="value: PartnerName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpacesAndSpecialChars_keypressEvent }, enable: $root.EditMode" maxlength="50">
+                                                    <span class="validationError" data-bind="validationMessage: PartnerName"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-5">Partner Port :<span class="required">*</span></label>
+                                                <div class="col-md-7">
+                                                    <input id="mulselectPartnerPort" data-bind="kendoMultiSelect: { dataTextField: 'PortName', dataValueField: 'PortCode', data: $parent.Ports, enabled: $parent.applicationDisabled, value: PartnerPortArray }" />
+                                                    <span class="validationError" data-bind="validationMessage: PartnerPort"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-5">Application :<span class="required">*</span></label>
+                                                <div class="col-md-7">
+                                                    <select id="ddlport" name="" class="form-control" data-bind="options: $root.Applications, optionsText: 'ApplicationName', optionsValue: 'ApplicationId', enable: $root.applicationDisabled, value: Application"></select>
+                                                    <span class="validationError" data-bind="validationMessage: Application"></span>
+                                                    @*<input type="text" id="datetimeETA" class="form-control date-picker" onkeydown="" data-bind="kendoDateTimePicker: { value: Eta, enabled: $parent.editableView }, event: { keypress: $root.validationHelper.ValidateNumeric }" name="" maxlength="12" />*@
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Partner Address</legend>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-5">House Number:<span class="required">*</span></label>
+                                                <div class="col-md-7" data-bind="with: PartnerAddress">
+                                                    <div>
+                                                        <input type="text" id="houseNumber" name="" class="form-control" data-bind="value: HouseNumber, enable: $root.EditMode, event: { keypress: $root.validationHelper.ValidateAlphaNumericWithSpacesAndSpecialCharsForHouseNo_keypressEvent }" onchange="validateHouseNumber()" maxlength="100">
+                                                        <span class="validationError" id="validationHouseNumber"></span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-5">Street Name:<span class="required">*</span></label>
+                                                <div class="col-md-7" data-bind="with: PartnerAddress">
+                                                   <input type="text" id="streetName" name="" class="form-control" data-bind="value: StreetName, enable: $root.EditMode, event: { keypress: $root.validationHelper.ValidateAlphaNumericWithSpaces }" onchange="validateStreetName()" maxlength="100">
+                                                   <span class="validationError" id="validationStreetName"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-5">Area Name :<span class="required">*</span></label>
+                                                <div class="col-md-7" data-bind="with: PartnerAddress">
+                                                    <div>
+                                                        <input type="text" id="areaName" name="" class="form-control" data-bind="value: AreaName, enable: $root.EditMode, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }" onchange="validateareaName()" maxlength="100">
+                                                        <span class="validationError" id="validationAreaName"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-5">Town Or City :<span class="required">*</span></label>
+                                                <div class="col-md-7" data-bind="with: PartnerAddress">
+                                                    <div>
+                                                        <input type="text" id="townOrCity" name="" class="form-control" data-bind="value: TownOrCity, enable: $root.EditMode, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }" onchange="validatetownOrCity()" maxlength="50">
+                                                        <span class="validationError" id="validationTownOrCity"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-5">Zip Code:<span class="required">*</span></label>
+                                                <div class="col-md-7" data-bind="with: PartnerAddress">
+                                                    <div>
+                                                        <input type="text" id="zipCode" name="" class="form-control" data-bind="value: ZipCode, enable: $root.EditMode, event: { keypress: $root.validationHelper.ValidateNumeric }" onchange="validatezipCode()" maxlength="6">
+                                                        <span class="validationError" id="validationZipCode"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-5">Country :<span class="required">*</span></label>
+                                                <div class="col-md-7" data-bind="with: PartnerAddress">
+                                                    <div>
+                                                        <select id="ddlCountry" name="" class="form-control" data-bind="options: $root.Countries, optionsText: 'CountryName', optionsCaption: 'Select...', optionsValue: 'CountryCode', value: Country, enable: $root.EditMode, event: { change: $root.SelectStates }" onchange="validateCountry()"></select>
+                                                        <span class="validationError" id="validationCountry"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-5">State :<span class="required">*</span></label>
+                                                <div class="col-md-7" data-bind="with: PartnerAddress">
+                                                    <div>
+                                                        <select id="ddlState" name="" class="form-control" data-bind="options: $root.States, optionsText: 'StateName', optionsCaption: 'Select...', optionsValue: 'StateCode', enable: $root.EditMode, value: State" onchange="validateState()"></select>
+                                                        <span class="validationError" id="validationState"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6  ie-validation moz-margin1">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-5">Contact Number :<span class="required">*</span></label>
+                                                <div class="col-md-7" data-bind="with: PartnerAddress">
+                                                    <div>
+                                                        <input type="text" id="contactNumber" name="" class="form-control" data-bind="value: ContactNumber, enable: $root.EditMode, event: { keypress: $root.validationHelper.ValidateNumeric }" onchange="validateContactNumber()" maxlength="15">
+                                                        <span class="validationError" id="validationContactNumber"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-5">Email Id :<span class="required">*</span></label>
+                                                <div class="col-md-7" data-bind="with: PartnerAddress">
+                                                    <div>
+                                                        <input type="text" id="emailId" name="" class="form-control" data-bind="value: EmailId, enable: $root.EditMode, event: { keypress: $root.validationHelper.ValidateAlphanumericEmail }" onchange="validateEmailId()" maxlength="50">
+                                                        <span class="validationError" id="validationEmailId"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-5">Web Site :<span class="required">&nbsp;&nbsp;</span></label>
+                                                <div class="col-md-7" data-bind="with: PartnerAddress">
+                                                    <div>
+                                                        <input type="text" id="webSite" name="" class="form-control" data-bind="value: WebSite, enable: $root.EditMode, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpacesAndSpecialCharsForWebSite_keypressEvent }" maxlength="50">
+                                                        <span class="validationError" id="validationWebSite"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <div class="row">
+                                        @*<div>
+                                            File upload<input name="files1" id="files1"  type="file" data-multiple="false"  data-bind="kendoUpload: {
+	async: {
+		saveUrl: 'api/FileUpload/MultipleFileUpload',
+		removeUrl: 'api/FileUpload/DeleteFile',
+		removeVerb: 'DELETE',
+		autoUpload: false
+	}, multiple: false
+}"/>
+                                        </div>*@
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row form-group">
+                                                    <label class="control-label col-md-5">Logo :<span class="required">&nbsp;&nbsp;</span></label>
+                                                    <div class="col-md-7" style="border:1px solid #ccc; border-radius:5px;">
+                                                        <table style="width:100%; height:20px;" >
+                                                            <tr>
+                                                                <td>
+                                                                    <img id="sigImage" src="#" height="60" data-bind="visible: (PartnerAddress().LogoPath() != '' && PartnerAddress().LogoPath() != null)">
+                                                                    <span class="validationError" id="validationLogo"></span>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <label class="control-label col-md-5"></label>
+                                                    <div class="col-md-6">
+                                                        <table>
+                                                            <tbody data-bind="with: PartnerAddress">
+                                                                <tr>
+                                                                    <td data-bind="visible: (LogoPath() != '' && LogoPath() != null)">
+                                                                        <a href="" id="fileNameLink" data-bind="attr: { href:application.viewbag.appSettings.uamapiUrl+'/FileUploads/Logo/' + LogoPath() }" target="_blank"><span data-bind="	text: LogoFileName"></span></a>
+                                                                        @*<a data-bind="text: LogoPath",  attr: { href: '/FileUploads/Logo/' + $root.FileName() }></a>*@
+                                                                    </td>
+                                                                </tr>
+                                                                
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            
+                                            <div class="row">
+                                                    <label class="control-label col-md-5"></label>
+                                                <div class="col-md-7">
+                                            <div class="fileupload-buttonbar">
+                                                <div class="form-group">
+                                                    <div class="col-md-6" data-bind="visible: $parent.IsUpload">
+                                                        <span class="btn btn-xs green fileinput-button">
+                                                            <i class="fa fa-plus"></i>
+                                                            <span data-bind="visible: $parent.IsUpload">Browse
+                                                            </span>
+                                                            <input type="file" class="upload" name="files[]" id="fileToUpload" multiple />
+                                                        </span>
+                                                        <button type="button" id="CapturePicture" data-icon="upload" data-role="button" data-bind="click: $root.uploadFile, visible: $root.IsUpload" class="btn btn-xs blue start">
+                                                            <i class="fa fa-upload"></i>
+                                                            <span>Upload
+                                                            </span>
+
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div></div></div></div>
+                                        </div>
+                                </fieldset>
+
+                                <div class="btns-group form-actions fluid">
+                                    <input type="button" value="Save" class="btn green" data-bind="click: $root.SaveScreen, visible: $root.IsSave" />
+                                    <input type="button" value="Update" class="btn green" data-bind="click: $root.UpdateScreen, visible: $root.IsUpdate" />
+                                    <button type="submit" class="btn blue" data-bind="click: $root.ResetScreen, visible: $root.IsReset">Reset</button>
+									<button type="submit" class="btn default button-previous" data-bind="click: $root.ExitScreen"><i class="m-icon-swapleft"></i> Back</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    @*<div class="form-body form-horizontal" data-bind="with: PartnerAddress">
+                        <div class="tab-pane active" id="tab2">
+                            <div class="form-group">
+                            </div>
+                        </div>
+
+                    </div>
+                    *@
+
+                </div>
+            </div>
+
+        </script>
+    </div>
+</div>

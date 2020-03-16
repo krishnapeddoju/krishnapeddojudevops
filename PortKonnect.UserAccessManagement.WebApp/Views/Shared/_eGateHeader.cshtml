@@ -1,0 +1,250 @@
+﻿@using PortKonnect.UserAccessManagement.WebApp
+@using PortKonnect.UserAccessManagement.GlobalConstants
+
+<script src="~/Scripts/Lib/twitter-bootstrap-hover-dropdown.min.js"></script>
+
+<header class="header navbar navbar-inverse navbar-fixed-top header-height">
+
+
+    <div class="header-inner" id="Header">
+        <span>
+            <img src="~/Content/Images/cargo-logo.png" >
+
+        </span>
+
+@if (Session["BackURL"] == null || Session["BackURL"].ToString() == "")
+{
+        <div class="dropdown">
+            <button class="dropbtn" ><span data-bind = "text: currentModuleName"></span><i class="fa fa-caret-down" aria-hidden="true"></i></button>
+            <div class="dropdown-content">
+                 <div class="row" data-bind="foreach: cargoModules">
+                    <div class="col-md-4">
+                        <a data-bind="attr: { href: ModuleUrl, title: ModuleName}">
+                            <div class="module1">
+                                <span data-bind="text:ModuleName">
+
+                                </span>
+                            </div>
+                            
+                        </a>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+}
+
+        <a href="javascript:;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <img src="/Content/Images/menu-toggler.png" alt="">
+        </a>
+        <ul class="nav navbar-nav pull-right">
+            <li id="profileDropDown" class="dropdown user">
+                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                    <img alt="" src="@Url.Content("~/Content/Images/avatar1_small.jpg")" />
+                    @*<span class="username" id="loginusername">@Html.Encode(User.Identity.Name.ToLower())</span>*@
+                    <span class="username username_truncate" id="loginusername" data-bind="text:userName"></span>
+                    <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="javascript:;" id="trigger_fullscreen"><i class="fa fa-move"></i>Full Screen</a>
+                    </li>
+
+                    <li>
+                        @if (Session["BackURL"] == null || Session["BackURL"].ToString() == "")
+                        {
+                            <a href="@Url.Action("ChangePassword", "Account")"><i class="fa fa-tasks"></i>Change Password</a>
+                        }
+
+                    </li>
+            <li>
+                <a href="javascript:;" onclick="Logout()"><i class="fa fa-key"></i>LogOut</a>
+            </li>
+
+            </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="clearfix"></div>
+
+<script>
+
+    var application = {viewbag : @Helpers.ToJson(Html, ViewBag)};
+
+    function HeaderViewModel() {
+        var self = this;        
+        self.cargoModules = ko.observableArray();
+        self.viewModelHelper = new eGateRoot.ViewModelHelper();
+        self.userName = application.viewbag.name.toLowerCase();
+        var moduleCode = "@UAMGlobalConstants.PortKonnectCargoUAMModuleCode";
+
+
+        if(application.viewbag.isFirstTimeLogin != "Y")
+        {  
+            self.viewModelHelper.apiGet('api/Account/GetModulesForUser/' + self.viewModelHelper.ApplicationId() + '/' + self.viewModelHelper.SubscriberId() + '/' + self.userName , null, function (result) {
+                var dict = [];
+                $.each(result, function (key, val) {
+                    dict.push(val.ModuleId+"-"+val.ModuleUrl);
+                });
+                localStorage.setItem("ModuleList", JSON.stringify(dict));
+                self.currentModuleName = result.filter(obj => obj.ModuleId == moduleCode)[0].ModuleName;
+                console.log("MdName",self.currentModuleName)
+               
+               // console.log(dict);
+                $.each(result, function (key, val) {  
+                    if (val.ModuleId != moduleCode) {
+
+                        if (val.ModuleId.startsWith('PKMARINE')) {
+                            // Skip Marine top level modules except Admin
+                            if (val.ModuleId !== 'PKMARINEOPS') {
+                                return;
+                            }
+                        }
+
+                        var appCargo = new CargoModule(val.ModuleName, val.ModuleUrl);
+                        self.cargoModules.push(appCargo);
+                    }
+                });
+
+            }, null, null, null, application.viewbag.appSettings.uamapiUrl, 'UAM');
+
+        }
+        else {
+            
+            self.viewModelHelper.apiGet('api/Account/GetModulesForUser/' + self.viewModelHelper.ApplicationId() + '/' + self.viewModelHelper.SubscriberId() + '/' + self.userName, null, function (result) {
+                var dict = [];
+                $.each(result, function (key, val) {
+                    dict.push(val.ModuleId+"-"+val.ModuleUrl);
+                });
+                localStorage.setItem("ModuleList", JSON.stringify(dict));
+            }, null, null, null, application.viewbag.appSettings.uamapiUrl, 'UAM');
+        }
+
+ 
+              
+       function CargoModule(ModuleName, ModuleUrl) {
+                this.ModuleName = ModuleName;
+                this.ModuleUrl = ModuleUrl;        
+            }
+        }
+
+    ko.applyBindings(new HeaderViewModel());
+</script>
+<style>
+    /*.dropbtn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 15px;
+        font-size: 13px;
+        border: none;
+        height: 49px;
+    }*/
+
+.dropbtn {
+    background-color: #e45422;
+    color: #fff;
+    padding: 3px 20px;
+    border: none;
+    height: 32px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 9px;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+    position: absolute;
+   background-color: #fffdec;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    /* border-bottom-left-radius: 5px; */
+    /* border-bottom-right-radius: 5px; */
+    border: 4px solid #f15e08;
+    /* border-top: 0px; */
+    margin-top: -1px;
+    padding: 10px;
+}
+
+        .dropdown-content a {
+            color: black;
+            padding: 0px 10px;
+            text-decoration: none;
+            display: block;
+        }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0px;
+    }
+
+    .dropdown-content a:hover {
+        /*background-color: #ddd;*/
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+        width: 650px;
+    }
+
+  .dropdown-content:after {
+    position: absolute;
+    top: -7px;
+    left: 10px;
+    right: auto;
+    display: inline-block !important;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #fff;
+    border-left: 7px solid transparent;
+    content: '';
+}
+
+     .dropdown-content .module1 {
+    border: 1px solid #454545;
+    /* border-radius: 2px; */
+    padding: 3px;
+    /* background: #f5cb8b; */
+    margin: 3px 3px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 3px;
+    cursor: pointer;
+    text-align: center;
+    /* box-shadow: 0px 1px 4px #615f5f; */
+    height: 50px;
+    }
+     .dropdown-content .module1:hover {
+        background: #e9f4f9;
+}
+    .dropdown:hover .dropbtn {
+            background-color: #e45422;
+        color: #ffffff;
+    }
+
+    #Header {
+        margin-left: 9px;
+    }
+
+        #Header span > img {
+            width: 110px;
+            height: auto;
+            padding-left: 3px;
+            filter: invert(100%);
+            margin-right: 103px;
+            margin-top: -10px;
+        }
+
+    .header-height {
+        height: 49px;
+    }
+
+    .dropbtn i {font-size: 22px; margin: 0 0 0 13px;}
+
+.dropbtn:hover i {transform: rotate(-90deg);}
+</style>

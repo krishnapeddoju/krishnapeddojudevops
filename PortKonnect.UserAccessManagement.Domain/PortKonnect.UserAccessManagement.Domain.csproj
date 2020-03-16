@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F46D511A-F5C4-4309-93FB-735C3E28AE49}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PortKonnect.UserAccessManagement.Domain</RootNamespace>
+    <AssemblyName>PortKonnect.UserAccessManagement.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PortKonnect.Common.Domain.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CommonDlls\PortKonnect.Common.Domain.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DTOS\gate.cs" />
+    <Compile Include="Enums\CFSDocTypesEnum.cs" />
+    <Compile Include="Enums\CHADocTypesEnum.cs" />
+    <Compile Include="Enums\COADocTypesEnum.cs" />
+    <Compile Include="Enums\DocumentTypes.cs" />
+    <Compile Include="Enums\FunctionCodes\UserFunctionCodes.cs" />
+    <Compile Include="Enums\MAndRDocTypesEnum.cs" />
+    <Compile Include="Enums\Status.cs" />
+    <Compile Include="Enums\VOADocTypesEnum.cs" />
+    <Compile Include="Enums\Years.cs" />
+    <Compile Include="Events\User\Notification\UserCreatedNotificationEvent.cs" />
+    <Compile Include="DTOS\PartnerTypePriorityDTO.cs" />
+    <Compile Include="MapToDTOS\ApplicationEntityFunctionMapToDTO.cs" />
+    <Compile Include="MapToDTOS\ApplicationEntityMapToDTO.cs" />
+    <Compile Include="MapToDTOS\ApplicationModuleEntityMapToDTO.cs" />
+    <Compile Include="MapToDTOS\ApplicationModuleMapToDTO.cs" />
+    <Compile Include="MapToDTOS\EmployeeMapToDTO.cs" />
+    <Compile Include="MapToDTOS\PartnerDirectorDetailsMapToDTO.cs" />
+    <Compile Include="MapToDTOS\PartnerMapToDTO.cs" />
+    <Compile Include="MapToDTOS\PartnerPortMapToDTO.cs" />
+    <Compile Include="MapToDTOS\PartnerRegistrationAddressMapToDTO.cs" />
+    <Compile Include="MapToDTOS\PartnerRegistrationDocsMapToDTO.cs" />
+    <Compile Include="MapToDTOS\PartnerRegistrationMapToDTO.cs" />
+    <Compile Include="MapToDTOS\PartnerTypeRoleMapToDTO.cs" />
+    <Compile Include="MapToDTOS\PartnerTypesMapToDTO.cs" />
+    <Compile Include="MapToDTOS\RoleFunctionMapToDTO.cs" />
+    <Compile Include="MapToDTOS\RoleMapToDTO.cs" />
+    <Compile Include="MapToDTOS\SubCategoryMapToDTO.cs" />
+    <Compile Include="MapToDTOS\SuperCategoryMapToDTO.cs" />
+    <Compile Include="MapToDTOS\UserMapToDTO.cs" />
+    <Compile Include="MapToDTOS\UserPortMapToDTO.cs" />
+    <Compile Include="MapToDTOS\UserPreferenceMapToDTO.cs" />
+    <Compile Include="MapToDTOS\UserRoleMapToDTO.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Application.cs" />
+    <Compile Include="Models\ApplicationEntity.cs" />
+    <Compile Include="Models\ApplicationEntityFunction.cs" />
+    <Compile Include="Models\ApplicationModule.cs" />
+    <Compile Include="Models\ApplicationModuleEntity.cs" />
+    <Compile Include="Models\ChangePasswordLog.cs" />
+    <Compile Include="Models\Conversation.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\ModulesEntityFunction.cs" />
+    <Compile Include="Models\Partner.cs" />
+    <Compile Include="Enums\PartnerType.cs" />
+    <Compile Include="Models\PartnerDirectorDetails.cs" />
+    <Compile Include="Models\PartnerPort.cs" />
+    <Compile Include="Models\PartnerRegistration.cs" />
+    <Compile Include="Models\PartnerRegistrationAddress.cs" />
+    <Compile Include="Models\PartnerRegistrationDocs.cs" />
+    <Compile Include="Models\PartnerTypePriority.cs" />
+    <Compile Include="Models\PartnerTypes.cs" />
+    <Compile Include="Models\PartnerTypeRole.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\RoleFunction.cs" />
+    <Compile Include="Models\SubCategory.cs" />
+    <Compile Include="Models\SubscriptionMember.cs" />
+    <Compile Include="Models\Subscription.cs" />
+    <Compile Include="Models\SuperCategory.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserMenuFunction.cs" />
+    <Compile Include="Models\UserPort.cs" />
+    <Compile Include="Models\UserPreference.cs" />
+    <Compile Include="Models\UserRole.cs" />
+    <Compile Include="Models\UserRoleEntityFunction.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IAccessApplicationRepository.cs" />
+    <Compile Include="Repositories\IAccountRepository.cs" />
+    <Compile Include="Repositories\IApplicationEntityRepository.cs" />
+    <Compile Include="Repositories\IApplicationModuleRepository.cs" />
+    <Compile Include="Repositories\ICommonRepository.cs" />
+    <Compile Include="Repositories\IEmployeeRepository.cs" />
+    <Compile Include="Repositories\IPartnerRegistrationRepository.cs" />
+    <Compile Include="Repositories\IPartnerRepository.cs" />
+    <Compile Include="Repositories\IRoleRepository.cs" />
+    <Compile Include="Repositories\ISubCategoryRepository.cs" />
+    <Compile Include="Repositories\ISubscriptionRepository.cs" />
+    <Compile Include="Repositories\ISuperCategoryRepository.cs" />
+    <Compile Include="Repositories\IUserRepository.cs" />
+    <Compile Include="Repositories\IUserRoleRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PortKonnect.UserAccessManagement.Domain.DTOS\PortKonnect.UserAccessManagement.Domain.DTOS.csproj">
+      <Project>{584b0e4c-22c3-459b-a50e-06a6a8492394}</Project>
+      <Name>PortKonnect.UserAccessManagement.Domain.DTOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PortKonnect.UserAccessManagement.Domain.Enums\PortKonnect.UserAccessManagement.Domain.Enums.csproj">
+      <Project>{a9e7d684-3a45-4326-b9be-7f24094b3d66}</Project>
+      <Name>PortKonnect.UserAccessManagement.Domain.Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PortKonnect.UserAccessManagement.GlobalConstants\PortKonnect.UserAccessManagement.GlobalConstants.csproj">
+      <Project>{F833A6D9-CE92-4B36-B257-6A1FB924BF6F}</Project>
+      <Name>PortKonnect.UserAccessManagement.GlobalConstants</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>XCOPY "$(TargetDir)PortKonnect.UserAccessManagement.Domain.dll" "$(SolutionDir)CommonDlls" /S /Y</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>DEL "$(SolutionDir)CommonDlls\PortKonnect.UserAccessManagement.Domain.dll"</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,7 @@
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\bin\Release\PortKonnect.UserAccessManagement.Domain.DTOS.dll
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\bin\Release\PortKonnect.UserAccessManagement.Domain.DTOS.pdb
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\bin\Release\PortKonnect.UserAccessManagement.GlobalConstants.dll
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\bin\Release\PortKonnect.UserAccessManagement.GlobalConstants.pdb
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\obj\Release\PortKonnect.UserAccessManagement.Domain.DTOS.csprojResolveAssemblyReference.cache
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\obj\Release\PortKonnect.UserAccessManagement.Domain.DTOS.dll
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.Domain.DTOS\obj\Release\PortKonnect.UserAccessManagement.Domain.DTOS.pdb

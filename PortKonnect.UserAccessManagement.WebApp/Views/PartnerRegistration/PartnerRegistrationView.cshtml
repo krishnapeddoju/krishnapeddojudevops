@@ -1,0 +1,1188 @@
+﻿@model PortKonnect.UserAccessManagement.Domain.DTOS.PrivilegeDTO
+@{    
+   Layout = "~/Views/Shared/_eGateLayout.cshtml";
+}
+
+@section scripts
+{
+<script src="~/Scripts/Application/UAM/Model/ViewPartnerRegistrationModel.js"></script>
+<script src="~/Scripts/Application/UAM/ViewModel/PartnerRegistrationViewViewModel.js"></script>
+
+}
+@section ko_apply
+{
+var viewModel = new eGateRoot.PartnerRegistrationViewViewModel('@ViewBag.RequisitionNo','@ViewBag.FormMode');
+ko.applyBindingsWithValidation(viewModel, $("#KYCForm")[0], { insertMessages: false, messagesOnModified: false, grouping: { deep: true }});
+}
+
+<style>
+    .k-upload-status .k-upload-status-total {
+        visibility: hidden;
+        display: none;
+    }
+
+    .k-icon .k-i-tick {
+        visibility: hidden;
+        display: none;
+    }
+
+    .k-upload-status .k-upload-status-total {
+        visibility: hidden;
+        display: none;
+    }
+
+    .k-upload-button > span {
+        padding: 8px !important;
+    }
+
+    .k-dropzone strong {
+        display: none;
+    }
+
+    .k-upload-empty > validationError {
+        position: relative !important;
+    }
+
+    .k-upload-status {
+        display: none;
+    }
+
+    .k-widget {
+        border-color: #F1F6FA;
+    }
+    .modal-dialog {width: 500px !important;}
+      .clipped {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+      .gridhead {margin-bottom:0px !important;}
+</style>
+
+
+<div id="KYCForm">
+    <div data-bind="visible: viewMode() == 'Form', template: { name: 'Form-template' }"></div>
+</div>
+<div class="clearfix"></div>
+
+<script type="text/html" id="Form-template">
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="page-title"><span id="spnTitle" data-bind="text: '@ViewBag.Title'"></span></h3>
+        <ul class="page-breadcrumb breadcrumb"></ul>
+    </div>
+</div>
+<div class="portlet-body">
+<div class="table-toolbar">
+
+<div class="portlet portlet-body form" data-bind="loadingWhen: $root.viewModelHelper.isLoading">
+<div class="form-wizard">
+<div class="form-body form-horizontal">
+<div class="form-group" data-bind="with: ViewPartnerRegistrationModel">
+<div class="row">
+    <div class="col-md-6"><h4 align="right"> Partner Registration : </h4>
+    </div>
+    <div class="col-md-6">
+        <h4 > &nbsp;<span data-bind="text: RequisitionNo"></span></h4>
+    </div>
+</div>
+
+<fieldset>
+    <legend>Partner Selection</legend>
+    <div class="row">
+        <div class="">
+            <div class="form-group">
+                <label class="control-label col-md-2">Partner Selection:</label>
+                <div class="col-md-5">
+                    <div class="radio-list">
+                        <input type="radio" id="partVOA" name="partnerselection" value="VesselOperatingAgent" data-bind="checked: PartnerType, event: { click: $root.GetDocTypes }, enable: false">
+                        <label class="radio-inline">VOA</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" id="partCOA" name="partnerselection" value="ContainerOperatorAgent" data-bind="checked: PartnerType, event: { click: $root.GetDocTypes }, enable: false">
+                        <label class="radio-inline">COA</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" id="partCHA" name="partnerselection" value="CustomHouseAgent" data-bind="checked: PartnerType, event: { click: $root.GetDocTypes }, enable: false">
+                        <label class="radio-inline">CHA / FF</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" id="partCFS" name="partnerselection" value="ContainerFreightStation" data-bind="checked: PartnerType, event: { click: $root.GetDocTypes }, enable: false">
+                        <label class="radio-inline">CFS</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" id="partM&R" name="partnerselection" value="MandR" data-bind="checked: PartnerType, event: { click: $root.GetDocTypes }, enable: false">
+                        <label class="radio-inline">M&R</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</fieldset>
+
+
+<fieldset>
+<legend>Establishment Details</legend>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label col-md-6">Name:<span class="required">*</span></label>
+            <div class="col-md-6">
+                <div>
+                    <input type="text" id="partnerName" name="" class="form-control clipped" data-bind="value: PartnerName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpacesAndSpecialChars_keypressEvent, change: $root.CheckUniquePartnerName }, enable: $root.Isview, attr: { title: PartnerName }" maxlength="50">
+                    <span class="validationError" data-bind="validationMessage: PartnerName"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label col-md-6">Corporate Identification Number (CIN) (in case of company / LLP):<span class="required">*</span></label>
+            <div class="col-md-6">
+                <input type="text" id="txtCIN" name="" style="text-transform: uppercase" class="form-control" maxlength="21" data-bind="value: CIN, event: { keypress: $root.validationHelper.ValidateAlphaNumeric, change: $root.CheckUniqueCIN }, enable: $root.Isview">
+
+                <span class="validationError" id="validationCIN"></span>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label col-md-6">Year of Incorporation:<span class="required">*</span></label>
+            <div class="col-md-6">
+
+                <select id="txtYear" name="" class="form-control" data-bind="options: $root.YearsList, optionsCaption: 'Select...', value: Year,enable: $root.Isview"></select>
+                <span class="validationError" data-bind="validationMessage: Year"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label col-md-6">Permanent Account Number (PAN):<span class="required">*</span></label>
+            <div class="col-md-6">
+                <div>
+                    <input type="text" style="text-transform: uppercase" id="txtPAN" name="" class="form-control" maxlength="10" data-bind="value: PAN, event: { keypress: $root.validationHelper.ValidateAlphaNumeric, change: $root.CheckUniquePAN }, enable: $root.Isview" onchange=" validatePAN() ">
+                    <span class="validationError" data-bind="validationMessage: PAN"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label col-md-6">Address Line 1:<span class="required">*</span></label>
+            <div class="col-md-6" data-bind="with: PartnerRegistrationAddress">
+                <div>
+                    <input type="text" id="houseNumber" name="" class="form-control clipped" data-bind="value: HouseNumber, event: { keypress: $root.validationHelper.ValidateAlphaNumericWithSpacesAndSpecialCharsForHouseNo_keypressEvent }, enable: $root.Isview, attr: { title: HouseNumber }" onchange=" validateHouseNumber() " maxlength="100">
+                    <span class="validationError" id="validationHouseNumber"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label col-md-6">Tax Deduction Account Number (TAN):<span class="required" data-bind="visible: PartnerType() != 'CustomHouseAgent'">*</span></label>
+            <div class="col-md-6">
+                <div>
+                    <input type="text" id="txtTAN" style="text-transform: uppercase" name="" class="form-control" maxlength="10" data-bind="value: TAN, event: { keypress: $root.validationHelper.ValidateAlphaNumeric, change: $root.CheckUniqueTAN }, enable: $root.Isview">
+                    <span class="validationError" data-bind="validationMessage: TAN"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label col-md-6">Address Line 2:&nbsp;&nbsp;</label>
+            <div class="col-md-6" data-bind="with: PartnerRegistrationAddress">
+                <input type="text" id="streetName" name="" class="form-control clipped" onchange=" validateStreetName() " maxlength="100" data-bind="value: StreetName, enable: $root.Isview, attr: { title: StreetName }">
+                <span class="validationError" id="validationStreetName"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label col-md-6">Establishment Regn. No.:<span class="required">*</span></label>
+            <div class="col-md-6">
+                <div>
+                    <input type="text" id="registrationNo" name="" class="form-control" maxlength="10" data-bind="value: RegistrationNo, event: { keypress: $root.validationHelper.ValidateAlphaNumeric, change: $root.CheckUniqueRegistrationNo }, enable: $root.Isview">
+                    <span class="validationError" data-bind="validationMessage: RegistrationNo"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label col-md-6">Address Line 3:&nbsp;&nbsp;</label>
+            <div class="col-md-6" data-bind="with: PartnerRegistrationAddress">
+                <div>
+                    <input type="text" id="areaName" name="" class="form-control clipped" maxlength="100" data-bind="value: AreaName, enable: $root.Isview, attr: { title: AreaName }" onchange=" validateareaName() ">
+                    <span class="validationError" id="validationAreaName"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label col-md-6">Registration Place:<span class="required">*</span></label>
+            <div class="col-md-6">
+                <div>
+                    <input type="text" id="txtPlace" name="" class="form-control clipped" maxlength="50" data-bind="value: Place, event: { keypress: $root.validationHelper.ValidateAlphaNumericWithSpaces_keypressEvent }, enable: $root.Isview, attr: { title: Place }">
+
+                    <span class="validationError" data-bind="validationMessage: Place"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label col-md-6">Town / City :<span class="required">*</span></label>
+            <div class="col-md-6" data-bind="with: PartnerRegistrationAddress">
+                <div>
+                    <input type="text" id="townOrCity" name="" class="form-control" maxlength="50" data-bind="value: TownOrCity, enable: $root.Isview" onchange=" validatetownOrCity() ">
+                    <span class="validationError" id="validationTownOrCity"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label col-md-6">GST / Service Tax / VAT Regn. No.:<span class="required">*</span></label>
+            <div class="col-md-6">
+                <div>
+                    <input type="text" id="txtVAT" name="" style="text-transform: uppercase" class="form-control" maxlength="15" data-bind="value: VAT, event: { keypress: $root.validationHelper.ValidateAlphaNumeric, change: $root.CheckUniqueVAT }, enable: $root.Isview">
+                    <span class="validationError" data-bind="validationMessage: VAT"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label col-md-6">Country :<span class="required">*</span></label>
+            <div class="col-md-6" data-bind="with: PartnerRegistrationAddress">
+                <div>
+                    <select id="ddlCountry" name="" class="form-control" data-bind="options: $root.Countries, optionsText: 'CountryName', optionsCaption: 'Select...', optionsValue: 'CountryCode', value: Country, event: { change: $root.SelectStates }, enable: $root.Isview" onchange=" validateCountry() "></select>
+                    <span class="validationError" id="validationCountry"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label col-md-6">Email Id:<span class="required">*</span></label>
+            <div class="col-md-6" data-bind="with: PartnerRegistrationAddress">
+                <div>
+                    <input type="text" id="PartnerEmailId" name="" class="form-control clipped" data-bind="value: Email, event: { keypress: $root.validationHelper.ValidateAlphanumericEmail }, enable: $root.Isview, attr: { title: Email }" maxlength="200" onchange=" validatePartnerEmail() ">
+                    <span class="validationError" data-bind="validationMessage: Email"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label col-md-6">State :<span class="required">*</span></label>
+            <div class="col-md-6" data-bind="with: PartnerRegistrationAddress">
+                <div>
+                    <select id="ddlState" name="" class="form-control" data-bind="options: $root.States, optionsText: 'StateName', optionsCaption: 'Select...', optionsValue: 'StateCode', value: State, enable: $root.Isview" onchange=" validateState() "></select>
+                    <span class="validationError" id="validationState"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label col-md-6">Mobile Number :<span class="required">*</span></label>
+            <div class="col-md-6" data-bind="with: PartnerRegistrationAddress">
+                <div>
+                    <input type="text" id="txtMobileNo" name="" class="form-control" data-bind="value: MobileNumber, event: { keypress: $root.validationHelper.ValidateNumericOnly },enable: $root.Isview" onchange=" validatePartnerMobile() ">
+                    <span class="validationError" id="validationPartnerMobile"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label col-md-6">Zip Code:<span class="required">*</span></label>
+            <div class="col-md-6" data-bind="with: PartnerRegistrationAddress">
+                <div>
+                    <input type="text" id="zipCode" name="" class="form-control" maxlength="6" data-bind="value: ZipCode, event: { keypress: $root.validationHelper.ValidateNumeric }, enable: $root.Isview" onchange=" validatezipCode() ">
+                    <span class="validationError" id="validationZipCode"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label col-md-6">Status :<span class="required">*</span></label>
+            <div class="col-md-6">
+                <div>
+                    <select id="ddlStatus" name="" class="form-control" data-bind="options: $root.StatusList, optionsCaption: 'Select...', value: Status, enable: $root.Isview">
+                    </select>
+                    <span class="validationError" data-bind="validationMessage: Status"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row form-group">
+                <label class="control-label col-md-6">Logo :<span class="required">&nbsp;&nbsp;</span></label>
+                <div class="col-md-6" style="border: 1px solid #ccc; border-radius: 5px;">
+                    <table style="width: 100%; height: 20px;">
+                        <tr>
+                            <td>
+                                <img id="sigImage" src="#" height="60" data-bind="visible: (PartnerRegistrationAddress().LogoPath() != '' && PartnerRegistrationAddress().LogoPath() != null)">
+                                <span class="validationError" id="validationLogo"></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <label class="control-label col-md-6"></label>
+                    <div class="col-md-6">
+                        <span style="color: red">Preferred Dimensions : 90 X 30</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <label class="control-label col-md-6"></label>
+                <div class="col-md-6">
+                    <table>
+                        <tbody data-bind="with: PartnerRegistrationAddress">
+                        <tr>
+                            <td data-bind="visible: (LogoPath() != '' && LogoPath() != null)">
+                                <a href="" id="fileNameLink" data-bind="attr: { href: application.viewbag.appSettings.uamapiUrl + '/FileUploads/Logo/' + LogoPath() }" target="_blank"><span data-bind="    text: LogoFileName"></span></a>
+
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <label class="control-label col-md-6"></label>
+                <div class="col-md-6">
+                    <div class="fileupload-buttonbar">
+                        <div class="form-group">
+                            <div class="col-md-12" data-bind="visible:  $root.Isview">
+                                <span class="btn btn-xs green fileinput-button">
+                  <i class="fa fa-plus"></i>
+                  <span>Browse
+                  </span>
+                  <input type="file" class="upload" name="files[]" id="fileToUpload" multiple />
+              </span>
+                                <button type="button" id="CapturePicture" data-icon="upload" data-role="button" data-bind="click: $root.uploadFile" class="btn btn-xs blue start">
+                                    <i class="fa fa-upload"></i>
+                                    <span>Upload
+                  </span>
+
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label col-md-6">Nature of Business:<span class="required">*</span></label>
+                <div class="col-md-6">
+                    <div>
+                        <input type="text" id="txtNatureOfBusiness" name="" class="form-control" maxlength="50" data-bind="value: NatureOfBusiness, event: { keypress: $root.validationHelper.ValidateAlphaNumericWithSpaces }, enable: $root.Isview">
+                        <span class="validationError" data-bind="validationMessage: NatureOfBusiness"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</fieldset>
+
+<fieldset>
+    <legend>Details of Directors/Partners/Promoters</legend>
+    <div class="row">
+        <div class="table-toolbar">
+            <div id="tableheader" data-bind="visible:$root.Isview">
+                <a class="button gbtngreen" id="btnAddNew" data-bind="click: $root.AddNewDetails"><i class="fa fa-plus"></i>Add New</a>
+            </div>
+            <div class="table-scrollable">
+                <table cellpadding="0" cellspacing="0" border="0" id="tblmovementsdetails" class="table tinytable">
+                    <thead>
+                    <tr>
+                        <th data-bind="visible: $root.Isview">Action</th>
+                        <th>Name</th>
+                        <th>Permanent Account Number (PAN)</th>
+                        <th>Address</th>
+                        <th>Mobile</th>
+                        <th>Telephone</th>
+                        <th>Email</th>
+                    </tr>
+                    </thead>
+                    <tbody data-bind="foreach: PartnerDirectorDetailss">
+                    <!-- ko if: Type()=='Director' -->
+                    <tr data-bind="css: { trhighlight: ErrorStatus() }">
+                        <td style="text-align: center;" data-bind="visible: $root.Isview">
+                            <a href='#' id="btnRemove" data-bind='click: $root.RemoveDetails' title="Remove"><i class="fa fa-ban ban-before"></i></a></td>
+                        <td>
+                            <input type="text" class="form-control clipped" maxlength="20" data-bind="value: PDirectorName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }, enable: $root.Isview, attr: { title: PDirectorName }"></td>
+                        <td style="width: 14%">
+                            <input type="text" class="form-control" style="text-transform: uppercase" maxlength="10" data-bind="value: PDirectorPAN, event: { keypress: $root.validationHelper.ValidateAlphaNumeric }, enable: $root.Isview"></td>
+                        <td style="width: 25%">
+                            <textarea class="form-control clipped" style="resize: none;" rows="1" data-bind="value: PDirectorAddress, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }, enable: $root.Isview, attr: { title: PDirectorAddress }"></textarea></td>
+                        <td style="width: 14%">
+                            <div class="col-md-12">
+                                <div class="col-md-1" style="text-align: -webkit-right;"> +</div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" data-bind="value: PCountryCode, event: { keypress: $root.validationHelper.ValidateNumeric }, attr: { id: 'countryCode' + $index() }, enable: $root.Isview" maxlength="3">
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" maxlength="15" data-bind="value: PDirectorMobile, event: { keypress: $root.validationHelper.ValidateNumeric }, attr: { id: 'pDirectorMobile' + $index(), title: PDirectorMobile }, enable: $root.Isview">
+                                </div>
+                            </div></td>
+                        <td style="width: 13%">
+                            <input type="text" class="form-control" maxlength="11" data-bind="value: PDirectorTele, event: { keypress: $root.validationHelper.ValidateNumeric }, enable: $root.Isview"></td>
+                        <td>
+                        <input type="text" id="emailId" name="" class="form-control clipped" data-bind="value: PDirectorEmail, event: { keypress: $root.validationHelper.ValidateAlphanumericEmail }, enable: $root.Isview, attr: { title: PDirectorEmail }" maxlength="254">
+                    </tr>
+                    <!-- /ko -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</fieldset>
+<fieldset>
+    <legend>Bank Details</legend>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label col-md-6">Bank Name:<span class="required">*</span></label>
+                <div class="col-md-6">
+                    <input type="text" name="" class="form-control clipped" maxlength="20" data-bind="value: BankName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }, enable: $root.Isview, attr: { title: BankName }">
+                    <span class="validationError" data-bind="validationMessage: BankName"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label col-md-6">Account No.:<span class="required">*</span></label>
+                <div class="col-md-6">
+                    <input type="text" name="" class="form-control" maxlength="18" data-bind="value: AccountNo, event: { keypress: $root.validationHelper.ValidateNumeric }, enable: $root.Isview">
+                    <span class="validationError" data-bind="validationMessage: AccountNo"></span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label col-md-6">Bank Address :<span class="required">*</span></label>
+                <div class="col-md-6">
+                    <textarea name="" class="form-control clipped" maxlength="40" style="resize: none;" data-bind="value: BankAddress, event: { keypress: $root.validationHelper.ValidateAlphaNumericWithSpaces_keypressEvent }, enable: $root.Isview, attr: { title: BankAddress }"></textarea>
+                    <span class="validationError" data-bind="validationMessage: BankAddress"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label col-md-6">IFSC Code :<span class="required">*</span></label>
+                <div class="col-md-6">
+                    <input type="text" name="" class="form-control" maxlength="11" data-bind="value: IFSCCode, event: { keypress: $root.validationHelper.ValidateAlphaNumeric }, enable: $root.Isview">
+
+                    <span class="validationError" data-bind="validationMessage: IFSCCode"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</fieldset>
+
+
+<fieldset>
+    <legend>Details of Representatives</legend>
+    <div class="row">
+
+        <div class="col-md-6">
+            <div style="width: 97%;">
+                <div class="table-toolbar">
+
+                    <div id="tableheader" data-bind="visible:$root.Isview">
+                        <a class="button gbtngreen" id="btnAddNewOperation" data-bind="click: $root.AddNewOperationsDetails"><i class="fa fa-plus"></i>Add New</a>
+                    </div>
+                    <div class="gridhead">Operations <span class="required">*</span></div>
+                    <div class="table-scrollable" style="min-height: 42px;">
+                        <table cellpadding="0" cellspacing="0" border="0" id="tblmovementsdetails" class="table tinytable">
+                            <thead>
+                            <tr>
+                                <th data-bind="visible: $root.Isview">Action</th>
+                                <th>Name</th>
+                                <th>Mobile</th>
+                                <th>Email</th>
+                            </tr>
+                            </thead>
+                            <tbody data-bind="foreach: PartnerOperationsDetailss">
+                            <tr data-bind="visible: IsDeleted()=='N',css: { trhighlight: ErrorStatusOperations() }">
+                                <td style="text-align: center; width: 25px;" data-bind="visible: $root.Isview">
+                                    <a href='#' id="btnRemoveOperations" data-bind='click: $root.RemoveOperationsDetails' title="Remove"><i class="fa fa-ban ban-before"></i></a>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control clipped" maxlength="50" id="OperationsName" data-bind="    value: PDirectorName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }, enable: $root.Isview, attr: { title: PDirectorName }"></td>
+                                <td style="width: 26%">
+                                    <div class="col-md-12">
+                                        <div class="col-md-1" style="text-align: -webkit-right;">+</div>
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control" data-bind="value: PCountryCode, event: { keypress: $root.validationHelper.ValidateNumeric }, attr: { id: 'countryCode' + $index() }, enable: $root.Isview" maxlength="3">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control clipped" data-bind="value: PDirectorMobile, event: { keypress: $root.validationHelper.ValidateNumeric }, attr: { id: 'pOperationsMobile' + $index(), title: PDirectorMobile }, enable: $root.Isview">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="text" id="OperationEmailId" name="" class="form-control clipped" data-bind="value: PDirectorEmail, event: { keypress: $root.validationHelper.ValidateAlphanumericEmail }, enable: $root.Isview, attr: { title: PDirectorEmail }" maxlength="100"></td>
+
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div style="width: 98%;">
+                <div class="table-toolbar">
+                    <div id="tableheader" data-bind="visible:$root.Isview">
+                        <a class="button gbtngreen" id="btnAddNewIT" data-bind="click: $root.AddNewITDetails"><i class="fa fa-plus"></i>Add New</a>
+                    </div>
+                    <div class="gridhead">IT <span class="required">*</span></div>
+                    <div class="table-scrollable" style="min-height: 42px;">
+                        <table cellpadding="0" cellspacing="0" border="0" id="tblmovementsdetails" class="table tinytable">
+                            <thead>
+                            <tr>
+                                <th data-bind="visible: $root.Isview">Action</th>
+                                <th>Name</th>
+                                <th>Mobile</th>
+                                <th>Email</th>
+                            </tr>
+                            </thead>
+                            <tbody data-bind="foreach: PartnerITDetailss">
+                            <tr data-bind="visible: IsDeleted()=='N',css: { trhighlight: ErrorStatusIT() }">
+                                <td style="text-align: center; width: 25px;" data-bind="visible: $root.Isview">
+                                    <a href='#' id="btnRemoveIT" data-bind='click: $root.RemoveITDetails' title="Remove"><i class="fa fa-ban ban-before"></i></a></td>
+                                <td>
+                                    <input type="text" class="form-control clipped" maxlength="50" id="ITName" data-bind="    value: PDirectorName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }, enable: $root.Isview, attr: { title: PDirectorName }"></td>
+                                <td style="width: 26%">
+                                    <div class="col-md-12">
+                                        <div class="col-md-1" style="text-align: -webkit-right;">+</div>
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control" data-bind="value: PCountryCode, event: { keypress: $root.validationHelper.ValidateNumeric }, attr: { id: 'countryCode' + $index() }, enable: $root.Isview" maxlength="3">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control clipped" data-bind="value: PDirectorMobile, event: { keypress: $root.validationHelper.ValidateNumeric }, attr: { id: 'pITMobile' + $index(), title: PDirectorMobile }, enable: $root.Isview">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="text" id="ITemailId" name="" class="form-control clipped" data-bind="value: PDirectorEmail, event: { keypress: $root.validationHelper.ValidateAlphanumericEmail }, enable: $root.Isview, attr: { title: PDirectorEmail }" maxlength="100"></td>
+
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-6">
+            <div style="width: 97%;">
+                <div class="table-toolbar">
+                    <div id="tableheader" data-bind="visible:$root.Isview">
+                        <a class="button gbtngreen" id="btnAddNewFinance" data-bind="click: $root.AddNewFinanceDetails"><i class="fa fa-plus"></i>Add New</a>
+                    </div>
+                    <div class="gridhead">Finance <span class="required">*</span></div>
+                    <div class="table-scrollable" style="min-height: 42px;">
+                        <table cellpadding="0" cellspacing="0" border="0" id="tblmovementsdetails" class="table tinytable">
+                            <thead>
+                            <tr>
+                                <th data-bind="visible: $root.Isview">Action</th>
+                                <th>Name</th>
+                                <th>Mobile</th>
+                                <th>Email</th>
+                            </tr>
+                            </thead>
+                            <tbody data-bind="foreach: PartnerFinanceDetailss">
+                            <tr data-bind="visible: IsDeleted()=='N',css: { trhighlight: ErrorStatusFinance() }">
+                                <td style="text-align: center; width: 25px;" data-bind="visible: $root.Isview">
+                                    <a href='#' id="btnRemoveFinance" data-bind='click: $root.RemoveFinanceDetails' title="Remove"><i class="fa fa-ban ban-before"></i></a>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control clipped" maxlength="50" id="PFinanceName" data-bind="    value: PDirectorName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }, enable: $root.Isview, attr: { title: PDirectorName }"></td>
+                                <td style="width: 26%">
+                                    <div class="col-md-12">
+                                        <div class="col-md-1" style="text-align: -webkit-right;">+</div>
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control" data-bind="value: PCountryCode, event: { keypress: $root.validationHelper.ValidateNumeric }, attr: { id: 'countryCode' + $index() }, enable: $root.Isview" maxlength="3">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control clipped" data-bind="value: PDirectorMobile, event: { keypress: $root.validationHelper.ValidateNumeric }, attr: { id: 'pFinanceMobile' + $index(), title: PDirectorMobile }, enable: $root.Isview">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="text" id="FinanceEmailId" name="" class="form-control clipped" data-bind="value: PDirectorEmail, event: { keypress: $root.validationHelper.ValidateAlphanumericEmail }, enable: $root.Isview, attr: { title: PDirectorEmail }" maxlength="100"></td>
+
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div style="width: 98%;">
+                <div class="table-toolbar">
+                    <div id="tableheader" data-bind="visible:$root.Isview">
+                        <a class="button gbtngreen" id="btnAddNewSales" data-bind="click: $root.AddNewSalesDetails"><i class="fa fa-plus"></i>Add New</a>
+                    </div>
+                    <div class="gridhead">Sales</div>
+                    <div class="table-scrollable" style="min-height: 42px;">
+                        <table cellpadding="0" cellspacing="0" border="0" id="tblmovementsdetails" class="table tinytable">
+                            <thead>
+                            <tr>
+                                <th data-bind="visible: $root.Isview">Action</th>
+                                <th>Name</th>
+                                <th>Mobile</th>
+                                <th>Email</th>
+                            </tr>
+                            </thead>
+                            <tbody data-bind="foreach: PartnerSalesDetailss">
+                            <tr data-bind="visible:(IsDeleted()=='N'),css: { trhighlight: ErrorStatusSales() }">
+                                <td style="text-align: center; width: 25px;" data-bind="visible: $root.Isview">
+                                    <a href='#' id="btnRemoveSales" data-bind='click: $root.RemoveSalesDetails' title="Remove"><i class="fa fa-ban ban-before"></i></a>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control clipped" maxlength="50" id="PSalesName" data-bind="    value: PDirectorName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }, enable: $root.Isview, attr: { title: PDirectorName }"></td>
+                                <td style="width: 26%">
+                                    <div class="col-md-12">
+                                        <div class="col-md-1" style="text-align: -webkit-right;">+</div>
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control" data-bind="value: PCountryCode, event: { keypress: $root.validationHelper.ValidateNumeric }, attr: { id: 'countryCode' + $index() }, enable: $root.Isview" maxlength="3">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control clipped" data-bind="value: PDirectorMobile, event: { keypress: $root.validationHelper.ValidateNumeric }, attr: { id: 'pSalesMobile' + $index(), title: PDirectorMobile }, enable: $root.Isview">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="text" id="SalesEmailId" name="" class="form-control clipped" data-bind="value: PDirectorEmail, event: { keypress: $root.validationHelper.ValidateAlphanumericEmail }, enable: $root.Isview, attr: { title: PDirectorEmail }" maxlength="100"></td>
+
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</fieldset>
+
+
+
+@* <fieldset>
+                                <legend>Details of Representatives</legend>
+                                <div class="row">
+									<div class="col-md-1"></div>
+                                    <div class="col-md-4">
+                                        <h4  style="border-bottom:1px solid #ccc;  ">Finance</h4>
+                                        <div class="row">
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">Name :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input type="text" name="" class="form-control" maxlength="20" data-bind="value: FinanceName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }, enable: $root.Isview">
+                                                    <span class="validationError" data-bind="validationMessage: FinanceName"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">Email :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="finEmail" class="form-control" data-bind="value: FinanceEmail, event: { keypress: $root.validationHelper.ValidateAlphanumericEmail }, enable: $root.Isview" onchange=" validateFinEmailId() " maxlength="254">
+                                                    <span class="validationError" id="validationFinEmail"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">Mobile :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="finMobile" name="" class="form-control" maxlength="15" data-bind="value: FinanceMobile, event: { keypress: $root.validationHelper.ValidateNumeric }, enable: $root.Isview" onchange=" validatefinNumber() ">
+                                                    <span class="validationError" id="validationfinMobile"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+									<div class="col-md-1"></div>
+										<div class="col-md-1"></div>
+                                    <div class="col-md-4">
+                                        <h4 style="border-bottom:1px solid #ccc;  ">Operations</h4>
+                                        <div class="row">
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">Name :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input type="text" name="" class="form-control" maxlength="20" data-bind="value: OperationsName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }, enable: $root.Isview">
+                                                    <span class="validationError" data-bind="validationMessage: OperationsName"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">Email :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="operationEmail" class="form-control" data-bind="value: OperationsEmail, event: { keypress: $root.validationHelper.ValidateAlphanumericEmail }, enable: $root.Isview" onchange=" validateOperationEmail() " maxlength="254">
+                                                    <span class="validationError" id="validationOperationsEmail"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">Mobile :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="operationMobile" name="" class="form-control" maxlength="10" data-bind="value: OperationsMobile, event: { keypress: $root.validationHelper.ValidateNumeric }, enable: $root.Isview" onchange=" validateOperationMobile() ">
+                                                    <span class="validationError" id="validationOperationMobile"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+									<div class="col-md-1"></div>
+                                </div>
+                                <div class="row">
+									<div class="col-md-1"></div>
+                                    <div class="col-md-4">
+                                        <h4  style="border-bottom:1px solid #ccc;  ">IT</h4>
+                                        <div class="row">
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">Name :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input type="text" name="" maxlength="20" class="form-control" data-bind="value: ITName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }, enable: $root.Isview">
+                                                    <span class="validationError" data-bind="validationMessage: ITName"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">Email :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="itEmail" class="form-control" data-bind="value: ITEmail, event: { keypress: $root.validationHelper.ValidateAlphanumericEmail }, enable: $root.Isview" onchange=" validateITEmail() " maxlength="254">
+                                                    <span class="validationError" id="ValidationiTEmail"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">Mobile :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="iTMobile" name="" class="form-control" maxlength="10" data-bind="value: ITMobile, event: { keypress: $root.validationHelper.ValidateNumeric }, enable: $root.Isview" onchange=" validateITMobile() ">
+                                                    <span class="validationError" id="validationiTMobile"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+									<div class="col-md-1"></div>
+                                    <div class="col-md-6"></div>
+                                </div>
+                            </fieldset>*@
+
+
+
+<fieldset>
+    <legend>Documents Upload (All documents to be self attested with Company Seal)</legend>
+
+
+    <div class="row" data-bind="visible:$root.Isview">
+
+        <div class="table-responsive">
+            <table class="tinytable">
+                <thead>
+                <tr>
+                    <th class="bg-dark font-color1" style="width: 50px;">S.No.</th>
+                    <th class="bg-dark font-color1">Document Type</th>
+                    <th class="bg-dark font-color1">Upload</th>
+                    <th class="bg-dark font-color1">Document Name</th>
+                    <th class="bg-dark font-color1" style="width: 100px;">Valid Till</th>
+                    <th class="bd-dark font-color1" style="width: 100px;">Action</th>
+
+                </tr>
+                </thead>
+                <tbody data-bind="foreach: DocumentDTOs">
+                <tr data-bind="css: { trhighlight: ErrorStatusDocument() }">
+                    <td data-bind="text: $index() + 1" style="text-align: center;"></td>
+                    <td data-bind="text: DocumentType"></td>
+                    <td>
+                        <input class="btn btn" data-bind="kendoUpload: {
+    async: {
+        saveUrl: '/api/MultipleFileUpload/DocType_Copy/KPCT',
+        autoUpload: true
+    }, localization: {
+        select: 'Upload Document', dropFilesHere: ''
+    }, enabled: $root.IsbuttonsEnable, multiple: false, select: SelectFile, upload: $root.Upload, success: $root.FileSuccess,
+    showFileList: false
+}, attr: { id: 'upload' + $index() }"
+                               type="file" multiple="multiple" title="Upload Document"/></td>
+                    <td><a data-bind="text: FileName, attr: { href: '/FileUploads/' + FileName() }" target="_blank" style="text-decoration: underline;"></a></td>
+                    <td>
+
+                        <div data-bind="attr: { id: 'IsvalidTill' + $index() }" style="display: none">
+                            @*<input type="text" style="border-width: 1px;" class="form-control date-picker" onkeydown="" data-bind="    value: ValidTill, attr: { id: 'validTill' + $index(), enable: false }" onchange=" validateChangeDate() " maxlength="12" />*@
+                            <input type="text" class="date-picker" onkeypress=" return false; " data-bind="kendoDatePicker: { value: ValidTill, format: 'dd-MM-yyyy', readonly: true }, attr: { id: 'validTill' + $index(), enable: false }" name="ValidTill"/>
+                            <span class="validationError" id="validTilltxt"></span>
+                        </div>
+                    </td>
+                    <td style="text-align: center;">
+                        <a href="#" title="Remove" data-bind="click: $root.RemoveDocument, visible: (FileName() !== null && FileName() !== '')"><i class="fa fa-ban ban-before" data-bind="    attr: { id: $index() }"></i></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="portlet box advbg" data-bind="visible:!$root.Isview()">
+        <div class="portlet-title">
+            <div class="caption">
+                Uploaded Files
+            </div>
+            <div class="tools">
+                <a href="javascript:;" class="collapse"></a>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="row">
+                <div>
+                    <div style="height: 5px;"></div>
+                    <div class="row">
+                        <div class="table-responsive">
+                            <table class="tinytable">
+                                <thead>
+                                <tr>
+                                    <th class="bg-dark font-color1" style="width: 50px;">S.No.</th>
+                                    <th class="bg-dark font-color1">Document Type</th>
+                                    <th class="bg-dark font-color1">Document Name</th>
+                                    <th class="bg-dark font-color1" style="width: 100px;">Valid Till</th>
+
+                                </tr>
+                                </thead>
+                                <tbody data-bind="foreach: DocumentDTOs">
+                                <tr>
+                                    <td data-bind="text: $index() + 1" style="text-align: center;"></td>
+                                    <td data-bind="text: DocumentType" style="text-align: left;"></td>
+                                    <td><a data-bind="text: FileName, attr: { href: '/FileUploads/' + FileName() }" target="_blank" style="text-decoration: underline;"></a></td>
+                                    <td data-bind="text: ValidTill" style="text-align: center;"></td>
+
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</fieldset>
+
+<div class="row">
+    <div class="col-md-1" align="right">
+        <input class="k-header k-with-icon k-filterable" type='Checkbox' data-bind="checked: IsAccept, enable: false"/>
+    </div>
+    <div class="col-md-11">I / We hereby declare that the above stated information is true and correct and will be held liable for any omission, incorrect, incomplete of misdeclaration to herein above. We undertake to keep your office informed of any changes to the above details and re-submit the relevant documents along with revised KYC Form</div>
+</div>
+<div class="row">&nbsp;</div>
+
+
+
+@*
+<div id="rejectBulk" class="modal fade" tabindex="-1">
+    <div class="modal-dialog" id="stk">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" id="rejectBulkClose" data-dismiss="modal" data-bind="visible: false"></button>
+                <div class="form-wizard">
+                    <div class="col-md-12 form-group">
+                        <h3 id="lblMainHeading" style="border-bottom: 2px solid #ccc; margin-top: 1px; padding-bottom: 5px;"></h3>
+                    </div>
+                    <div data-always-visible="1" data-rail-visible1="1">
+                        <div class="form-group">
+                            <label id="lblRejectsContainer"></label>
+                        </div>
+                        <div data-bind="visible: $root.IsRemarksVisible">
+                            <fieldset>
+                                <form action="#" id="form_sample_2" class="form-horizontal">
+                                    <div class="row" data-bind="if: $root.IsReject">
+                                        <div class="form-group">
+                                            <label id="lblheadingReject" class="col-md-6 control-label">Reason For Reject:<span class="required" style="color: red">*</span></label>
+                                            <div class="col-md-6">
+                                                <textarea class="form-control" onchange=" HandleValidateRejectRemarks(this); " id="txtAreaRejectsRemarks" style="resize: none; width: 100%; border: 1px solid #ccc;" data-bind="value: $root.Remarks, visible: $root.IsReject" maxlength="500"></textarea>
+                                                <span id="spanReject" class="validationError"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" data-bind="if: $root.IsApprove">
+                                        <div class="form-group">
+                                            <label id="lblheadingApprove" class="col-md-6 control-label">Partner Code:<span class="required" style="color: red">*</span></label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" onchange=" HandleValidateRejectRemarks(this); " id="txtAreaPartnerCode" style="resize: none; width: 100%; border: 1px solid #ccc;" data-bind="value: $root.PartnerCode, visible: $root.IsApprove, event: { keypress: $root.validationHelper.ValidateAlphaNumeric, change: $root.DupliacteValidation }" maxlength="25"/>
+                                                <span id="spanApprove" class="validationError"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" data-bind="if: $root.IsApprove">
+                                        <div class="form-group">
+                                            <label id="lblheading1" class="col-md-6 control-label">User Name:<span class="required" style="color: red">*</span></label>
+                                            <div class="col-md-6">
+                                                <input class="form-control" type="text" onchange=" HandleValidateRejectRemarks(this); " id="txtAreaUserName" style="resize: none;" data-bind="value: $root.UserName, visible: $root.IsApprove, event: { keypress: $root.validationHelper.ValidateAlphaNumeric, change: $root.validateUserName }" maxlength="30"/>
+                                                <span id="spanUserName" class="validationError"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" data-bind="if: $root.IsApprove">
+                                        <div class="form-group">
+                                            <label id="lblheading2" class="col-md-6 control-label">First Name:<span class="required" style="color: red">*</span></label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" onchange="changeFirstname(this);" id="txtAreaFirstName" style="resize: none; width: 100%; border: 1px solid #ccc;" data-bind="value: $root.FirstName, visible: $root.IsApprove, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }" maxlength="50"/>
+                                                <span id="spanFirstName" class="validationError"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" data-bind="if: $root.IsApprove">
+                                        <div class="form-group">
+                                            <label id="lblheading3" class="col-md-6 control-label">Last Name:<span class="required" style="color: red">*</span></label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" onchange="changeLastname(this);" id="txtAreaLastName" style="resize: none; width: 100%; border: 1px solid #ccc;" data-bind="value: $root.LastName, visible: $root.IsApprove, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }" maxlength="50"/>
+                                                <span id="spanLastName" class="validationError"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" data-bind="if: $root.IsApprove">
+                                        <div class="form-group">
+                                            <label id="lblheading4" class="col-md-6 control-label">Roles:<span class="required" style="color: red">*</span></label>
+                                            <div class="col-md-6">
+
+                                                <input class="displaytxt col-md-12" id="userPort" onchange="validateRole(this);" data-bind="kendoMultiSelect: { dataTextField: 'RoleName', dataValueField: 'RoleId', data: $parent.Roles, value: UserRoleArray }"/>
+
+                                                <span id="spnrole" style="margin: 15px -0px 0px 0px" class="validationError"></span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </fieldset>
+                        </div>
+
+
+
+                    </div>
+                    <div class="btns-group fluid " data-bind="loadingWhen: $root.viewModelHelper.isLoading">
+                        <button type="submit" class="btn green" data-bind="click: $parent.RejectsForm, visible: $root.IsReject" value="POST VAL">Reject</button>
+                        <button type="submit" class="btn green" data-bind="click: $parent.ApproveForm, visible: $root.IsApprove" value="POST VAL">Approve</button>
+                        <button id="btnPopUpNo" type="submit" class="btn red" data-bind="click: $parent.closeRejectBulkPopup">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@
+
+<div id="rejectBulk" class="modal fade" tabindex="-1">
+    <div class="modal-dialog" id="stk">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" id="rejectBulkClose" data-dismiss="modal" data-bind="visible: false"></button>
+                <div class="form-wizard">
+                    <div class="col-md-12 form-group">
+                        <h3 id="lblMainHeading" style="border-bottom: 2px solid #ccc; margin-top: 1px; padding-bottom: 5px;"></h3>
+                    </div>
+                    <div data-always-visible="1" data-rail-visible1="1">
+                        <div class="form-group">
+                            <label id="lblRejectsContainer"></label>
+                        </div>
+                        <div data-bind="visible: $root.IsRemarksVisible">
+                            <fieldset>
+                                <form action="#" id="form_sample_2" class="form-horizontal">
+
+                                    <div class="row" data-bind="if: $root.IsReject">
+                                        <div class="form-group">
+                                            <label id="lblheadingReject" class="col-md-6 control-label">Reason For Reject:<span class="required" style="color: red">*</span></label>
+                                            <div class="col-md-6">
+                                                <textarea class="form-control" onchange=" HandleValidateRejectRemarks(this); " id="txtAreaRejectsRemarks" style="resize: none; width: 100%; border: 1px solid #ccc;" data-bind="value: $root.Remarks, visible: $root.IsReject" maxlength="500"></textarea>
+                                                <span id="spanReject" class="validationError"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" data-bind="if: $root.IsApprove">
+                                        <div class="form-group">
+                                            <label id="lblheadingApprove" class="col-md-6 control-label">Partner Code:<span class="required" style="color: red">*</span></label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" onchange=" HandleValidateRejectRemarks(this); " id="txtAreaPartnerCode" style="resize: none; width: 100%; border: 1px solid #ccc;" data-bind="value: $root.PartnerCode, visible: $root.IsApprove, event: { keypress: $root.validationHelper.ValidateAlphaNumeric, change: $root.DupliacteValidation }" maxlength="25"/>
+                                                <span id="spanApprove" class="validationError"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" data-bind="if: $root.IsApprove">
+                                        <div class="form-group">
+                                            <label id="lblheading1" class="col-md-6 control-label">User Name:<span class="required" style="color: red">*</span></label>
+                                            <div class="col-md-6">
+                                                <input class="form-control" type="text" onchange=" HandleValidateRejectRemarks(this); " id="txtAreaUserName" style="resize: none;" data-bind="value: $root.UserName, visible: $root.IsApprove, event: { keypress: $root.validationHelper.ValidateAlphaNumeric, change: $root.validateUserName }" maxlength="30"/>
+                                                <span id="spanUserName" class="validationError"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" data-bind="if: $root.IsApprove">
+                                        <div class="form-group">
+                                            <label id="lblheading2" class="col-md-6 control-label">First Name:<span class="required" style="color: red">*</span></label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" onchange=" changeFirstname(this); " id="txtAreaFirstName" style="resize: none; width: 100%; border: 1px solid #ccc;" data-bind="value: $root.FirstName, visible: $root.IsApprove, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }" maxlength="50"/>
+                                                <span id="spanFirstName" class="validationError"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" data-bind="if: $root.IsApprove">
+                                        <div class="form-group">
+                                            <label id="lblheading3" class="col-md-6 control-label">Last Name:<span class="required" style="color: red">*</span></label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" onchange=" changeLastname(this); " id="txtAreaLastName" style="resize: none; width: 100%; border: 1px solid #ccc;" data-bind="value: $root.LastName, visible: $root.IsApprove, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }" maxlength="50"/>
+                                                <span id="spanLastName" class="validationError"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" data-bind="if: $root.IsApprove">
+                                        <div class="form-group">
+                                            <label id="lblheading4" class="col-md-6 control-label">Roles:<span class="required" style="color: red">*</span></label>
+                                            <div class="col-md-6">
+
+                                                <input class="displaytxt col-md-12" id="userPort" onchange=" validateRole(this); " data-bind="kendoMultiSelect: { dataTextField: 'RoleName', dataValueField: 'RoleId', data: $parent.Roles, value: UserRoleArray }"/>
+
+                                                <span id="spnrole" style="margin: 15px -0px 0px 0px" class="validationError"></span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="btns-group fluid " data-bind="loadingWhen: $root.viewModelHelper.isLoading">
+                        <button type="submit" class="btn green" data-bind="click: $parent.RejectsForm, visible: $root.IsReject" value="POST VAL">Save</button>
+                        <button type="submit" class="btn green" data-bind="click: $parent.ApproveForm, visible: $root.IsApprove" value="POST VAL">Save</button>
+                        <button type="submit" class="btn green" data-bind="click: $parent.VerifyForm, visible: $root.IsVerify" value="POST VAL">Yes</button>
+                        <button type="submit" class="btn green" data-bind="click: $parent.UpdateForm, visible: $root.IsUpdate" value="POST VAL">Yes</button>
+                        <button id="btnPopUpNo" type="submit" class="btn red" data-bind="click: $parent.closeRejectBulkPopup,text:($root.IsVerify()?'No':'Cancel')"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="btns-group form-actions fluid">
+    <button type="button" class="btn green" id="btnVerify0" data-bind="click: $root.validateContainersPopup,visible:('@ViewBag.UserRole' == 'ACC' && WFStatus()=='New')">Verify</button>
+    <button type="button" class="btn red" id="btnRejectVerification0" data-bind="click: $root.validateContainersPopup,visible:('@ViewBag.UserRole' == 'ACC' && WFStatus()=='New')">Reject</button>
+    <button type="button" class="btn green" id="btnApprove0" data-bind="click: $root.validateContainersPopup,visible:('@ViewBag.UserRole' == 'TerminalOperator' && WFStatus()=='Verified')">Approve</button>
+    <button type="button" class="btn red" id="btnReject0" data-bind="click: $root.validateContainersPopup,visible:('@ViewBag.UserRole' == 'TerminalOperator' && WFStatus()=='Verified')">Reject</button>
+    <button type="button" class="btn green" id="btnUpdate0" data-bind="click: $root.validateContainersPopup,visible:(('@ViewBag.UserRole' == 'ACC' && WFStatus()!='Approved' && WFStatus()!='Verified' ) ||('@ViewBag.UserRole' == 'TerminalOperator')) && $root.Isview()">Update</button>
+
+    <button type="button" class="btn green" id="btnVerify" data-target="#rejectBulk" data-toggle="modal" data-bind="click: $root.ShowContainersPopup,visible:false">Verify</button>
+    <button type="button" class="btn red" id="btnRejectVerification" data-target="#rejectBulk" data-toggle="modal" data-bind="click: $root.ShowContainersPopup,visible:false">Reject</button>
+    <button type="button" class="btn green" id="btnApprove" data-target="#rejectBulk" data-toggle="modal" data-bind="click: $root.ShowContainersPopup,visible:false">Approve</button>
+    <button type="button" class="btn red" id="btnReject" data-target="#rejectBulk" data-toggle="modal" data-bind="click: $root.ShowContainersPopup,visible:false">Reject</button>
+    <button type="button" class="btn red" id="btnUpdate" data-target="#rejectBulk" data-toggle="modal" data-bind="click: $root.ShowContainersPopup,visible:false">Update</button>
+                          <button type="submit" class="btn default button-previous" data-bind="click: $root.ExitScreen"><i class="m-icon-swapleft"></i>Back</button>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</script>

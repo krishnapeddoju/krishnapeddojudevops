@@ -1,0 +1,55 @@
+﻿<div ng-app="myApp" ng-controller="emailsentController">
+    <label class="control-label displaytxt" id="status" style="display:none;">@ViewBag.status</label>
+    <label class="control-label displaytxt" id="errorMsg" style="display:none;">@ViewBag.errorMessage</label>
+    <label class="control-label displaytxt" id="signIn" style="display:none;">@ViewBag.signin</label>
+    <div ng-if="isEmailSucces">
+        <div class="page-header">
+            <h1>&nbsp;</h1>
+        </div>
+        <div class="row">
+
+            <div class="col-md-6 col-md-push-3 col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"> Reset Password </h3>
+                    </div>
+                    <div class="panel-body">
+ <div style="color: #fff;"><b>Password Reset Link sent to registered Email </b> {{errorMsg}}</div><br/>
+                        <div class="form-group">
+                                @Html.ActionLink("Back To Login", "BackToLogin", "UserAccount", new { signin = @ViewBag.signin }, new { @class = "navbar-brand" })
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </div>         
+
+                        </div>
+
+    <div ng-if="!isEmailSucces">
+        <div class="page-header">
+            <h1>&nbsp;</h1>
+        </div>
+        <div class="row">
+
+            <div class="col-md-6 col-md-push-3 col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Error Occured....</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                                <div style="color: #fff;"><b>Error Details: </b> {{errorMsg}}</div><br/>
+                            <div>
+                            @Html.ActionLink("Back To Reset Password", "BackToResetPassword", "UserAccount", new { signin = @ViewBag.signin }, new { @class = "navbar-brand" })
+                                </div>
+                        </div>
+                     </div>
+                     </div>
+                </div>
+            </div>   
+
+                        </div>
+
+
+
+                    </div>

@@ -1,0 +1,5 @@
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\bin\Release\PortKonnect.UserAccessManagement.GlobalConstants.dll
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\bin\Release\PortKonnect.UserAccessManagement.GlobalConstants.pdb
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\obj\Release\PortKonnect.UserAccessManagement.GlobalConstants.csprojResolveAssemblyReference.cache
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\obj\Release\PortKonnect.UserAccessManagement.GlobalConstants.dll
+E:\Projects\Copt_QA_Branch\UAM_PROD_06032020\PortKonnect.UserAccessManagement.GlobalConstants\obj\Release\PortKonnect.UserAccessManagement.GlobalConstants.pdb

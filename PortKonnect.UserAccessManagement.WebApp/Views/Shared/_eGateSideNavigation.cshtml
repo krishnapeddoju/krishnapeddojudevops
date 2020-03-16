@@ -1,0 +1,54 @@
+﻿<style>
+	.bott-space li:last-child {
+		padding-bottom: 100px;
+	}
+</style>
+<div id="MenuMaster">
+	<nav class="page-sidebar-wrapper">
+		<div class="page-sidebar navbar-collapse collapse " id="Menu">
+		<div style="position: absolute !important; width: 100%">
+                <ul class="page-sidebar-menu">
+                    <li class="sidebar-toggler-wrapper">
+                        <div class="sidebar-toggler hidden-phone">
+                        </div>
+                    </li>
+                 
+                </ul>
+            </div>
+
+ 
+			<div style="margin-top: 40px;">
+				@*<ul class="page-sidebar-menu bott-space scrollcus" style="padding-bottom: 100px;" data-bind="foreach: $root.Moduledata" id="ulModule">
+
+
+    <li data-bind=" attr: { id: 'ModuleName' + $index() }">
+        <a href="javascript:;">
+
+        <i class="" data-bind=" css:  ModuleIcon "></i>
+            <span class="title" data-bind="text: ModuleName"></span>
+            <span class="arrow "></span>
+        </a>*@
+
+						@*<ul class="sub-menu" data-bind="foreach: $root.Moduledata.AppEntities" >
+							<li>*@	
+                					@if (Session["BackURL"] == null || Session["BackURL"].ToString() == "")
+                                    {
+								<ul class="page-sidebar-menu bott-space scrollcus" data-bind="foreach: $root.Moduledata">
+									<li >
+										<a  data-bind="attr: { href: Url}">
+											<i class="fa fa-angle-right" aria-hidden="true"></i>
+											<span data-bind="text: FunctioName, attr: { id: FunctionCode }"></span>
+										</a>
+									</li>
+								</ul>
+                                    }
+							@*</li>
+
+						</ul>*@
+					@*</li>
+				</ul>*@
+                
+			</div>
+		</div>
+	</nav>
+</div>

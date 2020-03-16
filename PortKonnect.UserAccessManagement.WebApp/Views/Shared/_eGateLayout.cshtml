@@ -1,0 +1,94 @@
+﻿@using PortKonnect.UserAccessManagement.WebApp
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Cargo</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <meta name="MobileOptimized" content="320">
+    <link rel="stylesheet" href="@BundleTable.Bundles.ResolveBundleUrl("~/globalMandatoryCss")" type="text/css" />
+    <script src="@BundleTable.Bundles.ResolveBundleUrl("~/corePluginsJs")" type="text/javascript"></script>
+    <script src="~/Scripts/Lib/jquery.confirm.js"></script>
+    <script src="~/Scripts/Lib/knockout-3.0.0.js"></script>
+    <script src="@BundleTable.Bundles.ResolveBundleUrl("~/knockout")" type="text/javascript"></script>
+    <script src="@BundleTable.Bundles.ResolveBundleUrl("~/eGateLayoutJs")" type="text/javascript"></script>
+    <script src="@BundleTable.Bundles.ResolveBundleUrl("~/eGateLayoutBundle")" type="text/javascript"></script>
+    <link rel="stylesheet" href="@BundleTable.Bundles.ResolveBundleUrl("~/eGateLayoutCss")" type="text/css" />
+    <link rel="shortcut icon" href="@Url.Content("~/Content/Images/favicon.ico")" />
+
+    <style type="text/css">
+    </style>
+</head>
+<body id="classadd" class="page-header-fixed page-footer-fixed page-sidebar-fixed">
+    @{
+        var IsFirstTimeLogin = "N";
+
+        if (!string.IsNullOrEmpty(ViewBag.IsFirstTimeLogin))
+        {
+            IsFirstTimeLogin = ViewBag.IsFirstTimeLogin;
+
+        }
+    }
+
+
+    @{Html.RenderPartial(Url.Content("~/Views/Shared/_eGateHeader.cshtml"));}
+
+    <section class="page-container">
+        <!-- KEEP it in _eGateLeftNav.cshtml -->
+     @{
+         if (Request.IsAuthenticated && IsFirstTimeLogin == "N")
+         {
+             Html.RenderPartial(Url.Content("~/Views/Shared/_eGateSideNavigation.cshtml"));
+         }
+     }
+        <!-- END _eGateLeftNav.cshtml -->
+        <div class="page-content-wrapper ">
+            <div id="divPageContent" class="page-content">
+                @RenderBody()
+            </div>
+        </div>
+    </section>
+
+
+    @RenderSection("JavaScript", required: false)
+    @RenderSection("scripts", required: false)
+    <script>
+        eGateRoot.rootPath = '@Url.Content("~")';
+        var application = {viewbag : @Helpers.ToJson(Html, ViewBag)};
+        var isAuthenticated = "@(Request.IsAuthenticated)";
+
+        var time = (new Date() - new Date(application.viewbag.accessTokenExpiry*1000)) / 100;
+        setInterval(
+         function () {
+             if(application.viewbag.accessTokenExpiry < Math.round(new Date() / 1000))
+             {                 
+                 localStorage.clear();
+                 window.location.href = window.location.origin + "/logout";
+             }
+         } , 2000);
+
+        jQuery(document).ready(function () {
+            App.init();
+            @RenderSection("ko_apply", required: false);
+        });        
+
+        $(function () {
+            var vm1 = new eGateRoot.ModuleViewModel();
+            ko.applyBindingsWithValidation(vm1, $("#Menu")[0], { insertMessages: false, messagesOnModified: false, grouping: { deep: true } });
+
+            var dashboard = $('#dashboard');
+
+            var strHash = document.location.pathname;
+
+        });
+    </script>
+
+    @{
+        Html.RenderPartial(Url.Content("~/Views/Shared/_eGateFooter.cshtml"));
+    }
+</body>
+</html>
+

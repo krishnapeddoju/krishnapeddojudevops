@@ -1,0 +1,24 @@
+﻿
+<div class="page-header">
+    <h1>&nbsp;</h1>
+</div>
+<div class="row">
+
+    <div class="col-md-6 col-md-push-3 col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Change Password</h3>
+            </div>
+
+            <div class="panel-body" style="color: #fff;">
+                <div ng-app="myApp" ng-controller="sessionExpiredController">
+                    <h3 style="margin-left: 15px;">Link Expired...</h3>
+                    <label class="control-label displaytxt" id="RedirectApplicationUrl" style="display: none;">@ViewBag.RedirectApplicationUrl</label>
+                    @Html.ActionLink("Back to Login", "BackToLogin", "UserAccount", new { @class = "navbar-brand-login" })
+                    @*<button type="submit" ng-click="backToLogin()" class="btn  .btn-link">Back To Login</button>*@
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

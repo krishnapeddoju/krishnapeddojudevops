@@ -1,0 +1,165 @@
+﻿@{    
+    ViewBag.Title = "Roles";
+    Layout = "~/Views/Shared/_eGateLayout.cshtml";
+}
+
+@section scripts
+{
+    <script src="~/Scripts/Application/UAM/Model/RoleModel.js"></script>
+<script src="~/Scripts/Application/UAM/ViewModel/RoleListViewModel.js"></script>
+
+}
+
+@section ko_apply
+{
+var viewModel = new eGateRoot.RoleListViewModel();
+ko.applyBindingsWithValidation(viewModel, $("#Roles")[0], { insertMessages: false, messagesOnModified: false, grouping: { deep: true }});
+}
+
+<!-- BEGIN CONTENT -->
+<div class="row">
+	<div class="col-md-12">
+		<h3 class="page-title"><span id="spnTitle"></span></h3>
+		<ul class="page-breadcrumb breadcrumb"></ul>
+	</div>
+</div>
+
+<div class="row">
+</div>
+
+<div id="Roles">
+	<div data-bind="visible: viewMode() == 'List', template: { name: 'Roles-template' }"></div>
+</div>
+
+<div class="row">
+	<div class="portlet-body">
+		<script type="text/html" id="Roles-template">
+			@*<div class="table-toolbar">
+				<div class="portlet box advbg">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-reorder"></i>Advance Search
+						</div>
+						<div class="tools">
+							<a href="javascript:;" class="collapse"></a>
+						</div>
+					</div>
+					<div class="portlet-body" data-bind="with: UserRegistrationGridModel">
+						<div class="form-wizard form-horizontal">
+							<div class="form-body">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="control-label col-md-6">User Name:</label>
+											<div class="col-md-4">
+												<input type="text" id="SearchUserName" class="form-control" data-bind="value: UserName" maxlength="50">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="control-label col-md-5">First Name:</label>
+											<div class="col-md-4">
+												<input type="text" id="SearchFirstName" class="form-control" data-bind="value: FirstName" maxlength="50">
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="control-label col-md-6">Last Name:</label>
+											<div class="col-md-4">
+												<input type="text" id="SearchLastName" class="form-control" data-bind="value: LastName" maxlength="50">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="control-label col-md-5">Partner Type:</label>
+											<div class="col-md-4">
+												<select id="ddlPartnerType" name="" class="form-control" data-bind="options: $root.PartnerTypes, optionsText: 'PartnerTypeName', optionsCaption: 'Select...', optionsValue: 'PartnerTypeId', value: PartnerType"></select>
+
+
+											</div>
+										</div>
+									</div>
+
+								</div>
+
+								<div class="row">
+									<div class="col-md-12">
+										<div class="col-md-6"></div>
+										<div class="col-md-6 fluid">
+											<div class="col-md-5"></div>
+											<div class="col-md-4">
+												<button type="submit" class="btn btn-xs green" data-bind="click: $root.Filterpartner">Get Data</button>
+												<button type="submit" class="btn btn-xs blue" data-bind="click: $root.ResetFilters">Reset</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+			*@
+
+            <div id="tableheader">
+				<a class="button gbtngreen" data-bind="click: $root.AddRole"><i class="fa fa-plus"></i>&nbsp;<strong>New Role</strong></a>
+			</div>
+			<div data-bind="kendoGrid: {
+	data: RolesList,
+	groupable: false,
+	sortable: true,
+	scrollable: true,
+	filterable: {
+		extra: false, operators: {
+			string: {
+				startswith: 'Starts with',
+				eq: 'Is equal to',
+				neq: 'Is not equal to',
+				contains: 'Contains',
+				doesnotcontain: 'Does not Contain'
+			},
+			number: { eq: 'Is equal to' }
+		}
+	},
+	rowTemplate: 'rowTmpl',
+	useKOTemplates: true,
+	columns: [
+ { title: 'Actions', width: 50, filterable: false },
+        { field: 'RoleCodeSort', title: 'Role Code', width: 70, filterable: true },
+        { field: 'RoleNameSort', title: 'Role Name', width: 70, filterable: true },
+  { field: 'RecordStatusSort', title: 'Status', width: 70, filterable: true },
+
+	]
+}">
+			</div>
+			<script id="rowTmpl" type="text/html">
+				<tr>
+					<td align="center">
+						<div class="nowrap">
+							<a href="#" title="View" data-bind="click: $parent.ViewRole"><i class="fa fa-eye"></i></a>
+							<a href="#" title="Edit" data-bind="click: $parent.EditRole"><i class="fa fa-edit	"></i></a>
+						</div>
+					</td>
+					<td>
+						<div class="nowrap"><span data-bind="text: RoleCode"></span></div>
+					</td>
+					<td>
+						<div class="nowrap"><span data-bind="text: RoleName"></span></div>
+					</td>
+					<td>
+						<div class="nowrap"><span data-bind="text: RecordStatus"></span></div>
+					</td>
+
+				</tr>
+			</script>
+		</script>
+	</div>
+</div>

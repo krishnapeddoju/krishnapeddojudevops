@@ -1,0 +1,347 @@
+﻿@model PortKonnect.UserAccessManagement.Domain.DTOS.PrivilegeDTO
+@{
+	ViewBag.Title = "User";
+	Layout = "~/Views/Shared/_eGateLayout.cshtml";
+    
+}
+@section scripts
+{<script src="~/Scripts/Application/CustomisedControls.js"></script>
+	<script src="~/Scripts/Application/UAM/Model/UserRegistrationModel.js"></script>
+	<script src="~/Scripts/Application/UAM/ViewModel/UserRegistrationViewModel.js"></script>
+}
+
+@section ko_apply
+{
+	var viewModel = new eGateRoot.UserRegistrationViewModel("@ViewBag.userId","@ViewBag.Path");  
+  ko.applyBindingsWithValidation(viewModel, $("#User")[0], { insertMessages: false, messagesOnModified: false, grouping: { deep: true }});
+}
+
+
+@*<div class="row">
+	<div class="col-md-12">
+		<h3 class="page-title"><span id="spnTitle"></span></h3>
+		<ul class="page-breadcrumb breadcrumb"></ul>
+	</div>
+</div>*@
+
+<div id="User">
+	<div data-bind="visible: viewMode() == 'Form', template: { name: 'User-template' }"></div>
+</div>
+<div class="clearfix"></div>
+
+<div class="portlet-body">
+	<div class="table-toolbar">
+
+	<script type="text/html" id="User-template">
+
+	<div class="portlet-body">
+	<div class="table-toolbar">
+	<div class="portlet portlet-body form" data-bind="loadingWhen: $root.viewModelHelper.isLoading">
+	<div class="form-wizard">
+	<div class="form-body form-horizontal" data-bind="with: UserRegistrationModel">
+	<div class="row">
+	    <div class="col-md-12">
+	        <h3 class="page-title"><span id="spnTitle"></span></h3>
+	        <ul class="page-breadcrumb breadcrumb"></ul>
+	    </div>
+	</div>
+
+
+	@*<div class="row paget-row">
+						<div class="col-sm-9"><span id="spnTitle"></span></div>
+						<div class="col-sm-3 right-back-arrow" style=""><span><a href="#" data-bind="click: $root.ExitScreen"><i class="fa fa-arrow-circle-o-left" aria-hidden="true" style="font-size: 24px;"></i></a></span></div>
+					</div>*@
+	<div class="tab-pane active" id="tab1">
+	<div class="form-group">
+
+
+        <fieldset>
+            <legend>Users</legend>
+
+            <div class="row">
+                <div class="col-md-6 ie-validation moz-margin1">
+                    <div class="form-group">
+                        <label class="control-label col-md-5">Partner Type :<span class="required">*</span></label>
+                        <div class="col-md-7">
+                            <div data-bind="visible: $root.IsPartnerTypelabel" class="control-label">
+                                <label class="displaytxt col-md-12" data-bind="text: PartnerTypeCode"></label>
+                            </div>
+                            <div data-bind="visible: $root.IsPartnerTypeVisible">
+                                <div class="form-control" style="line-height: 20px;">
+                                    <select id="ddlPartnerType" name="" data-bind="kendoDropDownList: { data: $root.PartnerTypes, dataTextField: 'PartnerTypeName', optionLabel: 'Select...', dataValueField: 'PartnerTypeId', value: PartnerType, enable: $root.PartnerTypeenable }, event: { change: $parent.selectPartnerName }"></select>
+                                    <span class="validationError" data-bind="validationMessage: PartnerType"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 ie-validation moz-margin1">
+                    <div class="form-group">
+                        <label class="control-label col-md-5">Partner :<span class="required">*</span></label>
+                        <div class="col-md-7">
+                            <div class="form-control" style="line-height: 20px;">
+                                <select id="ddlPartner" name="" data-bind="enable: $root.PartnerNameenable,kendoDropDownList: { data: $root.Partners, dataTextField: 'PartnerName', optionLabel: 'Select...', dataValueField: 'PartnerCode', value: PartnerId }"></select>
+                                <span class="validationError " data-bind="validationMessage: PartnerId"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6" data-bind="visible: $root.displayForSpecialRoles">
+                    <div class="form-group">
+                        <label class="control-label col-md-5">User Name :<span class="required">*</span></label>
+                        <div class="col-md-7">
+
+                            <input type="text" id="userName1" name="" class="form-control" data-bind="value: UserName, event: { keypress: $root.validationHelper.ValidateAlphaNumeric, change: $root.validateUserName }, enable: $root.IsUserNameEnable" maxlength="30">
+                            <span class="validationError" data-bind="validationMessage: UserName"></span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6" data-bind="visible: $root.displayUsername">
+                    <div class="form-group">
+                        <div data-bind="" class="control-label">
+
+                        </div>
+                        <label class="control-label col-md-5">User Name :<span class="required">*</span></label>
+                        <div class="col-md-7">
+                            <label class="displaytxt control-label col-md-4" data-bind="text: PartnerTypeId() + $root.UserNameSeperator() + MemberTypeCode() + $root.UserNameSeperator(), visible:false @*$root.showLabels*@"></label>
+
+                            @*<div class="col-md-8">*@
+                                <input type="text" id="userName" name="" class="form-control" data-bind="value: UserName, event: { keypress: $root.validationHelper.ValidateAlphaNumeric, change: $root.validateUserName }, enable: $root.IsUserNameEnable" maxlength="24">
+                            @*</div>*@
+                            <span class="validationError" data-bind="validationMessage: UserName" style="display: none;"></span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-5">First Name:<span class="required">*</span></label>
+                        <div class="col-md-7">
+
+                            <input type="text" id="firstName" name="" class="form-control" data-bind="value: FirstName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }, enable: $root.IsEnable" maxlength="50">
+                            <span class="validationError" data-bind="validationMessage: FirstName"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-5">Last Name:<span class="required">*</span></label>
+                        <div class="col-md-7">
+
+                            <input type="text" id="lastName" name="" class="form-control" data-bind="value: LastName, event: { keypress: $root.validationHelper.ValidateAlphabetsWithSpaces_keypressEvent }, enable: $root.IsEnable" maxlength="50">
+                            <span class="validationError" data-bind="validationMessage: LastName"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-5">User Ports :<span class="required">*</span></label>
+                        <div class="col-md-7">
+                            <input id="userPort" data-bind="kendoMultiSelect: { data: $root.Ports, dataTextField: 'PortName', dataValueField: 'PortCode', value: UserPortArray, enable: $root.IsEnable }" />
+
+                            <span class="validationError" data-bind="validationMessage: UserPortArray"></span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-5">Email Id :<span class="required">*</span></label>
+                        <div class="col-md-7">
+                            <input type="text" id="emailId" name="" onchange=" validateEmailId() " class="form-control" data-bind="value: EmailId, event: { keypress: $root.validationHelper.ValidateAlphanumericEmail }, enable: $root.IsEnable" maxlength="50">
+                            <span class="validationError" id="validationEmailId"></span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-5 ">Contact Number :<span class="required">*</span></label>
+                        <div class="col-md-7 ie-validation moz-margin1">
+
+                            <input type="text" id="contactNumber" name="" class="form-control" data-bind="value: ContactNumber, event: { keypress: $root.validationHelper.ValidateNumeric }, enable: $root.IsEnable" maxlength="13">
+                            <span class="validationError " id="contactNum" data-bind="validationMessage: ContactNumber"></span>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label id="lblheading4" class="col-md-5 control-label">Roles:<span class="required" style="color: red">*</span></label>
+                        <div class="col-md-7">
+                            <input id="userRole" onchange=" validateRole(this); " data-bind="kendoMultiSelect: { data: $root.RolesList, dataTextField: 'RoleName', dataValueField: 'RoleId', value: UserRoleArray, enable: $root.IsEnable }" />
+                            <span id="spnrole" class="validationError"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 ie-validation moz-margin1" data-bind="visible: $root.EnableEmployeeSelection">
+                    <div class="form-group">
+                        <label class="control-label col-md-5">Employee :</label>
+                        <div class="col-md-7">
+                            <div>
+                                <div class="form-control" style="line-height: 20px;">
+                                    <select id="ddlEmployee" name="" data-bind="kendoDropDownList: { data: $root.Employees,  dataTextField: 'FirstName', optionLabel: 'Select...', dataValueField: 'EmployeeID', value: EmployeeGUID}, event: { change: $parent.selectEmployee }"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-6" data-bind="visible: $root.IsRecordStatus">
+                    <div class="form-group">
+                        <label class="control-label col-md-5">Status :<span class="required">&nbsp;&nbsp;</span></label>
+                        <div class="col-md-7 control-label">
+                            <label class="displaytxt col-md-12" data-bind="text: RecordStatus"></label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <fieldset data-bind="visible: $root.IsUpdate">
+                <legend>Log In Details</legend>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label col-md-6">Password Expiry Date :<span class="required">&nbsp;&nbsp;</span></label>
+                            <div class="col-md-5">
+                                @*<input type="text" style="border-width: 1px" id="txtPWdExpDate" class="form-control date-picker" onkeydown="" data-bind=" value: PwdExpiryDate" name="" maxlength="12"/>*@
+                                <input type="text" id="datetimePwdExpiryDate" class="form-control date-picker" onkeydown="" data-bind="value: PwdExpiryDate " name="" maxlength="12" />
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label col-md-6">Valid To Date :<span class="required">&nbsp;&nbsp;</span></label>
+                            <div class="col-md-5">
+                                <input type="text" id="datetimeValidToDate" class="form-control date-picker" onkeydown="" data-bind=" value: validToDate" name="" maxlength="12" />
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label col-md-6">Last Log In Date :<span class="required">&nbsp;&nbsp;</span></label>
+                            <div class="col-md-5">
+                                <input type="text" id="datetimeLogTime" class="form-control date-picker" data-bind=" value: LogTime " name="" maxlength="12" />
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label col-md-6">Is Dormant User? :<span class="required">&nbsp;&nbsp;</span></label>
+                            <div class="col-md-5">
+                                <input type="Checkbox" id="IsDormantUser" name="IsDormantUser" data-bind="checked: $parent.isDormantUser, enable: $root.isDormantEnable" disabled="">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label col-md-6">InCorrect Logins :<span class="required">&nbsp;&nbsp;</span></label>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" id="InCorrectLogins" name="InCorrectLogins" data-bind="value: InCorrectLogins,event: { keypress: $root.validationHelper.ValidateNumericChange }" maxlength="2">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+
+            </fieldset>
+
+
+
+            <fieldset>
+                <legend>Notification Required</legend>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-4" data-bind="with: UserPreference">
+                            <label class="control-label col-md-6">Is Email Required :</label>
+                            <div class="col-md-6">
+                                <input type="checkbox" name="" id="isEmail" class="form-control" data-bind="    checked: SendNotificationEmail, enable: $root.IsEnable">
+                            </div>
+                        </div>
+                        <div class="col-md-4" data-bind="with: UserPreference">
+                            <label class="control-label col-md-6">Is SMS Required :</label>
+                            <div class="col-md-6">
+                                <input type="checkbox" name="" id="isSms" class="form-control" data-bind="    checked: SendNotificationSms, enable: $root.IsEnable">
+                            </div>
+                        </div>
+                        <div class="col-md-4" data-bind="with: UserPreference">
+                            <label class="control-label col-md-8">Is System Notification Required :</label>
+                            <div class="col-md-4">
+                                <input type="checkbox" name="" id="isNotification" class="form-control" data-bind="    checked: SendSystemNotification, enable: $root.IsEnable">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+
+
+
+
+        </fieldset>
+
+
+
+
+										<div class="btns-group form-actions fluid">
+											<input type="button" value="Save" class="btn green" data-bind="click: $root.SaveScreen, visible: $root.IsSave" class="btn green" />
+
+											<input type="button" value="Update" class="btn green" data-bind="click: $root.UpdateScreen, visible: $root.IsUpdate" />
+											<button type="submit" class="btn blue" data-bind="click: $root.ResetScreen, visible: $root.IsReset">Reset</button>
+											<button type="submit" class="btn default button-previous" data-bind="click: $root.ExitScreen"><i class="m-icon-swapleft"></i>Back</button>
+
+											<button type="submit" class="btn blue" data-bind="click: $root.Activate, visible: $root.IsActive">Activate</button>
+											<button type="submit" class="btn red" data-bind="click: $root.DeActivate, visible: $root.IsInActive">Deactivate</button>
+
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+
+
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+
+		</script>
+	</div>
+</div>
+

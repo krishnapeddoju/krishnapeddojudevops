@@ -1,0 +1,101 @@
+﻿@using PortKonnect.UserAccessManagement.UI;
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";    
+}
+ <body>
+    <div style="background: #FFF; display: block"></div>
+
+    <header class="header navbar navbar-inverse navbar-fixed-top">
+        <div style="padding: 0px">
+            <div class="header-inner">
+                <span class="name" style="padding-left: 0px; margin-top: -5px;"><img src="~/Content/Images/eGate-HeaderLogo.png" style="vertical-align: bottom;"></span>
+                <ul class="nav navbar-nav pull-right">
+
+                    @*<li class="dropdown" id="header_notification_bar">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <i class="fa fa-home"></i>Home
+                        </a>
+                    </li>*@
+                    
+                    <li class="dropdown" id="profileDropDown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" onclick="onclickDropDown()">
+                            <i class="fa fa-phone" aria-hidden="true"></i>Contact Us &nbsp; &nbsp;</a>
+                        <ul class="dropdown-menu extended inbox" style="width:300px !important;">
+                            <li>
+                                <p style="background-color:#032f52;"><b>KPCT Customer Service</b></p>
+                            </li>
+                            <li>
+                                <ul class="dropdown-menu-list scroller" style="height: 160px; padding: 10px; ">
+                                    <li style="color:#2FA1DB;"><b>Krishnapatnam Port Container Terminal</b></li>
+                                    <li></li>
+<span style="font-size:11px;"><li>P.O Bag No.1, Muthukur Mandal,</li>
+<li>SPSR Nellore District,</li>
+<li>Andhra Pradesh – 524 344, INDIA</li></span>
+<li><b>Customer Service – 24 x 7:</b></li>
+<span style="font-size:11px;"><li>Tel: +91 80086 12345, Fax: +91-0861-237 7046</li>
+<li>E Mail: <a href="mailto:cs.kpct@krishnapatnam.com"  >cs.kpct@krishnapatnamport.com</a></li>
+
+
+<li>URL: <a href="http://www.krishnapatnam.com" target="_blank" >www.krishnapatnamport.com</a></li>
+</span>
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+     <div style="height:100px;">&nbsp;</div>
+<div>
+    <div class="form-group">
+        <h3 class="form-title" style="color:#fff;" align="center">Error Occured,Please Contact Adminstrator</h3>
+    </div>
+    <div class="form-group">
+        <div hidden>
+         <a href="" onclick = "closeWindow()">close</a>
+         <a href="" onclick = "CloseWindow1()">close1</a>
+         <a href="" onclick = "CloseOpenerWindow()">close2</a>
+         <a href="" onclick = "CloseOpenerHikks()">close3</a>
+         <a href="" onclick = "closeWindow()">close4</a>
+</div>
+        <h5 align="center" style="color:#fff;">Please  <a href="@Url.Action("logout", "Account")" class="btn btn-sm green button-previous">Click here <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>  to Login again</h5>
+    </div>
+
+
+  <script type="text/javascript">
+      function CloseWindow1() {
+          window.close();
+      }
+
+      function CloseOpenerWindow() {
+          window.opener = window
+          window.close();
+      }
+
+      function CloseOpenerHikks() {
+          window.opener = "HikksNotAtHome";
+          window.close();
+      }
+
+      function CloseWithWindowOpenTrick() {
+          var objWindow = window.open(location.href, "_self");
+          objWindow.close();
+      }
+ 
+      function closeWindow(){
+          alert("This will close the window");
+          window.open('', '_self', '');
+          window.close();
+        }
+</script>
+     @{
+            
+        Html.RenderPartial(Url.Content("~/Views/Shared/_eGateFooter.cshtml"));
+    }
+</div>
+    
+
+     </body>
+</html>

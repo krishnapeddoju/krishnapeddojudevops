@@ -1,0 +1,206 @@
+﻿@{
+    ViewBag.Title = "SubCategories";
+    Layout = "~/Views/Shared/_eGateLayout.cshtml";
+}
+
+@section scripts
+{
+    <script src="~/Scripts/Application/UAM/Model/SubCategoryModel.js"></script>
+    <script src="~/Scripts/Application/UAM/ViewModel/SubCategoryViewModel.js"></script>
+
+}
+
+@section ko_apply
+{
+    var viewModel = new eGateRoot.SubCategoryViewModel();
+    ko.applyBindingsWithValidation(viewModel, $("#SubCategories")[0], { insertMessages: false, messagesOnModified: false, grouping: { deep: true }});
+}
+
+<!-- BEGIN CONTENT -->
+<style>
+    .demo-section .k-checkbox:checked + .k-checkbox-label:before {
+        background-color: #032F52 !important;
+        border-color: #032F52 !important;
+        color: #fff !important;
+    }
+
+    .demo-section .k-state-hover:hover {
+        color: #444;
+        background-color: #F1F6FA !important;
+        border-color: #F1F6FA !important;
+        font-weight: bold;
+    }
+
+    .demo-section .k-state-focused {
+        color: #444;
+        background-color: #F1F6FA !important;
+        border-color: #F1F6FA !important;
+        font-weight: bold;
+    }
+
+    .demo-section .k-checkbox:indeterminate + .k-checkbox-label:before {
+        border-color: #ccc !important;
+    }
+
+    .demo-section .k-checkbox:indeterminate + .k-checkbox-label:before {
+        border-width: 3px !important;
+    }
+
+    .demo-section .k-checkbox:indeterminate + .k-checkbox-label:after {
+        background-color: #3687C8 !important;
+        background-image: none;
+        border-color: #3687C8 !important;
+        border-radius: 0;
+    }
+
+    .demo-section .k-state-selected {
+        color: #f00 !important;
+        font-weight: bold;
+    }
+
+    .demo-section input.k-checkbox + label {
+        margin-top: -9px;
+    }
+
+    .k-button {
+        text-transform: none !important;
+    }
+</style>
+
+<!-- BEGIN CONTENT -->
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="page-title"><span id="spnTitle"></span></h3>
+        <ul class="page-breadcrumb breadcrumb"></ul>
+    </div>
+</div>
+
+<div id="SubCategories">
+    <div data-bind="visible: viewMode() == 'Form', template: { name: 'SubCategory-template' }"></div>
+</div>
+<div class="clearfix"></div>
+
+<div class="portlet-body">
+    <div class="table-toolbar">
+        <script type="text/html" id="SubCategory-template">
+            <div class="portlet portlet-body form" data-bind="loadingWhen: $root.viewModelHelper.isLoading">
+                <div class="form-wizard">
+                    <div class="form-body form-horizontal" data-bind="with: subCategoryModel">
+                        <div class="tab-pane active" id="tab1">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-11"></div>
+                                </div>
+                                <fieldset>
+                                    <legend>Sub Category</legend>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Super Category Name:<span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-6">                                                   
+                                                    <input data-bind="kendoDropDownList: { data: $parent.SuperCategoryList, value: SupCatId, dataTextField: 'SupCatName', dataValueField: 'SupCatId', enabled: $parent.IsSubCodeEnable, optionLabel: 'Select...' }, event: { change: $parent.SupCatChanged }" />                                                    
+                                                    <span class="validationError" data-bind="validationMessage: SupCatId "></span>
+                                                </div>
+                                            </div>
+                                        </div>                                  
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-6">Sub Category Code :<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="subCatCode" name="" class="form-control" maxlength="4" data-bind="value: SubCatCode, enable: $root.IsSubCodeEnable, event: { keypress: $root.validationHelper.ValidateAlphaNumeric }">
+                                                    <span class="validationError" data-bind="validationMessage: SubCatCode"></span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Sub Category Name:<span class="required">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="subCatName" name="" class="form-control" maxlength="15" data-bind="value: SubCatName, enable: $root.IsSubCategoryEnable">
+                                                    <span class="validationError" data-bind="validationMessage: SubCatName"></span>
+                                                </div>
+                                            </div>
+                                        </div>                                        
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-6">Status:</label>
+                                                <div class="col-md-6">
+                                                    <input id="Status" name="status" data-bind="kendoDropDownList: { data: [{ name: 'Active', val: 'A' }, { name: 'Inactive', val: 'I' }], value: RecordStatus, dataTextField: 'name', dataValueField: 'val', enabled: $parent.IsSubCategoryEnable } " />                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </fieldset>
+                                <div class="btns-group form-actions fluid">
+                                    <input type="button" value="Save" class="btn green" data-bind="click: $root.SaveSubCategory, visible: $root.IsSave" />
+                                    <input type="button" value="Update" class="btn green" data-bind="click: $root.UpdateSubCategory, visible: $root.IsUpdate" />
+                                    <button type="submit" class="btn blue" data-bind="click: $root.ResetSubCategory, visible: $root.IsReset">Reset</button>
+                                    <button type="submit" class="btn default button-previous" data-bind="click: $root.ExitScreen"><i class="m-icon-swapleft"></i>Back</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div  id="grid" data-bind="kendoGrid: {
+	data: SubCategoriesList,
+	groupable: false,
+	sortable: true,
+	scrollable: true,
+	filterable: {
+		extra: false, operators: {
+			string: {
+				startswith: 'Starts with',
+				eq: 'Is equal to',
+				neq: 'Is not equal to',
+				contains: 'Contains',
+				doesnotcontain: 'Does not Contain'
+			},
+			number: { eq: 'Is equal to' }
+		}
+	},
+	rowTemplate: 'rowTmpl',
+	useKOTemplates: true,
+	columns: [
+ { title: 'Actions', width: 50, filterable: false },
+        { field: 'SubCategoryCodeSort', title: 'Sub Category Code', width: 70, filterable: true },
+        { field: 'SubCategoryNameSort', title: 'Sub Category Name', width: 70, filterable: true },
+  { field: 'RecordStatusSort', title: 'Status', width: 70, filterable: true },
+
+	]
+}">
+            </div>
+            <script id="rowTmpl" type="text/html">
+                <tr>
+                    <td align="center">
+                        <div class="nowrap">
+                            <a href="#" title="View" data-bind="click: $parent.ViewSubCategory"><i class="fa fa-eye"></i></a>
+                            <a href="#" title="Edit" data-bind="click: $parent.EditSubCategory"><i class="fa fa-edit	"></i></a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="nowrap"><span data-bind="text: SubCatCode"></span></div>
+                    </td>
+                    <td>
+                        <div class="nowrap"><span data-bind="text: SubCatName"></span></div>
+                    </td>
+                    <td>
+                        <div class="nowrap"><span data-bind="text: Status"></span></div>
+                    </td>
+
+                </tr>
+            </script>        
+
+        </script>
+    </div>
+</div>
